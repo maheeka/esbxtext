@@ -1,0 +1,12 @@
+grammar com.wso2.esb.dsl.EsbDsl with org.eclipse.xtext.common.Terminals
+
+generate esbDsl "http://www.wso2.com/esb/dsl/EsbDsl"
+
+Model:
+	(participants+=Participant*) & (commands+=Command*);
+	
+Participant:
+	'participant' name=ID ':' description=STRING;
+	
+Command : 
+	'message_processor' '(' name=ID (')'|(',' configs=STRING ')'));
