@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.wso2.esb.dsl.esbDsl.Model#getParticipants <em>Participants</em>}</li>
- *   <li>{@link com.wso2.esb.dsl.esbDsl.Model#getCommands <em>Commands</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.Model#getStatements <em>Statements</em>}</li>
  * </ul>
  *
  * @see com.wso2.esb.dsl.esbDsl.EsbDslPackage#getModel()
@@ -28,7 +28,7 @@ public interface Model extends EObject
 {
   /**
    * Returns the value of the '<em><b>Participants</b></em>' containment reference list.
-   * The list contents are of type {@link com.wso2.esb.dsl.esbDsl.Participant}.
+   * The list contents are of type {@link com.wso2.esb.dsl.esbDsl.ParticipantStatement}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Participants</em>' containment reference list isn't clear,
@@ -40,22 +40,22 @@ public interface Model extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Participant> getParticipants();
+  EList<ParticipantStatement> getParticipants();
 
   /**
-   * Returns the value of the '<em><b>Commands</b></em>' containment reference list.
-   * The list contents are of type {@link com.wso2.esb.dsl.esbDsl.Command}.
+   * Returns the value of the '<em><b>Statements</b></em>' containment reference list.
+   * The list contents are of type {@link com.wso2.esb.dsl.esbDsl.Statement}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Commands</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Statements</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Commands</em>' containment reference list.
-   * @see com.wso2.esb.dsl.esbDsl.EsbDslPackage#getModel_Commands()
+   * @return the value of the '<em>Statements</em>' containment reference list.
+   * @see com.wso2.esb.dsl.esbDsl.EsbDslPackage#getModel_Statements()
    * @model containment="true"
    * @generated
    */
-  EList<Command> getCommands();
+  EList<Statement> getStatements();
 
 } // Model

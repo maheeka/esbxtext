@@ -81,9 +81,79 @@ public class EsbDslAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
-      public Adapter caseParticipant(Participant object)
+      public Adapter caseStatement(Statement object)
       {
-        return createParticipantAdapter();
+        return createStatementAdapter();
+      }
+      @Override
+      public Adapter caseProcessingStatement(ProcessingStatement object)
+      {
+        return createProcessingStatementAdapter();
+      }
+      @Override
+      public Adapter caseRoutingStatement(RoutingStatement object)
+      {
+        return createRoutingStatementAdapter();
+      }
+      @Override
+      public Adapter caseParallelStatement(ParallelStatement object)
+      {
+        return createParallelStatementAdapter();
+      }
+      @Override
+      public Adapter caseIfStatement(IfStatement object)
+      {
+        return createIfStatementAdapter();
+      }
+      @Override
+      public Adapter caseLoopStatement(LoopStatement object)
+      {
+        return createLoopStatementAdapter();
+      }
+      @Override
+      public Adapter caseGroupStatement(GroupStatement object)
+      {
+        return createGroupStatementAdapter();
+      }
+      @Override
+      public Adapter caseRefStatement(RefStatement object)
+      {
+        return createRefStatementAdapter();
+      }
+      @Override
+      public Adapter caseParticipantStatement(ParticipantStatement object)
+      {
+        return createParticipantStatementAdapter();
+      }
+      @Override
+      public Adapter caseIntegrationFlowParticipant(IntegrationFlowParticipant object)
+      {
+        return createIntegrationFlowParticipantAdapter();
+      }
+      @Override
+      public Adapter caseIntegrationFlowDef(IntegrationFlowDef object)
+      {
+        return createIntegrationFlowDefAdapter();
+      }
+      @Override
+      public Adapter caseInboundEndpointDefStatement(InboundEndpointDefStatement object)
+      {
+        return createInboundEndpointDefStatementAdapter();
+      }
+      @Override
+      public Adapter casePipelineDefStatement(PipelineDefStatement object)
+      {
+        return createPipelineDefStatementAdapter();
+      }
+      @Override
+      public Adapter caseOutboundEndpointDefStatement(OutboundEndpointDefStatement object)
+      {
+        return createOutboundEndpointDefStatementAdapter();
+      }
+      @Override
+      public Adapter caseMediatorDefStatement(MediatorDefStatement object)
+      {
+        return createMediatorDefStatementAdapter();
       }
       @Override
       public Adapter caseCommand(Command object)
@@ -128,16 +198,226 @@ public class EsbDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.wso2.esb.dsl.esbDsl.Participant <em>Participant</em>}'.
+   * Creates a new adapter for an object of class '{@link com.wso2.esb.dsl.esbDsl.Statement <em>Statement</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.wso2.esb.dsl.esbDsl.Participant
+   * @see com.wso2.esb.dsl.esbDsl.Statement
    * @generated
    */
-  public Adapter createParticipantAdapter()
+  public Adapter createStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wso2.esb.dsl.esbDsl.ProcessingStatement <em>Processing Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wso2.esb.dsl.esbDsl.ProcessingStatement
+   * @generated
+   */
+  public Adapter createProcessingStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wso2.esb.dsl.esbDsl.RoutingStatement <em>Routing Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wso2.esb.dsl.esbDsl.RoutingStatement
+   * @generated
+   */
+  public Adapter createRoutingStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wso2.esb.dsl.esbDsl.ParallelStatement <em>Parallel Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wso2.esb.dsl.esbDsl.ParallelStatement
+   * @generated
+   */
+  public Adapter createParallelStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wso2.esb.dsl.esbDsl.IfStatement <em>If Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wso2.esb.dsl.esbDsl.IfStatement
+   * @generated
+   */
+  public Adapter createIfStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wso2.esb.dsl.esbDsl.LoopStatement <em>Loop Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wso2.esb.dsl.esbDsl.LoopStatement
+   * @generated
+   */
+  public Adapter createLoopStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wso2.esb.dsl.esbDsl.GroupStatement <em>Group Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wso2.esb.dsl.esbDsl.GroupStatement
+   * @generated
+   */
+  public Adapter createGroupStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wso2.esb.dsl.esbDsl.RefStatement <em>Ref Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wso2.esb.dsl.esbDsl.RefStatement
+   * @generated
+   */
+  public Adapter createRefStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wso2.esb.dsl.esbDsl.ParticipantStatement <em>Participant Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wso2.esb.dsl.esbDsl.ParticipantStatement
+   * @generated
+   */
+  public Adapter createParticipantStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wso2.esb.dsl.esbDsl.IntegrationFlowParticipant <em>Integration Flow Participant</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wso2.esb.dsl.esbDsl.IntegrationFlowParticipant
+   * @generated
+   */
+  public Adapter createIntegrationFlowParticipantAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wso2.esb.dsl.esbDsl.IntegrationFlowDef <em>Integration Flow Def</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wso2.esb.dsl.esbDsl.IntegrationFlowDef
+   * @generated
+   */
+  public Adapter createIntegrationFlowDefAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wso2.esb.dsl.esbDsl.InboundEndpointDefStatement <em>Inbound Endpoint Def Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wso2.esb.dsl.esbDsl.InboundEndpointDefStatement
+   * @generated
+   */
+  public Adapter createInboundEndpointDefStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wso2.esb.dsl.esbDsl.PipelineDefStatement <em>Pipeline Def Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wso2.esb.dsl.esbDsl.PipelineDefStatement
+   * @generated
+   */
+  public Adapter createPipelineDefStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wso2.esb.dsl.esbDsl.OutboundEndpointDefStatement <em>Outbound Endpoint Def Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wso2.esb.dsl.esbDsl.OutboundEndpointDefStatement
+   * @generated
+   */
+  public Adapter createOutboundEndpointDefStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wso2.esb.dsl.esbDsl.MediatorDefStatement <em>Mediator Def Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wso2.esb.dsl.esbDsl.MediatorDefStatement
+   * @generated
+   */
+  public Adapter createMediatorDefStatementAdapter()
   {
     return null;
   }

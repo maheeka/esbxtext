@@ -33,13 +33,139 @@ public interface EsbDslFactory extends EFactory
   Model createModel();
 
   /**
-   * Returns a new object of class '<em>Participant</em>'.
+   * Returns a new object of class '<em>Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Participant</em>'.
+   * @return a new object of class '<em>Statement</em>'.
    * @generated
    */
-  Participant createParticipant();
+  Statement createStatement();
+
+  /**
+   * Returns a new object of class '<em>Processing Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Processing Statement</em>'.
+   * @generated
+   */
+  ProcessingStatement createProcessingStatement();
+
+  /**
+   * Returns a new object of class '<em>Routing Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Routing Statement</em>'.
+   * @generated
+   */
+  RoutingStatement createRoutingStatement();
+
+  /**
+   * Returns a new object of class '<em>Parallel Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parallel Statement</em>'.
+   * @generated
+   */
+  ParallelStatement createParallelStatement();
+
+  /**
+   * Returns a new object of class '<em>If Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>If Statement</em>'.
+   * @generated
+   */
+  IfStatement createIfStatement();
+
+  /**
+   * Returns a new object of class '<em>Loop Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Loop Statement</em>'.
+   * @generated
+   */
+  LoopStatement createLoopStatement();
+
+  /**
+   * Returns a new object of class '<em>Group Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Group Statement</em>'.
+   * @generated
+   */
+  GroupStatement createGroupStatement();
+
+  /**
+   * Returns a new object of class '<em>Ref Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ref Statement</em>'.
+   * @generated
+   */
+  RefStatement createRefStatement();
+
+  /**
+   * Returns a new object of class '<em>Participant Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Participant Statement</em>'.
+   * @generated
+   */
+  ParticipantStatement createParticipantStatement();
+
+  /**
+   * Returns a new object of class '<em>Integration Flow Participant</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Integration Flow Participant</em>'.
+   * @generated
+   */
+  IntegrationFlowParticipant createIntegrationFlowParticipant();
+
+  /**
+   * Returns a new object of class '<em>Integration Flow Def</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Integration Flow Def</em>'.
+   * @generated
+   */
+  IntegrationFlowDef createIntegrationFlowDef();
+
+  /**
+   * Returns a new object of class '<em>Inbound Endpoint Def Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Inbound Endpoint Def Statement</em>'.
+   * @generated
+   */
+  InboundEndpointDefStatement createInboundEndpointDefStatement();
+
+  /**
+   * Returns a new object of class '<em>Pipeline Def Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Pipeline Def Statement</em>'.
+   * @generated
+   */
+  PipelineDefStatement createPipelineDefStatement();
+
+  /**
+   * Returns a new object of class '<em>Outbound Endpoint Def Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Outbound Endpoint Def Statement</em>'.
+   * @generated
+   */
+  OutboundEndpointDefStatement createOutboundEndpointDefStatement();
+
+  /**
+   * Returns a new object of class '<em>Mediator Def Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mediator Def Statement</em>'.
+   * @generated
+   */
+  MediatorDefStatement createMediatorDefStatement();
 
   /**
    * Returns a new object of class '<em>Command</em>'.

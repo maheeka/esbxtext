@@ -4,30 +4,29 @@
 package com.wso2.esb.dsl.esbDsl.impl;
 
 import com.wso2.esb.dsl.esbDsl.EsbDslPackage;
-import com.wso2.esb.dsl.esbDsl.Participant;
+import com.wso2.esb.dsl.esbDsl.ProcessingStatement;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Participant</b></em>'.
+ * An implementation of the model object '<em><b>Processing Statement</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.ParticipantImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.ParticipantImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.ProcessingStatementImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.ProcessingStatementImpl#getConfigs <em>Configs</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ParticipantImpl extends MinimalEObjectImpl.Container implements Participant
+public class ProcessingStatementImpl extends StatementImpl implements ProcessingStatement
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -50,31 +49,31 @@ public class ParticipantImpl extends MinimalEObjectImpl.Container implements Par
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * The default value of the '{@link #getConfigs() <em>Configs</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDescription()
+   * @see #getConfigs()
    * @generated
    * @ordered
    */
-  protected static final String DESCRIPTION_EDEFAULT = null;
+  protected static final String CONFIGS_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * The cached value of the '{@link #getConfigs() <em>Configs</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDescription()
+   * @see #getConfigs()
    * @generated
    * @ordered
    */
-  protected String description = DESCRIPTION_EDEFAULT;
+  protected String configs = CONFIGS_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ParticipantImpl()
+  protected ProcessingStatementImpl()
   {
     super();
   }
@@ -87,7 +86,7 @@ public class ParticipantImpl extends MinimalEObjectImpl.Container implements Par
   @Override
   protected EClass eStaticClass()
   {
-    return EsbDslPackage.Literals.PARTICIPANT;
+    return EsbDslPackage.Literals.PROCESSING_STATEMENT;
   }
 
   /**
@@ -110,7 +109,7 @@ public class ParticipantImpl extends MinimalEObjectImpl.Container implements Par
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EsbDslPackage.PARTICIPANT__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, EsbDslPackage.PROCESSING_STATEMENT__NAME, oldName, name));
   }
 
   /**
@@ -118,9 +117,9 @@ public class ParticipantImpl extends MinimalEObjectImpl.Container implements Par
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDescription()
+  public String getConfigs()
   {
-    return description;
+    return configs;
   }
 
   /**
@@ -128,12 +127,12 @@ public class ParticipantImpl extends MinimalEObjectImpl.Container implements Par
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDescription(String newDescription)
+  public void setConfigs(String newConfigs)
   {
-    String oldDescription = description;
-    description = newDescription;
+    String oldConfigs = configs;
+    configs = newConfigs;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EsbDslPackage.PARTICIPANT__DESCRIPTION, oldDescription, description));
+      eNotify(new ENotificationImpl(this, Notification.SET, EsbDslPackage.PROCESSING_STATEMENT__CONFIGS, oldConfigs, configs));
   }
 
   /**
@@ -146,10 +145,10 @@ public class ParticipantImpl extends MinimalEObjectImpl.Container implements Par
   {
     switch (featureID)
     {
-      case EsbDslPackage.PARTICIPANT__NAME:
+      case EsbDslPackage.PROCESSING_STATEMENT__NAME:
         return getName();
-      case EsbDslPackage.PARTICIPANT__DESCRIPTION:
-        return getDescription();
+      case EsbDslPackage.PROCESSING_STATEMENT__CONFIGS:
+        return getConfigs();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -164,11 +163,11 @@ public class ParticipantImpl extends MinimalEObjectImpl.Container implements Par
   {
     switch (featureID)
     {
-      case EsbDslPackage.PARTICIPANT__NAME:
+      case EsbDslPackage.PROCESSING_STATEMENT__NAME:
         setName((String)newValue);
         return;
-      case EsbDslPackage.PARTICIPANT__DESCRIPTION:
-        setDescription((String)newValue);
+      case EsbDslPackage.PROCESSING_STATEMENT__CONFIGS:
+        setConfigs((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -184,11 +183,11 @@ public class ParticipantImpl extends MinimalEObjectImpl.Container implements Par
   {
     switch (featureID)
     {
-      case EsbDslPackage.PARTICIPANT__NAME:
+      case EsbDslPackage.PROCESSING_STATEMENT__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case EsbDslPackage.PARTICIPANT__DESCRIPTION:
-        setDescription(DESCRIPTION_EDEFAULT);
+      case EsbDslPackage.PROCESSING_STATEMENT__CONFIGS:
+        setConfigs(CONFIGS_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -204,10 +203,10 @@ public class ParticipantImpl extends MinimalEObjectImpl.Container implements Par
   {
     switch (featureID)
     {
-      case EsbDslPackage.PARTICIPANT__NAME:
+      case EsbDslPackage.PROCESSING_STATEMENT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case EsbDslPackage.PARTICIPANT__DESCRIPTION:
-        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+      case EsbDslPackage.PROCESSING_STATEMENT__CONFIGS:
+        return CONFIGS_EDEFAULT == null ? configs != null : !CONFIGS_EDEFAULT.equals(configs);
     }
     return super.eIsSet(featureID);
   }
@@ -225,10 +224,10 @@ public class ParticipantImpl extends MinimalEObjectImpl.Container implements Par
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", description: ");
-    result.append(description);
+    result.append(", configs: ");
+    result.append(configs);
     result.append(')');
     return result.toString();
   }
 
-} //ParticipantImpl
+} //ProcessingStatementImpl

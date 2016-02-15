@@ -6,8 +6,21 @@ package com.wso2.esb.dsl.serializer;
 import com.google.inject.Inject;
 import com.wso2.esb.dsl.esbDsl.Command;
 import com.wso2.esb.dsl.esbDsl.EsbDslPackage;
+import com.wso2.esb.dsl.esbDsl.GroupStatement;
+import com.wso2.esb.dsl.esbDsl.IfStatement;
+import com.wso2.esb.dsl.esbDsl.InboundEndpointDefStatement;
+import com.wso2.esb.dsl.esbDsl.IntegrationFlowDef;
+import com.wso2.esb.dsl.esbDsl.IntegrationFlowParticipant;
+import com.wso2.esb.dsl.esbDsl.LoopStatement;
+import com.wso2.esb.dsl.esbDsl.MediatorDefStatement;
 import com.wso2.esb.dsl.esbDsl.Model;
-import com.wso2.esb.dsl.esbDsl.Participant;
+import com.wso2.esb.dsl.esbDsl.OutboundEndpointDefStatement;
+import com.wso2.esb.dsl.esbDsl.ParallelStatement;
+import com.wso2.esb.dsl.esbDsl.ParticipantStatement;
+import com.wso2.esb.dsl.esbDsl.PipelineDefStatement;
+import com.wso2.esb.dsl.esbDsl.ProcessingStatement;
+import com.wso2.esb.dsl.esbDsl.RefStatement;
+import com.wso2.esb.dsl.esbDsl.RoutingStatement;
 import com.wso2.esb.dsl.services.EsbDslGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -37,11 +50,50 @@ public class EsbDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case EsbDslPackage.COMMAND:
 				sequence_Command(context, (Command) semanticObject); 
 				return; 
+			case EsbDslPackage.GROUP_STATEMENT:
+				sequence_GroupStatement(context, (GroupStatement) semanticObject); 
+				return; 
+			case EsbDslPackage.IF_STATEMENT:
+				sequence_IfStatement(context, (IfStatement) semanticObject); 
+				return; 
+			case EsbDslPackage.INBOUND_ENDPOINT_DEF_STATEMENT:
+				sequence_InboundEndpointDefStatement(context, (InboundEndpointDefStatement) semanticObject); 
+				return; 
+			case EsbDslPackage.INTEGRATION_FLOW_DEF:
+				sequence_IntegrationFlowDef(context, (IntegrationFlowDef) semanticObject); 
+				return; 
+			case EsbDslPackage.INTEGRATION_FLOW_PARTICIPANT:
+				sequence_IntegrationFlowDef_IntegrationFlowParticipant(context, (IntegrationFlowParticipant) semanticObject); 
+				return; 
+			case EsbDslPackage.LOOP_STATEMENT:
+				sequence_LoopStatement(context, (LoopStatement) semanticObject); 
+				return; 
+			case EsbDslPackage.MEDIATOR_DEF_STATEMENT:
+				sequence_MediatorDefStatement(context, (MediatorDefStatement) semanticObject); 
+				return; 
 			case EsbDslPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
-			case EsbDslPackage.PARTICIPANT:
-				sequence_Participant(context, (Participant) semanticObject); 
+			case EsbDslPackage.OUTBOUND_ENDPOINT_DEF_STATEMENT:
+				sequence_OutboundEndpointDefStatement(context, (OutboundEndpointDefStatement) semanticObject); 
+				return; 
+			case EsbDslPackage.PARALLEL_STATEMENT:
+				sequence_ParallelStatement(context, (ParallelStatement) semanticObject); 
+				return; 
+			case EsbDslPackage.PARTICIPANT_STATEMENT:
+				sequence_ParticipantStatement(context, (ParticipantStatement) semanticObject); 
+				return; 
+			case EsbDslPackage.PIPELINE_DEF_STATEMENT:
+				sequence_PipelineDefStatement(context, (PipelineDefStatement) semanticObject); 
+				return; 
+			case EsbDslPackage.PROCESSING_STATEMENT:
+				sequence_ProcessingStatement(context, (ProcessingStatement) semanticObject); 
+				return; 
+			case EsbDslPackage.REF_STATEMENT:
+				sequence_RefStatement(context, (RefStatement) semanticObject); 
+				return; 
+			case EsbDslPackage.ROUTING_STATEMENT:
+				sequence_RoutingStatement(context, (RoutingStatement) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -62,10 +114,133 @@ public class EsbDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
+	 *     Statement returns GroupStatement
+	 *     GroupStatement returns GroupStatement
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_GroupStatement(ISerializationContext context, GroupStatement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EsbDslPackage.Literals.GROUP_STATEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EsbDslPackage.Literals.GROUP_STATEMENT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getGroupStatementAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Statement returns IfStatement
+	 *     IfStatement returns IfStatement
+	 *
+	 * Constraint:
+	 *     expression=STRING
+	 */
+	protected void sequence_IfStatement(ISerializationContext context, IfStatement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EsbDslPackage.Literals.IF_STATEMENT__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EsbDslPackage.Literals.IF_STATEMENT__EXPRESSION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getIfStatementAccess().getExpressionSTRINGTerminalRuleCall_1_0(), semanticObject.getExpression());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     InboundEndpointDefStatement returns InboundEndpointDefStatement
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_InboundEndpointDefStatement(ISerializationContext context, InboundEndpointDefStatement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EsbDslPackage.Literals.INBOUND_ENDPOINT_DEF_STATEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EsbDslPackage.Literals.INBOUND_ENDPOINT_DEF_STATEMENT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getInboundEndpointDefStatementAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     IntegrationFlowDef returns IntegrationFlowDef
+	 *
+	 * Constraint:
+	 *     Definition=STRING
+	 */
+	protected void sequence_IntegrationFlowDef(ISerializationContext context, IntegrationFlowDef semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EsbDslPackage.Literals.INTEGRATION_FLOW_DEF__DEFINITION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EsbDslPackage.Literals.INTEGRATION_FLOW_DEF__DEFINITION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getIntegrationFlowDefAccess().getDefinitionSTRINGTerminalRuleCall_2_0(), semanticObject.getDefinition());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     IntegrationFlowParticipant returns IntegrationFlowParticipant
+	 *
+	 * Constraint:
+	 *     (name=ID Definition=STRING)
+	 */
+	protected void sequence_IntegrationFlowDef_IntegrationFlowParticipant(ISerializationContext context, IntegrationFlowParticipant semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Statement returns LoopStatement
+	 *     LoopStatement returns LoopStatement
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_LoopStatement(ISerializationContext context, LoopStatement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EsbDslPackage.Literals.LOOP_STATEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EsbDslPackage.Literals.LOOP_STATEMENT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getLoopStatementAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     MediatorDefStatement returns MediatorDefStatement
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_MediatorDefStatement(ISerializationContext context, MediatorDefStatement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EsbDslPackage.Literals.MEDIATOR_DEF_STATEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EsbDslPackage.Literals.MEDIATOR_DEF_STATEMENT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getMediatorDefStatementAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     (participants+=Participant | commands+=Command)+
+	 *     (participants+=ParticipantStatement | statements+=Statement)*
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -74,21 +249,130 @@ public class EsbDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     Participant returns Participant
+	 *     OutboundEndpointDefStatement returns OutboundEndpointDefStatement
 	 *
 	 * Constraint:
-	 *     (name=ID description=STRING)
+	 *     name=ID
 	 */
-	protected void sequence_Participant(ISerializationContext context, Participant semanticObject) {
+	protected void sequence_OutboundEndpointDefStatement(ISerializationContext context, OutboundEndpointDefStatement semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EsbDslPackage.Literals.PARTICIPANT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EsbDslPackage.Literals.PARTICIPANT__NAME));
-			if (transientValues.isValueTransient(semanticObject, EsbDslPackage.Literals.PARTICIPANT__DESCRIPTION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EsbDslPackage.Literals.PARTICIPANT__DESCRIPTION));
+			if (transientValues.isValueTransient(semanticObject, EsbDslPackage.Literals.OUTBOUND_ENDPOINT_DEF_STATEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EsbDslPackage.Literals.OUTBOUND_ENDPOINT_DEF_STATEMENT__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getParticipantAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getParticipantAccess().getDescriptionSTRINGTerminalRuleCall_3_0(), semanticObject.getDescription());
+		feeder.accept(grammarAccess.getOutboundEndpointDefStatementAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Statement returns ParallelStatement
+	 *     ParallelStatement returns ParallelStatement
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_ParallelStatement(ISerializationContext context, ParallelStatement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EsbDslPackage.Literals.PARALLEL_STATEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EsbDslPackage.Literals.PARALLEL_STATEMENT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getParallelStatementAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ParticipantStatement returns ParticipantStatement
+	 *
+	 * Constraint:
+	 *     (name=ID participantType=ParticipantType description=STRING)
+	 */
+	protected void sequence_ParticipantStatement(ISerializationContext context, ParticipantStatement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EsbDslPackage.Literals.PARTICIPANT_STATEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EsbDslPackage.Literals.PARTICIPANT_STATEMENT__NAME));
+			if (transientValues.isValueTransient(semanticObject, EsbDslPackage.Literals.PARTICIPANT_STATEMENT__PARTICIPANT_TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EsbDslPackage.Literals.PARTICIPANT_STATEMENT__PARTICIPANT_TYPE));
+			if (transientValues.isValueTransient(semanticObject, EsbDslPackage.Literals.PARTICIPANT_STATEMENT__DESCRIPTION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EsbDslPackage.Literals.PARTICIPANT_STATEMENT__DESCRIPTION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getParticipantStatementAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getParticipantStatementAccess().getParticipantTypeParticipantTypeEnumRuleCall_3_0(), semanticObject.getParticipantType());
+		feeder.accept(grammarAccess.getParticipantStatementAccess().getDescriptionSTRINGTerminalRuleCall_5_0(), semanticObject.getDescription());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PipelineDefStatement returns PipelineDefStatement
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_PipelineDefStatement(ISerializationContext context, PipelineDefStatement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EsbDslPackage.Literals.PIPELINE_DEF_STATEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EsbDslPackage.Literals.PIPELINE_DEF_STATEMENT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPipelineDefStatementAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Statement returns ProcessingStatement
+	 *     ProcessingStatement returns ProcessingStatement
+	 *
+	 * Constraint:
+	 *     (name=ID configs=STRING?)
+	 */
+	protected void sequence_ProcessingStatement(ISerializationContext context, ProcessingStatement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Statement returns RefStatement
+	 *     RefStatement returns RefStatement
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_RefStatement(ISerializationContext context, RefStatement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EsbDslPackage.Literals.REF_STATEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EsbDslPackage.Literals.REF_STATEMENT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRefStatementAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Statement returns RoutingStatement
+	 *     RoutingStatement returns RoutingStatement
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_RoutingStatement(ISerializationContext context, RoutingStatement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EsbDslPackage.Literals.ROUTING_STATEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EsbDslPackage.Literals.ROUTING_STATEMENT__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRoutingStatementAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	

@@ -3,10 +3,17 @@
  */
 package com.wso2.esb.dsl.generator;
 
+import com.google.common.collect.Iterators;
+import com.wso2.esb.dsl.esbDsl.ParticipantStatement;
+import java.util.Iterator;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
 /**
  * Generates code from your model files on save.
@@ -17,5 +24,14 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class EsbDslGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    TreeIterator<EObject> _allContents = resource.getAllContents();
+    Iterator<ParticipantStatement> _filter = Iterators.<ParticipantStatement>filter(_allContents, ParticipantStatement.class);
+    final Function1<ParticipantStatement, String> _function = (ParticipantStatement it) -> {
+      return it.getName();
+    };
+    Iterator<String> _map = IteratorExtensions.<ParticipantStatement, String>map(_filter, _function);
+    String _join = IteratorExtensions.join(_map, ", ");
+    String _plus = ("People to greet: " + _join);
+    fsa.generateFile("Model.java", _plus);
   }
 }

@@ -2,11 +2,106 @@ grammar com.wso2.esb.dsl.EsbDsl with org.eclipse.xtext.common.Terminals
 
 generate esbDsl "http://www.wso2.com/esb/dsl/EsbDsl"
 
+
+//EModel:
+//	'@startuml'
+//	(participants+=Participant*) & (commands+=Command*)
+//	'@enduml'
+//;
+
 Model:
-	(participants+=Participant*) & (commands+=Command*);
-	
-Participant:
-	'participant' name=ID ':' description=STRING;
-	
+	'@startuml'
+	(participants+=ParticipantStatement*) & (statements+=Statement*)
+	'@enduml'
+;
+
+Statement : 
+	ProcessingStatement
+	| RoutingStatement
+	| ParallelStatement
+	| IfStatement
+	| LoopStatement
+	| GroupStatement
+	| RefStatement
+;
+
+ProcessingStatement :
+	('message_processor' '(' name=ID (')'|(',' configs=STRING ')')))
+;
+
+RoutingStatement :
+	'routing' name=ID
+;
+
+ParallelStatement : 
+	'parallel' name=ID
+;
+
+IfStatement : 
+	'alt' expression=STRING
+;
+
+LoopStatement :
+	'loop' name=ID
+;
+
+GroupStatement :
+	'group' name=ID
+;
+
+RefStatement :
+	'ref' name=ID
+;
+
+ParticipantStatement:
+	'participant' name=ID ':' participantType=ParticipantType '(' description=STRING ')';
+
+//ParticipantStatement : 
+//	  IntegrationFlowParticipant
+//    | InboundEndpointDefStatement
+//    | PipelineDefStatement
+//    | OutboundEndpointDefStatement
+//    | MediatorDefStatement
+//;
+
+enum ParticipantType:
+    INTEGRATIONFLOW='IntegrationFlow' 
+    | INBOUNDENDPOINT='InboundEndpoint' 
+    | OUTBOUNDENDPOINT = 'OutboundEndpoint'
+    | PIPELINE='Pipeline';
+
+IntegrationFlowParticipant :
+	PARTICIPANT name=ID COLON WS+ IntegrationFlowDef
+;
+
+IntegrationFlowDef :
+	'IntegrationFlow' '(' Definition=STRING ')'
+;
+
+COLON:
+	':'
+;
+
+InboundEndpointDefStatement :
+	'InboundEndpointDefStatement' name=ID
+;
+
+PipelineDefStatement :
+	'PipelineDefStatement' name=ID
+;
+
+OutboundEndpointDefStatement :
+	'OutboundEndpointDefStatement' name=ID
+;
+
+MediatorDefStatement :
+	'MediatorDefStatement' name=ID
+;
+
 Command : 
 	'message_processor' '(' name=ID (')'|(',' configs=STRING ')'));
+	
+PARTICIPANT :
+	'participant'
+;
+	

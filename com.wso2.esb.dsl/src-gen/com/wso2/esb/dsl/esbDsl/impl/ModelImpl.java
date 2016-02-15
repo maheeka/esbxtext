@@ -3,10 +3,10 @@
  */
 package com.wso2.esb.dsl.esbDsl.impl;
 
-import com.wso2.esb.dsl.esbDsl.Command;
 import com.wso2.esb.dsl.esbDsl.EsbDslPackage;
 import com.wso2.esb.dsl.esbDsl.Model;
-import com.wso2.esb.dsl.esbDsl.Participant;
+import com.wso2.esb.dsl.esbDsl.ParticipantStatement;
+import com.wso2.esb.dsl.esbDsl.Statement;
 
 import java.util.Collection;
 
@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.ModelImpl#getParticipants <em>Participants</em>}</li>
- *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.ModelImpl#getCommands <em>Commands</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.ModelImpl#getStatements <em>Statements</em>}</li>
  * </ul>
  *
  * @generated
@@ -46,17 +46,17 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    * @ordered
    */
-  protected EList<Participant> participants;
+  protected EList<ParticipantStatement> participants;
 
   /**
-   * The cached value of the '{@link #getCommands() <em>Commands</em>}' containment reference list.
+   * The cached value of the '{@link #getStatements() <em>Statements</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCommands()
+   * @see #getStatements()
    * @generated
    * @ordered
    */
-  protected EList<Command> commands;
+  protected EList<Statement> statements;
 
   /**
    * <!-- begin-user-doc -->
@@ -84,11 +84,11 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Participant> getParticipants()
+  public EList<ParticipantStatement> getParticipants()
   {
     if (participants == null)
     {
-      participants = new EObjectContainmentEList<Participant>(Participant.class, this, EsbDslPackage.MODEL__PARTICIPANTS);
+      participants = new EObjectContainmentEList<ParticipantStatement>(ParticipantStatement.class, this, EsbDslPackage.MODEL__PARTICIPANTS);
     }
     return participants;
   }
@@ -98,13 +98,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Command> getCommands()
+  public EList<Statement> getStatements()
   {
-    if (commands == null)
+    if (statements == null)
     {
-      commands = new EObjectContainmentEList<Command>(Command.class, this, EsbDslPackage.MODEL__COMMANDS);
+      statements = new EObjectContainmentEList<Statement>(Statement.class, this, EsbDslPackage.MODEL__STATEMENTS);
     }
-    return commands;
+    return statements;
   }
 
   /**
@@ -119,8 +119,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     {
       case EsbDslPackage.MODEL__PARTICIPANTS:
         return ((InternalEList<?>)getParticipants()).basicRemove(otherEnd, msgs);
-      case EsbDslPackage.MODEL__COMMANDS:
-        return ((InternalEList<?>)getCommands()).basicRemove(otherEnd, msgs);
+      case EsbDslPackage.MODEL__STATEMENTS:
+        return ((InternalEList<?>)getStatements()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -137,8 +137,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     {
       case EsbDslPackage.MODEL__PARTICIPANTS:
         return getParticipants();
-      case EsbDslPackage.MODEL__COMMANDS:
-        return getCommands();
+      case EsbDslPackage.MODEL__STATEMENTS:
+        return getStatements();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -156,11 +156,11 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     {
       case EsbDslPackage.MODEL__PARTICIPANTS:
         getParticipants().clear();
-        getParticipants().addAll((Collection<? extends Participant>)newValue);
+        getParticipants().addAll((Collection<? extends ParticipantStatement>)newValue);
         return;
-      case EsbDslPackage.MODEL__COMMANDS:
-        getCommands().clear();
-        getCommands().addAll((Collection<? extends Command>)newValue);
+      case EsbDslPackage.MODEL__STATEMENTS:
+        getStatements().clear();
+        getStatements().addAll((Collection<? extends Statement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -179,8 +179,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case EsbDslPackage.MODEL__PARTICIPANTS:
         getParticipants().clear();
         return;
-      case EsbDslPackage.MODEL__COMMANDS:
-        getCommands().clear();
+      case EsbDslPackage.MODEL__STATEMENTS:
+        getStatements().clear();
         return;
     }
     super.eUnset(featureID);
@@ -198,8 +198,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     {
       case EsbDslPackage.MODEL__PARTICIPANTS:
         return participants != null && !participants.isEmpty();
-      case EsbDslPackage.MODEL__COMMANDS:
-        return commands != null && !commands.isEmpty();
+      case EsbDslPackage.MODEL__STATEMENTS:
+        return statements != null && !statements.isEmpty();
     }
     return super.eIsSet(featureID);
   }

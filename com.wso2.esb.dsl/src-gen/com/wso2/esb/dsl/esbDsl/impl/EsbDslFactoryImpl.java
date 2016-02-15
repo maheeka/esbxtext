@@ -6,6 +6,7 @@ package com.wso2.esb.dsl.esbDsl.impl;
 import com.wso2.esb.dsl.esbDsl.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -66,10 +67,58 @@ public class EsbDslFactoryImpl extends EFactoryImpl implements EsbDslFactory
     switch (eClass.getClassifierID())
     {
       case EsbDslPackage.MODEL: return createModel();
-      case EsbDslPackage.PARTICIPANT: return createParticipant();
+      case EsbDslPackage.STATEMENT: return createStatement();
+      case EsbDslPackage.PROCESSING_STATEMENT: return createProcessingStatement();
+      case EsbDslPackage.ROUTING_STATEMENT: return createRoutingStatement();
+      case EsbDslPackage.PARALLEL_STATEMENT: return createParallelStatement();
+      case EsbDslPackage.IF_STATEMENT: return createIfStatement();
+      case EsbDslPackage.LOOP_STATEMENT: return createLoopStatement();
+      case EsbDslPackage.GROUP_STATEMENT: return createGroupStatement();
+      case EsbDslPackage.REF_STATEMENT: return createRefStatement();
+      case EsbDslPackage.PARTICIPANT_STATEMENT: return createParticipantStatement();
+      case EsbDslPackage.INTEGRATION_FLOW_PARTICIPANT: return createIntegrationFlowParticipant();
+      case EsbDslPackage.INTEGRATION_FLOW_DEF: return createIntegrationFlowDef();
+      case EsbDslPackage.INBOUND_ENDPOINT_DEF_STATEMENT: return createInboundEndpointDefStatement();
+      case EsbDslPackage.PIPELINE_DEF_STATEMENT: return createPipelineDefStatement();
+      case EsbDslPackage.OUTBOUND_ENDPOINT_DEF_STATEMENT: return createOutboundEndpointDefStatement();
+      case EsbDslPackage.MEDIATOR_DEF_STATEMENT: return createMediatorDefStatement();
       case EsbDslPackage.COMMAND: return createCommand();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object createFromString(EDataType eDataType, String initialValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case EsbDslPackage.PARTICIPANT_TYPE:
+        return createParticipantTypeFromString(eDataType, initialValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String convertToString(EDataType eDataType, Object instanceValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case EsbDslPackage.PARTICIPANT_TYPE:
+        return convertParticipantTypeToString(eDataType, instanceValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
   }
 
@@ -89,10 +138,164 @@ public class EsbDslFactoryImpl extends EFactoryImpl implements EsbDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Participant createParticipant()
+  public Statement createStatement()
   {
-    ParticipantImpl participant = new ParticipantImpl();
-    return participant;
+    StatementImpl statement = new StatementImpl();
+    return statement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ProcessingStatement createProcessingStatement()
+  {
+    ProcessingStatementImpl processingStatement = new ProcessingStatementImpl();
+    return processingStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RoutingStatement createRoutingStatement()
+  {
+    RoutingStatementImpl routingStatement = new RoutingStatementImpl();
+    return routingStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ParallelStatement createParallelStatement()
+  {
+    ParallelStatementImpl parallelStatement = new ParallelStatementImpl();
+    return parallelStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IfStatement createIfStatement()
+  {
+    IfStatementImpl ifStatement = new IfStatementImpl();
+    return ifStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LoopStatement createLoopStatement()
+  {
+    LoopStatementImpl loopStatement = new LoopStatementImpl();
+    return loopStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public GroupStatement createGroupStatement()
+  {
+    GroupStatementImpl groupStatement = new GroupStatementImpl();
+    return groupStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RefStatement createRefStatement()
+  {
+    RefStatementImpl refStatement = new RefStatementImpl();
+    return refStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ParticipantStatement createParticipantStatement()
+  {
+    ParticipantStatementImpl participantStatement = new ParticipantStatementImpl();
+    return participantStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IntegrationFlowParticipant createIntegrationFlowParticipant()
+  {
+    IntegrationFlowParticipantImpl integrationFlowParticipant = new IntegrationFlowParticipantImpl();
+    return integrationFlowParticipant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IntegrationFlowDef createIntegrationFlowDef()
+  {
+    IntegrationFlowDefImpl integrationFlowDef = new IntegrationFlowDefImpl();
+    return integrationFlowDef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InboundEndpointDefStatement createInboundEndpointDefStatement()
+  {
+    InboundEndpointDefStatementImpl inboundEndpointDefStatement = new InboundEndpointDefStatementImpl();
+    return inboundEndpointDefStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PipelineDefStatement createPipelineDefStatement()
+  {
+    PipelineDefStatementImpl pipelineDefStatement = new PipelineDefStatementImpl();
+    return pipelineDefStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public OutboundEndpointDefStatement createOutboundEndpointDefStatement()
+  {
+    OutboundEndpointDefStatementImpl outboundEndpointDefStatement = new OutboundEndpointDefStatementImpl();
+    return outboundEndpointDefStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MediatorDefStatement createMediatorDefStatement()
+  {
+    MediatorDefStatementImpl mediatorDefStatement = new MediatorDefStatementImpl();
+    return mediatorDefStatement;
   }
 
   /**
@@ -104,6 +307,28 @@ public class EsbDslFactoryImpl extends EFactoryImpl implements EsbDslFactory
   {
     CommandImpl command = new CommandImpl();
     return command;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ParticipantType createParticipantTypeFromString(EDataType eDataType, String initialValue)
+  {
+    ParticipantType result = ParticipantType.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertParticipantTypeToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

@@ -8,6 +8,8 @@ import com.google.inject.Singleton;
 import java.util.List;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.EnumLiteralDeclaration;
+import org.eclipse.xtext.EnumRule;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -17,6 +19,7 @@ import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
 import org.eclipse.xtext.UnorderedGroup;
 import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
+import org.eclipse.xtext.service.AbstractElementFinder.AbstractEnumRuleElementFinder;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
 
@@ -26,45 +29,309 @@ public class EsbDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wso2.esb.dsl.EsbDsl.Model");
 		private final UnorderedGroup cUnorderedGroup = (UnorderedGroup)rule.eContents().get(1);
-		private final Assignment cParticipantsAssignment_0 = (Assignment)cUnorderedGroup.eContents().get(0);
-		private final RuleCall cParticipantsParticipantParserRuleCall_0_0 = (RuleCall)cParticipantsAssignment_0.eContents().get(0);
-		private final Assignment cCommandsAssignment_1 = (Assignment)cUnorderedGroup.eContents().get(1);
-		private final RuleCall cCommandsCommandParserRuleCall_1_0 = (RuleCall)cCommandsAssignment_1.eContents().get(0);
+		private final Group cGroup_0 = (Group)cUnorderedGroup.eContents().get(0);
+		private final Keyword cStartumlKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cParticipantsAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cParticipantsParticipantStatementParserRuleCall_0_1_0 = (RuleCall)cParticipantsAssignment_0_1.eContents().get(0);
+		private final Group cGroup_1 = (Group)cUnorderedGroup.eContents().get(1);
+		private final Assignment cStatementsAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cStatementsStatementParserRuleCall_1_0_0 = (RuleCall)cStatementsAssignment_1_0.eContents().get(0);
+		private final Keyword cEndumlKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
 		
+		////EModel:
+		////	'@startuml'
+		////	(participants+=Participant*) & (commands+=Command*)
+		////	'@enduml'
+		////;
 		//Model:
-		//	participants+=Participant* & commands+=Command*;
+		//	'@startuml'
+		//	participants+=ParticipantStatement* & statements+=Statement* '@enduml';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//participants+=Participant* & commands+=Command*
+		//'@startuml' participants+=ParticipantStatement* & statements+=Statement* '@enduml'
 		public UnorderedGroup getUnorderedGroup() { return cUnorderedGroup; }
 		
-		//participants+=Participant*
-		public Assignment getParticipantsAssignment_0() { return cParticipantsAssignment_0; }
+		//'@startuml' participants+=ParticipantStatement*
+		public Group getGroup_0() { return cGroup_0; }
 		
-		//Participant
-		public RuleCall getParticipantsParticipantParserRuleCall_0_0() { return cParticipantsParticipantParserRuleCall_0_0; }
+		//'@startuml'
+		public Keyword getStartumlKeyword_0_0() { return cStartumlKeyword_0_0; }
 		
-		//commands+=Command*
-		public Assignment getCommandsAssignment_1() { return cCommandsAssignment_1; }
+		//participants+=ParticipantStatement*
+		public Assignment getParticipantsAssignment_0_1() { return cParticipantsAssignment_0_1; }
 		
-		//Command
-		public RuleCall getCommandsCommandParserRuleCall_1_0() { return cCommandsCommandParserRuleCall_1_0; }
+		//ParticipantStatement
+		public RuleCall getParticipantsParticipantStatementParserRuleCall_0_1_0() { return cParticipantsParticipantStatementParserRuleCall_0_1_0; }
+		
+		//statements+=Statement* '@enduml'
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//statements+=Statement*
+		public Assignment getStatementsAssignment_1_0() { return cStatementsAssignment_1_0; }
+		
+		//Statement
+		public RuleCall getStatementsStatementParserRuleCall_1_0_0() { return cStatementsStatementParserRuleCall_1_0_0; }
+		
+		//'@enduml'
+		public Keyword getEndumlKeyword_1_1() { return cEndumlKeyword_1_1; }
 	}
-	public class ParticipantElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wso2.esb.dsl.EsbDsl.Participant");
+	public class StatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wso2.esb.dsl.EsbDsl.Statement");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cProcessingStatementParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cRoutingStatementParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cParallelStatementParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cIfStatementParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cLoopStatementParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cGroupStatementParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cRefStatementParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		
+		//Statement:
+		//	ProcessingStatement
+		//	| RoutingStatement
+		//	| ParallelStatement
+		//	| IfStatement
+		//	| LoopStatement
+		//	| GroupStatement
+		//	| RefStatement;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ProcessingStatement | RoutingStatement | ParallelStatement | IfStatement | LoopStatement | GroupStatement | RefStatement
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//ProcessingStatement
+		public RuleCall getProcessingStatementParserRuleCall_0() { return cProcessingStatementParserRuleCall_0; }
+		
+		//RoutingStatement
+		public RuleCall getRoutingStatementParserRuleCall_1() { return cRoutingStatementParserRuleCall_1; }
+		
+		//ParallelStatement
+		public RuleCall getParallelStatementParserRuleCall_2() { return cParallelStatementParserRuleCall_2; }
+		
+		//IfStatement
+		public RuleCall getIfStatementParserRuleCall_3() { return cIfStatementParserRuleCall_3; }
+		
+		//LoopStatement
+		public RuleCall getLoopStatementParserRuleCall_4() { return cLoopStatementParserRuleCall_4; }
+		
+		//GroupStatement
+		public RuleCall getGroupStatementParserRuleCall_5() { return cGroupStatementParserRuleCall_5; }
+		
+		//RefStatement
+		public RuleCall getRefStatementParserRuleCall_6() { return cRefStatementParserRuleCall_6; }
+	}
+	public class ProcessingStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wso2.esb.dsl.EsbDsl.ProcessingStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cMessage_processorKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
+		private final Keyword cRightParenthesisKeyword_3_0 = (Keyword)cAlternatives_3.eContents().get(0);
+		private final Group cGroup_3_1 = (Group)cAlternatives_3.eContents().get(1);
+		private final Keyword cCommaKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Assignment cConfigsAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
+		private final RuleCall cConfigsSTRINGTerminalRuleCall_3_1_1_0 = (RuleCall)cConfigsAssignment_3_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3_1_2 = (Keyword)cGroup_3_1.eContents().get(2);
+		
+		//ProcessingStatement:
+		//	'message_processor' '(' name=ID (')' | ',' configs=STRING ')');
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'message_processor' '(' name=ID (')' | ',' configs=STRING ')')
+		public Group getGroup() { return cGroup; }
+		
+		//'message_processor'
+		public Keyword getMessage_processorKeyword_0() { return cMessage_processorKeyword_0; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+		
+		//name=ID
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		
+		//(')' | ',' configs=STRING ')')
+		public Alternatives getAlternatives_3() { return cAlternatives_3; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_3_0() { return cRightParenthesisKeyword_3_0; }
+		
+		//',' configs=STRING ')'
+		public Group getGroup_3_1() { return cGroup_3_1; }
+		
+		//','
+		public Keyword getCommaKeyword_3_1_0() { return cCommaKeyword_3_1_0; }
+		
+		//configs=STRING
+		public Assignment getConfigsAssignment_3_1_1() { return cConfigsAssignment_3_1_1; }
+		
+		//STRING
+		public RuleCall getConfigsSTRINGTerminalRuleCall_3_1_1_0() { return cConfigsSTRINGTerminalRuleCall_3_1_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_3_1_2() { return cRightParenthesisKeyword_3_1_2; }
+	}
+	public class RoutingStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wso2.esb.dsl.EsbDsl.RoutingStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cRoutingKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//RoutingStatement:
+		//	'routing' name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'routing' name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'routing'
+		public Keyword getRoutingKeyword_0() { return cRoutingKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+	}
+	public class ParallelStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wso2.esb.dsl.EsbDsl.ParallelStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cParallelKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//ParallelStatement:
+		//	'parallel' name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'parallel' name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'parallel'
+		public Keyword getParallelKeyword_0() { return cParallelKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+	}
+	public class IfStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wso2.esb.dsl.EsbDsl.IfStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAltKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cExpressionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cExpressionSTRINGTerminalRuleCall_1_0 = (RuleCall)cExpressionAssignment_1.eContents().get(0);
+		
+		//IfStatement:
+		//	'alt' expression=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'alt' expression=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//'alt'
+		public Keyword getAltKeyword_0() { return cAltKeyword_0; }
+		
+		//expression=STRING
+		public Assignment getExpressionAssignment_1() { return cExpressionAssignment_1; }
+		
+		//STRING
+		public RuleCall getExpressionSTRINGTerminalRuleCall_1_0() { return cExpressionSTRINGTerminalRuleCall_1_0; }
+	}
+	public class LoopStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wso2.esb.dsl.EsbDsl.LoopStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLoopKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//LoopStatement:
+		//	'loop' name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'loop' name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'loop'
+		public Keyword getLoopKeyword_0() { return cLoopKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+	}
+	public class GroupStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wso2.esb.dsl.EsbDsl.GroupStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cGroupKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//GroupStatement:
+		//	'group' name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'group' name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'group'
+		public Keyword getGroupKeyword_0() { return cGroupKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+	}
+	public class RefStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wso2.esb.dsl.EsbDsl.RefStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cRefKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//RefStatement:
+		//	'ref' name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'ref' name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'ref'
+		public Keyword getRefKeyword_0() { return cRefKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+	}
+	public class ParticipantStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wso2.esb.dsl.EsbDsl.ParticipantStatement");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cParticipantKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cDescriptionAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cDescriptionSTRINGTerminalRuleCall_3_0 = (RuleCall)cDescriptionAssignment_3.eContents().get(0);
+		private final Assignment cParticipantTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cParticipantTypeParticipantTypeEnumRuleCall_3_0 = (RuleCall)cParticipantTypeAssignment_3.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cDescriptionAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_5_0 = (RuleCall)cDescriptionAssignment_5.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
-		//Participant:
-		//	'participant' name=ID ':' description=STRING;
+		//ParticipantStatement:
+		//	'participant' name=ID ':' participantType=ParticipantType '(' description=STRING ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'participant' name=ID ':' description=STRING
+		//'participant' name=ID ':' participantType=ParticipantType '(' description=STRING ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'participant'
@@ -79,11 +346,192 @@ public class EsbDslGrammarAccess extends AbstractGrammarElementFinder {
 		//':'
 		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
 		
+		//participantType=ParticipantType
+		public Assignment getParticipantTypeAssignment_3() { return cParticipantTypeAssignment_3; }
+		
+		//ParticipantType
+		public RuleCall getParticipantTypeParticipantTypeEnumRuleCall_3_0() { return cParticipantTypeParticipantTypeEnumRuleCall_3_0; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_4() { return cLeftParenthesisKeyword_4; }
+		
 		//description=STRING
-		public Assignment getDescriptionAssignment_3() { return cDescriptionAssignment_3; }
+		public Assignment getDescriptionAssignment_5() { return cDescriptionAssignment_5; }
 		
 		//STRING
-		public RuleCall getDescriptionSTRINGTerminalRuleCall_3_0() { return cDescriptionSTRINGTerminalRuleCall_3_0; }
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_5_0() { return cDescriptionSTRINGTerminalRuleCall_5_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
+	}
+	public class IntegrationFlowParticipantElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wso2.esb.dsl.EsbDsl.IntegrationFlowParticipant");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cPARTICIPANTParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final RuleCall cCOLONParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final RuleCall cWSTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final RuleCall cIntegrationFlowDefParserRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		
+		//IntegrationFlowParticipant:
+		//	PARTICIPANT name=ID COLON WS+ IntegrationFlowDef;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//PARTICIPANT name=ID COLON WS+ IntegrationFlowDef
+		public Group getGroup() { return cGroup; }
+		
+		//PARTICIPANT
+		public RuleCall getPARTICIPANTParserRuleCall_0() { return cPARTICIPANTParserRuleCall_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//COLON
+		public RuleCall getCOLONParserRuleCall_2() { return cCOLONParserRuleCall_2; }
+		
+		//WS+
+		public RuleCall getWSTerminalRuleCall_3() { return cWSTerminalRuleCall_3; }
+		
+		//IntegrationFlowDef
+		public RuleCall getIntegrationFlowDefParserRuleCall_4() { return cIntegrationFlowDefParserRuleCall_4; }
+	}
+	public class IntegrationFlowDefElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wso2.esb.dsl.EsbDsl.IntegrationFlowDef");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cIntegrationFlowKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cDefinitionAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDefinitionSTRINGTerminalRuleCall_2_0 = (RuleCall)cDefinitionAssignment_2.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//IntegrationFlowDef:
+		//	'IntegrationFlow' '(' Definition=STRING ')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'IntegrationFlow' '(' Definition=STRING ')'
+		public Group getGroup() { return cGroup; }
+		
+		//'IntegrationFlow'
+		public Keyword getIntegrationFlowKeyword_0() { return cIntegrationFlowKeyword_0; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+		
+		//Definition=STRING
+		public Assignment getDefinitionAssignment_2() { return cDefinitionAssignment_2; }
+		
+		//STRING
+		public RuleCall getDefinitionSTRINGTerminalRuleCall_2_0() { return cDefinitionSTRINGTerminalRuleCall_2_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
+	}
+	public class COLONElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wso2.esb.dsl.EsbDsl.COLON");
+		private final Keyword cColonKeyword = (Keyword)rule.eContents().get(1);
+		
+		//COLON:
+		//	':';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//':'
+		public Keyword getColonKeyword() { return cColonKeyword; }
+	}
+	public class InboundEndpointDefStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wso2.esb.dsl.EsbDsl.InboundEndpointDefStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cInboundEndpointDefStatementKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//InboundEndpointDefStatement:
+		//	'InboundEndpointDefStatement' name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'InboundEndpointDefStatement' name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'InboundEndpointDefStatement'
+		public Keyword getInboundEndpointDefStatementKeyword_0() { return cInboundEndpointDefStatementKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+	}
+	public class PipelineDefStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wso2.esb.dsl.EsbDsl.PipelineDefStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPipelineDefStatementKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//PipelineDefStatement:
+		//	'PipelineDefStatement' name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'PipelineDefStatement' name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'PipelineDefStatement'
+		public Keyword getPipelineDefStatementKeyword_0() { return cPipelineDefStatementKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+	}
+	public class OutboundEndpointDefStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wso2.esb.dsl.EsbDsl.OutboundEndpointDefStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cOutboundEndpointDefStatementKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//OutboundEndpointDefStatement:
+		//	'OutboundEndpointDefStatement' name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'OutboundEndpointDefStatement' name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'OutboundEndpointDefStatement'
+		public Keyword getOutboundEndpointDefStatementKeyword_0() { return cOutboundEndpointDefStatementKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+	}
+	public class MediatorDefStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wso2.esb.dsl.EsbDsl.MediatorDefStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cMediatorDefStatementKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//MediatorDefStatement:
+		//	'MediatorDefStatement' name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'MediatorDefStatement' name=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'MediatorDefStatement'
+		public Keyword getMediatorDefStatementKeyword_0() { return cMediatorDefStatementKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 	}
 	public class CommandElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wso2.esb.dsl.EsbDsl.Command");
@@ -140,11 +588,86 @@ public class EsbDslGrammarAccess extends AbstractGrammarElementFinder {
 		//')'
 		public Keyword getRightParenthesisKeyword_3_1_2() { return cRightParenthesisKeyword_3_1_2; }
 	}
+	public class PARTICIPANTElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.wso2.esb.dsl.EsbDsl.PARTICIPANT");
+		private final Keyword cParticipantKeyword = (Keyword)rule.eContents().get(1);
+		
+		//PARTICIPANT:
+		//	'participant';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'participant'
+		public Keyword getParticipantKeyword() { return cParticipantKeyword; }
+	}
 	
+	public class ParticipantTypeElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "com.wso2.esb.dsl.EsbDsl.ParticipantType");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cINTEGRATIONFLOWEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cINTEGRATIONFLOWIntegrationFlowKeyword_0_0 = (Keyword)cINTEGRATIONFLOWEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cINBOUNDENDPOINTEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cINBOUNDENDPOINTInboundEndpointKeyword_1_0 = (Keyword)cINBOUNDENDPOINTEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cOUTBOUNDENDPOINTEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cOUTBOUNDENDPOINTOutboundEndpointKeyword_2_0 = (Keyword)cOUTBOUNDENDPOINTEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cPIPELINEEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cPIPELINEPipelineKeyword_3_0 = (Keyword)cPIPELINEEnumLiteralDeclaration_3.eContents().get(0);
+		
+		//enum ParticipantType:
+		//	INTEGRATIONFLOW='IntegrationFlow'
+		//	| INBOUNDENDPOINT='InboundEndpoint'
+		//	| OUTBOUNDENDPOINT='OutboundEndpoint'
+		//	| PIPELINE='Pipeline';
+		public EnumRule getRule() { return rule; }
+		
+		//INTEGRATIONFLOW='IntegrationFlow' | INBOUNDENDPOINT='InboundEndpoint' | OUTBOUNDENDPOINT='OutboundEndpoint' |
+		//PIPELINE='Pipeline'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//INTEGRATIONFLOW='IntegrationFlow'
+		public EnumLiteralDeclaration getINTEGRATIONFLOWEnumLiteralDeclaration_0() { return cINTEGRATIONFLOWEnumLiteralDeclaration_0; }
+		
+		//'IntegrationFlow'
+		public Keyword getINTEGRATIONFLOWIntegrationFlowKeyword_0_0() { return cINTEGRATIONFLOWIntegrationFlowKeyword_0_0; }
+		
+		//INBOUNDENDPOINT='InboundEndpoint'
+		public EnumLiteralDeclaration getINBOUNDENDPOINTEnumLiteralDeclaration_1() { return cINBOUNDENDPOINTEnumLiteralDeclaration_1; }
+		
+		//'InboundEndpoint'
+		public Keyword getINBOUNDENDPOINTInboundEndpointKeyword_1_0() { return cINBOUNDENDPOINTInboundEndpointKeyword_1_0; }
+		
+		//OUTBOUNDENDPOINT='OutboundEndpoint'
+		public EnumLiteralDeclaration getOUTBOUNDENDPOINTEnumLiteralDeclaration_2() { return cOUTBOUNDENDPOINTEnumLiteralDeclaration_2; }
+		
+		//'OutboundEndpoint'
+		public Keyword getOUTBOUNDENDPOINTOutboundEndpointKeyword_2_0() { return cOUTBOUNDENDPOINTOutboundEndpointKeyword_2_0; }
+		
+		//PIPELINE='Pipeline'
+		public EnumLiteralDeclaration getPIPELINEEnumLiteralDeclaration_3() { return cPIPELINEEnumLiteralDeclaration_3; }
+		
+		//'Pipeline'
+		public Keyword getPIPELINEPipelineKeyword_3_0() { return cPIPELINEPipelineKeyword_3_0; }
+	}
 	
 	private final ModelElements pModel;
-	private final ParticipantElements pParticipant;
+	private final StatementElements pStatement;
+	private final ProcessingStatementElements pProcessingStatement;
+	private final RoutingStatementElements pRoutingStatement;
+	private final ParallelStatementElements pParallelStatement;
+	private final IfStatementElements pIfStatement;
+	private final LoopStatementElements pLoopStatement;
+	private final GroupStatementElements pGroupStatement;
+	private final RefStatementElements pRefStatement;
+	private final ParticipantStatementElements pParticipantStatement;
+	private final ParticipantTypeElements eParticipantType;
+	private final IntegrationFlowParticipantElements pIntegrationFlowParticipant;
+	private final IntegrationFlowDefElements pIntegrationFlowDef;
+	private final COLONElements pCOLON;
+	private final InboundEndpointDefStatementElements pInboundEndpointDefStatement;
+	private final PipelineDefStatementElements pPipelineDefStatement;
+	private final OutboundEndpointDefStatementElements pOutboundEndpointDefStatement;
+	private final MediatorDefStatementElements pMediatorDefStatement;
 	private final CommandElements pCommand;
+	private final PARTICIPANTElements pPARTICIPANT;
 	
 	private final Grammar grammar;
 	
@@ -156,8 +679,25 @@ public class EsbDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pModel = new ModelElements();
-		this.pParticipant = new ParticipantElements();
+		this.pStatement = new StatementElements();
+		this.pProcessingStatement = new ProcessingStatementElements();
+		this.pRoutingStatement = new RoutingStatementElements();
+		this.pParallelStatement = new ParallelStatementElements();
+		this.pIfStatement = new IfStatementElements();
+		this.pLoopStatement = new LoopStatementElements();
+		this.pGroupStatement = new GroupStatementElements();
+		this.pRefStatement = new RefStatementElements();
+		this.pParticipantStatement = new ParticipantStatementElements();
+		this.eParticipantType = new ParticipantTypeElements();
+		this.pIntegrationFlowParticipant = new IntegrationFlowParticipantElements();
+		this.pIntegrationFlowDef = new IntegrationFlowDefElements();
+		this.pCOLON = new COLONElements();
+		this.pInboundEndpointDefStatement = new InboundEndpointDefStatementElements();
+		this.pPipelineDefStatement = new PipelineDefStatementElements();
+		this.pOutboundEndpointDefStatement = new OutboundEndpointDefStatementElements();
+		this.pMediatorDefStatement = new MediatorDefStatementElements();
 		this.pCommand = new CommandElements();
+		this.pPARTICIPANT = new PARTICIPANTElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -187,8 +727,14 @@ public class EsbDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
+	////EModel:
+	////	'@startuml'
+	////	(participants+=Participant*) & (commands+=Command*)
+	////	'@enduml'
+	////;
 	//Model:
-	//	participants+=Participant* & commands+=Command*;
+	//	'@startuml'
+	//	participants+=ParticipantStatement* & statements+=Statement* '@enduml';
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -197,14 +743,183 @@ public class EsbDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getModelAccess().getRule();
 	}
 	
-	//Participant:
-	//	'participant' name=ID ':' description=STRING;
-	public ParticipantElements getParticipantAccess() {
-		return pParticipant;
+	//Statement:
+	//	ProcessingStatement
+	//	| RoutingStatement
+	//	| ParallelStatement
+	//	| IfStatement
+	//	| LoopStatement
+	//	| GroupStatement
+	//	| RefStatement;
+	public StatementElements getStatementAccess() {
+		return pStatement;
 	}
 	
-	public ParserRule getParticipantRule() {
-		return getParticipantAccess().getRule();
+	public ParserRule getStatementRule() {
+		return getStatementAccess().getRule();
+	}
+	
+	//ProcessingStatement:
+	//	'message_processor' '(' name=ID (')' | ',' configs=STRING ')');
+	public ProcessingStatementElements getProcessingStatementAccess() {
+		return pProcessingStatement;
+	}
+	
+	public ParserRule getProcessingStatementRule() {
+		return getProcessingStatementAccess().getRule();
+	}
+	
+	//RoutingStatement:
+	//	'routing' name=ID;
+	public RoutingStatementElements getRoutingStatementAccess() {
+		return pRoutingStatement;
+	}
+	
+	public ParserRule getRoutingStatementRule() {
+		return getRoutingStatementAccess().getRule();
+	}
+	
+	//ParallelStatement:
+	//	'parallel' name=ID;
+	public ParallelStatementElements getParallelStatementAccess() {
+		return pParallelStatement;
+	}
+	
+	public ParserRule getParallelStatementRule() {
+		return getParallelStatementAccess().getRule();
+	}
+	
+	//IfStatement:
+	//	'alt' expression=STRING;
+	public IfStatementElements getIfStatementAccess() {
+		return pIfStatement;
+	}
+	
+	public ParserRule getIfStatementRule() {
+		return getIfStatementAccess().getRule();
+	}
+	
+	//LoopStatement:
+	//	'loop' name=ID;
+	public LoopStatementElements getLoopStatementAccess() {
+		return pLoopStatement;
+	}
+	
+	public ParserRule getLoopStatementRule() {
+		return getLoopStatementAccess().getRule();
+	}
+	
+	//GroupStatement:
+	//	'group' name=ID;
+	public GroupStatementElements getGroupStatementAccess() {
+		return pGroupStatement;
+	}
+	
+	public ParserRule getGroupStatementRule() {
+		return getGroupStatementAccess().getRule();
+	}
+	
+	//RefStatement:
+	//	'ref' name=ID;
+	public RefStatementElements getRefStatementAccess() {
+		return pRefStatement;
+	}
+	
+	public ParserRule getRefStatementRule() {
+		return getRefStatementAccess().getRule();
+	}
+	
+	//ParticipantStatement:
+	//	'participant' name=ID ':' participantType=ParticipantType '(' description=STRING ')';
+	public ParticipantStatementElements getParticipantStatementAccess() {
+		return pParticipantStatement;
+	}
+	
+	public ParserRule getParticipantStatementRule() {
+		return getParticipantStatementAccess().getRule();
+	}
+	
+	//enum ParticipantType:
+	//	INTEGRATIONFLOW='IntegrationFlow'
+	//	| INBOUNDENDPOINT='InboundEndpoint'
+	//	| OUTBOUNDENDPOINT='OutboundEndpoint'
+	//	| PIPELINE='Pipeline';
+	public ParticipantTypeElements getParticipantTypeAccess() {
+		return eParticipantType;
+	}
+	
+	public EnumRule getParticipantTypeRule() {
+		return getParticipantTypeAccess().getRule();
+	}
+	
+	//IntegrationFlowParticipant:
+	//	PARTICIPANT name=ID COLON WS+ IntegrationFlowDef;
+	public IntegrationFlowParticipantElements getIntegrationFlowParticipantAccess() {
+		return pIntegrationFlowParticipant;
+	}
+	
+	public ParserRule getIntegrationFlowParticipantRule() {
+		return getIntegrationFlowParticipantAccess().getRule();
+	}
+	
+	//IntegrationFlowDef:
+	//	'IntegrationFlow' '(' Definition=STRING ')';
+	public IntegrationFlowDefElements getIntegrationFlowDefAccess() {
+		return pIntegrationFlowDef;
+	}
+	
+	public ParserRule getIntegrationFlowDefRule() {
+		return getIntegrationFlowDefAccess().getRule();
+	}
+	
+	//COLON:
+	//	':';
+	public COLONElements getCOLONAccess() {
+		return pCOLON;
+	}
+	
+	public ParserRule getCOLONRule() {
+		return getCOLONAccess().getRule();
+	}
+	
+	//InboundEndpointDefStatement:
+	//	'InboundEndpointDefStatement' name=ID;
+	public InboundEndpointDefStatementElements getInboundEndpointDefStatementAccess() {
+		return pInboundEndpointDefStatement;
+	}
+	
+	public ParserRule getInboundEndpointDefStatementRule() {
+		return getInboundEndpointDefStatementAccess().getRule();
+	}
+	
+	//PipelineDefStatement:
+	//	'PipelineDefStatement' name=ID;
+	public PipelineDefStatementElements getPipelineDefStatementAccess() {
+		return pPipelineDefStatement;
+	}
+	
+	public ParserRule getPipelineDefStatementRule() {
+		return getPipelineDefStatementAccess().getRule();
+	}
+	
+	//OutboundEndpointDefStatement:
+	//	'OutboundEndpointDefStatement' name=ID;
+	public OutboundEndpointDefStatementElements getOutboundEndpointDefStatementAccess() {
+		return pOutboundEndpointDefStatement;
+	}
+	
+	public ParserRule getOutboundEndpointDefStatementRule() {
+		return getOutboundEndpointDefStatementAccess().getRule();
+	}
+	
+	//MediatorDefStatement:
+	//	'MediatorDefStatement' name=ID;
+	public MediatorDefStatementElements getMediatorDefStatementAccess() {
+		return pMediatorDefStatement;
+	}
+	
+	public ParserRule getMediatorDefStatementRule() {
+		return getMediatorDefStatementAccess().getRule();
 	}
 	
 	//Command:
@@ -215,6 +930,16 @@ public class EsbDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getCommandRule() {
 		return getCommandAccess().getRule();
+	}
+	
+	//PARTICIPANT:
+	//	'participant';
+	public PARTICIPANTElements getPARTICIPANTAccess() {
+		return pPARTICIPANT;
+	}
+	
+	public ParserRule getPARTICIPANTRule() {
+		return getPARTICIPANTAccess().getRule();
 	}
 	
 	//terminal ID:

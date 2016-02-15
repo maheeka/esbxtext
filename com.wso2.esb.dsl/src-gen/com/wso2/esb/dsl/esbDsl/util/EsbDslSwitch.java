@@ -80,10 +80,116 @@ public class EsbDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EsbDslPackage.PARTICIPANT:
+      case EsbDslPackage.STATEMENT:
       {
-        Participant participant = (Participant)theEObject;
-        T result = caseParticipant(participant);
+        Statement statement = (Statement)theEObject;
+        T result = caseStatement(statement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EsbDslPackage.PROCESSING_STATEMENT:
+      {
+        ProcessingStatement processingStatement = (ProcessingStatement)theEObject;
+        T result = caseProcessingStatement(processingStatement);
+        if (result == null) result = caseStatement(processingStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EsbDslPackage.ROUTING_STATEMENT:
+      {
+        RoutingStatement routingStatement = (RoutingStatement)theEObject;
+        T result = caseRoutingStatement(routingStatement);
+        if (result == null) result = caseStatement(routingStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EsbDslPackage.PARALLEL_STATEMENT:
+      {
+        ParallelStatement parallelStatement = (ParallelStatement)theEObject;
+        T result = caseParallelStatement(parallelStatement);
+        if (result == null) result = caseStatement(parallelStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EsbDslPackage.IF_STATEMENT:
+      {
+        IfStatement ifStatement = (IfStatement)theEObject;
+        T result = caseIfStatement(ifStatement);
+        if (result == null) result = caseStatement(ifStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EsbDslPackage.LOOP_STATEMENT:
+      {
+        LoopStatement loopStatement = (LoopStatement)theEObject;
+        T result = caseLoopStatement(loopStatement);
+        if (result == null) result = caseStatement(loopStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EsbDslPackage.GROUP_STATEMENT:
+      {
+        GroupStatement groupStatement = (GroupStatement)theEObject;
+        T result = caseGroupStatement(groupStatement);
+        if (result == null) result = caseStatement(groupStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EsbDslPackage.REF_STATEMENT:
+      {
+        RefStatement refStatement = (RefStatement)theEObject;
+        T result = caseRefStatement(refStatement);
+        if (result == null) result = caseStatement(refStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EsbDslPackage.PARTICIPANT_STATEMENT:
+      {
+        ParticipantStatement participantStatement = (ParticipantStatement)theEObject;
+        T result = caseParticipantStatement(participantStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EsbDslPackage.INTEGRATION_FLOW_PARTICIPANT:
+      {
+        IntegrationFlowParticipant integrationFlowParticipant = (IntegrationFlowParticipant)theEObject;
+        T result = caseIntegrationFlowParticipant(integrationFlowParticipant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EsbDslPackage.INTEGRATION_FLOW_DEF:
+      {
+        IntegrationFlowDef integrationFlowDef = (IntegrationFlowDef)theEObject;
+        T result = caseIntegrationFlowDef(integrationFlowDef);
+        if (result == null) result = caseIntegrationFlowParticipant(integrationFlowDef);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EsbDslPackage.INBOUND_ENDPOINT_DEF_STATEMENT:
+      {
+        InboundEndpointDefStatement inboundEndpointDefStatement = (InboundEndpointDefStatement)theEObject;
+        T result = caseInboundEndpointDefStatement(inboundEndpointDefStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EsbDslPackage.PIPELINE_DEF_STATEMENT:
+      {
+        PipelineDefStatement pipelineDefStatement = (PipelineDefStatement)theEObject;
+        T result = casePipelineDefStatement(pipelineDefStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EsbDslPackage.OUTBOUND_ENDPOINT_DEF_STATEMENT:
+      {
+        OutboundEndpointDefStatement outboundEndpointDefStatement = (OutboundEndpointDefStatement)theEObject;
+        T result = caseOutboundEndpointDefStatement(outboundEndpointDefStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EsbDslPackage.MEDIATOR_DEF_STATEMENT:
+      {
+        MediatorDefStatement mediatorDefStatement = (MediatorDefStatement)theEObject;
+        T result = caseMediatorDefStatement(mediatorDefStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -115,17 +221,241 @@ public class EsbDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Participant</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Statement</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Participant</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Statement</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseParticipant(Participant object)
+  public T caseStatement(Statement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Processing Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Processing Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseProcessingStatement(ProcessingStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Routing Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Routing Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRoutingStatement(RoutingStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Parallel Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Parallel Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParallelStatement(ParallelStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>If Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>If Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIfStatement(IfStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Loop Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Loop Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLoopStatement(LoopStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Group Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Group Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGroupStatement(GroupStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Ref Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Ref Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRefStatement(RefStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Participant Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Participant Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParticipantStatement(ParticipantStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Integration Flow Participant</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Integration Flow Participant</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIntegrationFlowParticipant(IntegrationFlowParticipant object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Integration Flow Def</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Integration Flow Def</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIntegrationFlowDef(IntegrationFlowDef object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Inbound Endpoint Def Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Inbound Endpoint Def Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInboundEndpointDefStatement(InboundEndpointDefStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Pipeline Def Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Pipeline Def Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePipelineDefStatement(PipelineDefStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Outbound Endpoint Def Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Outbound Endpoint Def Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOutboundEndpointDefStatement(OutboundEndpointDefStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Mediator Def Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Mediator Def Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMediatorDefStatement(MediatorDefStatement object)
   {
     return null;
   }
