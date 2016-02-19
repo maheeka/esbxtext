@@ -162,13 +162,31 @@ public interface EsbDslPackage extends EPackage
   int ROUTING_STATEMENT = 3;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Source</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ROUTING_STATEMENT__NAME = STATEMENT_FEATURE_COUNT + 0;
+  int ROUTING_STATEMENT__SOURCE = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Target</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROUTING_STATEMENT__TARGET = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Action</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROUTING_STATEMENT__ACTION = STATEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Routing Statement</em>' class.
@@ -177,7 +195,7 @@ public interface EsbDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ROUTING_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int ROUTING_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link com.wso2.esb.dsl.esbDsl.impl.ParallelStatementImpl <em>Parallel Statement</em>}' class.
@@ -190,13 +208,13 @@ public interface EsbDslPackage extends EPackage
   int PARALLEL_STATEMENT = 4;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Statements</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARALLEL_STATEMENT__NAME = STATEMENT_FEATURE_COUNT + 0;
+  int PARALLEL_STATEMENT__STATEMENTS = STATEMENT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Parallel Statement</em>' class.
@@ -366,220 +384,6 @@ public interface EsbDslPackage extends EPackage
   int PARTICIPANT_STATEMENT_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link com.wso2.esb.dsl.esbDsl.impl.IntegrationFlowParticipantImpl <em>Integration Flow Participant</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.wso2.esb.dsl.esbDsl.impl.IntegrationFlowParticipantImpl
-   * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getIntegrationFlowParticipant()
-   * @generated
-   */
-  int INTEGRATION_FLOW_PARTICIPANT = 10;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INTEGRATION_FLOW_PARTICIPANT__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>Integration Flow Participant</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INTEGRATION_FLOW_PARTICIPANT_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link com.wso2.esb.dsl.esbDsl.impl.IntegrationFlowDefImpl <em>Integration Flow Def</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.wso2.esb.dsl.esbDsl.impl.IntegrationFlowDefImpl
-   * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getIntegrationFlowDef()
-   * @generated
-   */
-  int INTEGRATION_FLOW_DEF = 11;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INTEGRATION_FLOW_DEF__NAME = INTEGRATION_FLOW_PARTICIPANT__NAME;
-
-  /**
-   * The feature id for the '<em><b>Definition</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INTEGRATION_FLOW_DEF__DEFINITION = INTEGRATION_FLOW_PARTICIPANT_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Integration Flow Def</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INTEGRATION_FLOW_DEF_FEATURE_COUNT = INTEGRATION_FLOW_PARTICIPANT_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link com.wso2.esb.dsl.esbDsl.impl.InboundEndpointDefStatementImpl <em>Inbound Endpoint Def Statement</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.wso2.esb.dsl.esbDsl.impl.InboundEndpointDefStatementImpl
-   * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getInboundEndpointDefStatement()
-   * @generated
-   */
-  int INBOUND_ENDPOINT_DEF_STATEMENT = 12;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INBOUND_ENDPOINT_DEF_STATEMENT__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>Inbound Endpoint Def Statement</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INBOUND_ENDPOINT_DEF_STATEMENT_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link com.wso2.esb.dsl.esbDsl.impl.PipelineDefStatementImpl <em>Pipeline Def Statement</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.wso2.esb.dsl.esbDsl.impl.PipelineDefStatementImpl
-   * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getPipelineDefStatement()
-   * @generated
-   */
-  int PIPELINE_DEF_STATEMENT = 13;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PIPELINE_DEF_STATEMENT__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>Pipeline Def Statement</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PIPELINE_DEF_STATEMENT_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link com.wso2.esb.dsl.esbDsl.impl.OutboundEndpointDefStatementImpl <em>Outbound Endpoint Def Statement</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.wso2.esb.dsl.esbDsl.impl.OutboundEndpointDefStatementImpl
-   * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getOutboundEndpointDefStatement()
-   * @generated
-   */
-  int OUTBOUND_ENDPOINT_DEF_STATEMENT = 14;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OUTBOUND_ENDPOINT_DEF_STATEMENT__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>Outbound Endpoint Def Statement</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OUTBOUND_ENDPOINT_DEF_STATEMENT_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link com.wso2.esb.dsl.esbDsl.impl.MediatorDefStatementImpl <em>Mediator Def Statement</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.wso2.esb.dsl.esbDsl.impl.MediatorDefStatementImpl
-   * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getMediatorDefStatement()
-   * @generated
-   */
-  int MEDIATOR_DEF_STATEMENT = 15;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MEDIATOR_DEF_STATEMENT__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>Mediator Def Statement</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MEDIATOR_DEF_STATEMENT_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link com.wso2.esb.dsl.esbDsl.impl.CommandImpl <em>Command</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.wso2.esb.dsl.esbDsl.impl.CommandImpl
-   * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getCommand()
-   * @generated
-   */
-  int COMMAND = 16;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMMAND__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Configs</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMMAND__CONFIGS = 1;
-
-  /**
-   * The number of structural features of the '<em>Command</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMMAND_FEATURE_COUNT = 2;
-
-  /**
    * The meta object id for the '{@link com.wso2.esb.dsl.esbDsl.ParticipantType <em>Participant Type</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -587,7 +391,7 @@ public interface EsbDslPackage extends EPackage
    * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getParticipantType()
    * @generated
    */
-  int PARTICIPANT_TYPE = 17;
+  int PARTICIPANT_TYPE = 10;
 
 
   /**
@@ -675,15 +479,37 @@ public interface EsbDslPackage extends EPackage
   EClass getRoutingStatement();
 
   /**
-   * Returns the meta object for the attribute '{@link com.wso2.esb.dsl.esbDsl.RoutingStatement#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link com.wso2.esb.dsl.esbDsl.RoutingStatement#getSource <em>Source</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see com.wso2.esb.dsl.esbDsl.RoutingStatement#getName()
+   * @return the meta object for the attribute '<em>Source</em>'.
+   * @see com.wso2.esb.dsl.esbDsl.RoutingStatement#getSource()
    * @see #getRoutingStatement()
    * @generated
    */
-  EAttribute getRoutingStatement_Name();
+  EAttribute getRoutingStatement_Source();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.wso2.esb.dsl.esbDsl.RoutingStatement#getTarget <em>Target</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Target</em>'.
+   * @see com.wso2.esb.dsl.esbDsl.RoutingStatement#getTarget()
+   * @see #getRoutingStatement()
+   * @generated
+   */
+  EAttribute getRoutingStatement_Target();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.wso2.esb.dsl.esbDsl.RoutingStatement#getAction <em>Action</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Action</em>'.
+   * @see com.wso2.esb.dsl.esbDsl.RoutingStatement#getAction()
+   * @see #getRoutingStatement()
+   * @generated
+   */
+  EAttribute getRoutingStatement_Action();
 
   /**
    * Returns the meta object for class '{@link com.wso2.esb.dsl.esbDsl.ParallelStatement <em>Parallel Statement</em>}'.
@@ -696,15 +522,15 @@ public interface EsbDslPackage extends EPackage
   EClass getParallelStatement();
 
   /**
-   * Returns the meta object for the attribute '{@link com.wso2.esb.dsl.esbDsl.ParallelStatement#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference list '{@link com.wso2.esb.dsl.esbDsl.ParallelStatement#getStatements <em>Statements</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see com.wso2.esb.dsl.esbDsl.ParallelStatement#getName()
+   * @return the meta object for the containment reference list '<em>Statements</em>'.
+   * @see com.wso2.esb.dsl.esbDsl.ParallelStatement#getStatements()
    * @see #getParallelStatement()
    * @generated
    */
-  EAttribute getParallelStatement_Name();
+  EReference getParallelStatement_Statements();
 
   /**
    * Returns the meta object for class '{@link com.wso2.esb.dsl.esbDsl.IfStatement <em>If Statement</em>}'.
@@ -834,164 +660,6 @@ public interface EsbDslPackage extends EPackage
   EAttribute getParticipantStatement_Description();
 
   /**
-   * Returns the meta object for class '{@link com.wso2.esb.dsl.esbDsl.IntegrationFlowParticipant <em>Integration Flow Participant</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Integration Flow Participant</em>'.
-   * @see com.wso2.esb.dsl.esbDsl.IntegrationFlowParticipant
-   * @generated
-   */
-  EClass getIntegrationFlowParticipant();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.wso2.esb.dsl.esbDsl.IntegrationFlowParticipant#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see com.wso2.esb.dsl.esbDsl.IntegrationFlowParticipant#getName()
-   * @see #getIntegrationFlowParticipant()
-   * @generated
-   */
-  EAttribute getIntegrationFlowParticipant_Name();
-
-  /**
-   * Returns the meta object for class '{@link com.wso2.esb.dsl.esbDsl.IntegrationFlowDef <em>Integration Flow Def</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Integration Flow Def</em>'.
-   * @see com.wso2.esb.dsl.esbDsl.IntegrationFlowDef
-   * @generated
-   */
-  EClass getIntegrationFlowDef();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.wso2.esb.dsl.esbDsl.IntegrationFlowDef#getDefinition <em>Definition</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Definition</em>'.
-   * @see com.wso2.esb.dsl.esbDsl.IntegrationFlowDef#getDefinition()
-   * @see #getIntegrationFlowDef()
-   * @generated
-   */
-  EAttribute getIntegrationFlowDef_Definition();
-
-  /**
-   * Returns the meta object for class '{@link com.wso2.esb.dsl.esbDsl.InboundEndpointDefStatement <em>Inbound Endpoint Def Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Inbound Endpoint Def Statement</em>'.
-   * @see com.wso2.esb.dsl.esbDsl.InboundEndpointDefStatement
-   * @generated
-   */
-  EClass getInboundEndpointDefStatement();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.wso2.esb.dsl.esbDsl.InboundEndpointDefStatement#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see com.wso2.esb.dsl.esbDsl.InboundEndpointDefStatement#getName()
-   * @see #getInboundEndpointDefStatement()
-   * @generated
-   */
-  EAttribute getInboundEndpointDefStatement_Name();
-
-  /**
-   * Returns the meta object for class '{@link com.wso2.esb.dsl.esbDsl.PipelineDefStatement <em>Pipeline Def Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Pipeline Def Statement</em>'.
-   * @see com.wso2.esb.dsl.esbDsl.PipelineDefStatement
-   * @generated
-   */
-  EClass getPipelineDefStatement();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.wso2.esb.dsl.esbDsl.PipelineDefStatement#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see com.wso2.esb.dsl.esbDsl.PipelineDefStatement#getName()
-   * @see #getPipelineDefStatement()
-   * @generated
-   */
-  EAttribute getPipelineDefStatement_Name();
-
-  /**
-   * Returns the meta object for class '{@link com.wso2.esb.dsl.esbDsl.OutboundEndpointDefStatement <em>Outbound Endpoint Def Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Outbound Endpoint Def Statement</em>'.
-   * @see com.wso2.esb.dsl.esbDsl.OutboundEndpointDefStatement
-   * @generated
-   */
-  EClass getOutboundEndpointDefStatement();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.wso2.esb.dsl.esbDsl.OutboundEndpointDefStatement#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see com.wso2.esb.dsl.esbDsl.OutboundEndpointDefStatement#getName()
-   * @see #getOutboundEndpointDefStatement()
-   * @generated
-   */
-  EAttribute getOutboundEndpointDefStatement_Name();
-
-  /**
-   * Returns the meta object for class '{@link com.wso2.esb.dsl.esbDsl.MediatorDefStatement <em>Mediator Def Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Mediator Def Statement</em>'.
-   * @see com.wso2.esb.dsl.esbDsl.MediatorDefStatement
-   * @generated
-   */
-  EClass getMediatorDefStatement();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.wso2.esb.dsl.esbDsl.MediatorDefStatement#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see com.wso2.esb.dsl.esbDsl.MediatorDefStatement#getName()
-   * @see #getMediatorDefStatement()
-   * @generated
-   */
-  EAttribute getMediatorDefStatement_Name();
-
-  /**
-   * Returns the meta object for class '{@link com.wso2.esb.dsl.esbDsl.Command <em>Command</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Command</em>'.
-   * @see com.wso2.esb.dsl.esbDsl.Command
-   * @generated
-   */
-  EClass getCommand();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.wso2.esb.dsl.esbDsl.Command#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see com.wso2.esb.dsl.esbDsl.Command#getName()
-   * @see #getCommand()
-   * @generated
-   */
-  EAttribute getCommand_Name();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.wso2.esb.dsl.esbDsl.Command#getConfigs <em>Configs</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Configs</em>'.
-   * @see com.wso2.esb.dsl.esbDsl.Command#getConfigs()
-   * @see #getCommand()
-   * @generated
-   */
-  EAttribute getCommand_Configs();
-
-  /**
    * Returns the meta object for enum '{@link com.wso2.esb.dsl.esbDsl.ParticipantType <em>Participant Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1097,12 +765,28 @@ public interface EsbDslPackage extends EPackage
     EClass ROUTING_STATEMENT = eINSTANCE.getRoutingStatement();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Source</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ROUTING_STATEMENT__NAME = eINSTANCE.getRoutingStatement_Name();
+    EAttribute ROUTING_STATEMENT__SOURCE = eINSTANCE.getRoutingStatement_Source();
+
+    /**
+     * The meta object literal for the '<em><b>Target</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ROUTING_STATEMENT__TARGET = eINSTANCE.getRoutingStatement_Target();
+
+    /**
+     * The meta object literal for the '<em><b>Action</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ROUTING_STATEMENT__ACTION = eINSTANCE.getRoutingStatement_Action();
 
     /**
      * The meta object literal for the '{@link com.wso2.esb.dsl.esbDsl.impl.ParallelStatementImpl <em>Parallel Statement</em>}' class.
@@ -1115,12 +799,12 @@ public interface EsbDslPackage extends EPackage
     EClass PARALLEL_STATEMENT = eINSTANCE.getParallelStatement();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Statements</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PARALLEL_STATEMENT__NAME = eINSTANCE.getParallelStatement_Name();
+    EReference PARALLEL_STATEMENT__STATEMENTS = eINSTANCE.getParallelStatement_Statements();
 
     /**
      * The meta object literal for the '{@link com.wso2.esb.dsl.esbDsl.impl.IfStatementImpl <em>If Statement</em>}' class.
@@ -1227,140 +911,6 @@ public interface EsbDslPackage extends EPackage
      * @generated
      */
     EAttribute PARTICIPANT_STATEMENT__DESCRIPTION = eINSTANCE.getParticipantStatement_Description();
-
-    /**
-     * The meta object literal for the '{@link com.wso2.esb.dsl.esbDsl.impl.IntegrationFlowParticipantImpl <em>Integration Flow Participant</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see com.wso2.esb.dsl.esbDsl.impl.IntegrationFlowParticipantImpl
-     * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getIntegrationFlowParticipant()
-     * @generated
-     */
-    EClass INTEGRATION_FLOW_PARTICIPANT = eINSTANCE.getIntegrationFlowParticipant();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute INTEGRATION_FLOW_PARTICIPANT__NAME = eINSTANCE.getIntegrationFlowParticipant_Name();
-
-    /**
-     * The meta object literal for the '{@link com.wso2.esb.dsl.esbDsl.impl.IntegrationFlowDefImpl <em>Integration Flow Def</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see com.wso2.esb.dsl.esbDsl.impl.IntegrationFlowDefImpl
-     * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getIntegrationFlowDef()
-     * @generated
-     */
-    EClass INTEGRATION_FLOW_DEF = eINSTANCE.getIntegrationFlowDef();
-
-    /**
-     * The meta object literal for the '<em><b>Definition</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute INTEGRATION_FLOW_DEF__DEFINITION = eINSTANCE.getIntegrationFlowDef_Definition();
-
-    /**
-     * The meta object literal for the '{@link com.wso2.esb.dsl.esbDsl.impl.InboundEndpointDefStatementImpl <em>Inbound Endpoint Def Statement</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see com.wso2.esb.dsl.esbDsl.impl.InboundEndpointDefStatementImpl
-     * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getInboundEndpointDefStatement()
-     * @generated
-     */
-    EClass INBOUND_ENDPOINT_DEF_STATEMENT = eINSTANCE.getInboundEndpointDefStatement();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute INBOUND_ENDPOINT_DEF_STATEMENT__NAME = eINSTANCE.getInboundEndpointDefStatement_Name();
-
-    /**
-     * The meta object literal for the '{@link com.wso2.esb.dsl.esbDsl.impl.PipelineDefStatementImpl <em>Pipeline Def Statement</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see com.wso2.esb.dsl.esbDsl.impl.PipelineDefStatementImpl
-     * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getPipelineDefStatement()
-     * @generated
-     */
-    EClass PIPELINE_DEF_STATEMENT = eINSTANCE.getPipelineDefStatement();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PIPELINE_DEF_STATEMENT__NAME = eINSTANCE.getPipelineDefStatement_Name();
-
-    /**
-     * The meta object literal for the '{@link com.wso2.esb.dsl.esbDsl.impl.OutboundEndpointDefStatementImpl <em>Outbound Endpoint Def Statement</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see com.wso2.esb.dsl.esbDsl.impl.OutboundEndpointDefStatementImpl
-     * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getOutboundEndpointDefStatement()
-     * @generated
-     */
-    EClass OUTBOUND_ENDPOINT_DEF_STATEMENT = eINSTANCE.getOutboundEndpointDefStatement();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute OUTBOUND_ENDPOINT_DEF_STATEMENT__NAME = eINSTANCE.getOutboundEndpointDefStatement_Name();
-
-    /**
-     * The meta object literal for the '{@link com.wso2.esb.dsl.esbDsl.impl.MediatorDefStatementImpl <em>Mediator Def Statement</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see com.wso2.esb.dsl.esbDsl.impl.MediatorDefStatementImpl
-     * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getMediatorDefStatement()
-     * @generated
-     */
-    EClass MEDIATOR_DEF_STATEMENT = eINSTANCE.getMediatorDefStatement();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MEDIATOR_DEF_STATEMENT__NAME = eINSTANCE.getMediatorDefStatement_Name();
-
-    /**
-     * The meta object literal for the '{@link com.wso2.esb.dsl.esbDsl.impl.CommandImpl <em>Command</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see com.wso2.esb.dsl.esbDsl.impl.CommandImpl
-     * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getCommand()
-     * @generated
-     */
-    EClass COMMAND = eINSTANCE.getCommand();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute COMMAND__NAME = eINSTANCE.getCommand_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Configs</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute COMMAND__CONFIGS = eINSTANCE.getCommand_Configs();
 
     /**
      * The meta object literal for the '{@link com.wso2.esb.dsl.esbDsl.ParticipantType <em>Participant Type</em>}' enum.

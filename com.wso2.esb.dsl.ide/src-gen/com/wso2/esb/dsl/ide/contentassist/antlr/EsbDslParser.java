@@ -37,7 +37,6 @@ public class EsbDslParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getStatementAccess().getAlternatives(), "rule__Statement__Alternatives");
 					put(grammarAccess.getProcessingStatementAccess().getAlternatives_3(), "rule__ProcessingStatement__Alternatives_3");
-					put(grammarAccess.getCommandAccess().getAlternatives_3(), "rule__Command__Alternatives_3");
 					put(grammarAccess.getParticipantTypeAccess().getAlternatives(), "rule__ParticipantType__Alternatives");
 					put(grammarAccess.getModelAccess().getGroup_0(), "rule__Model__Group_0__0");
 					put(grammarAccess.getModelAccess().getGroup_1(), "rule__Model__Group_1__0");
@@ -45,25 +44,21 @@ public class EsbDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getProcessingStatementAccess().getGroup_3_1(), "rule__ProcessingStatement__Group_3_1__0");
 					put(grammarAccess.getRoutingStatementAccess().getGroup(), "rule__RoutingStatement__Group__0");
 					put(grammarAccess.getParallelStatementAccess().getGroup(), "rule__ParallelStatement__Group__0");
+					put(grammarAccess.getParallelStatementAccess().getGroup_2(), "rule__ParallelStatement__Group_2__0");
 					put(grammarAccess.getIfStatementAccess().getGroup(), "rule__IfStatement__Group__0");
 					put(grammarAccess.getLoopStatementAccess().getGroup(), "rule__LoopStatement__Group__0");
 					put(grammarAccess.getGroupStatementAccess().getGroup(), "rule__GroupStatement__Group__0");
 					put(grammarAccess.getRefStatementAccess().getGroup(), "rule__RefStatement__Group__0");
 					put(grammarAccess.getParticipantStatementAccess().getGroup(), "rule__ParticipantStatement__Group__0");
-					put(grammarAccess.getIntegrationFlowParticipantAccess().getGroup(), "rule__IntegrationFlowParticipant__Group__0");
-					put(grammarAccess.getIntegrationFlowDefAccess().getGroup(), "rule__IntegrationFlowDef__Group__0");
-					put(grammarAccess.getInboundEndpointDefStatementAccess().getGroup(), "rule__InboundEndpointDefStatement__Group__0");
-					put(grammarAccess.getPipelineDefStatementAccess().getGroup(), "rule__PipelineDefStatement__Group__0");
-					put(grammarAccess.getOutboundEndpointDefStatementAccess().getGroup(), "rule__OutboundEndpointDefStatement__Group__0");
-					put(grammarAccess.getMediatorDefStatementAccess().getGroup(), "rule__MediatorDefStatement__Group__0");
-					put(grammarAccess.getCommandAccess().getGroup(), "rule__Command__Group__0");
-					put(grammarAccess.getCommandAccess().getGroup_3_1(), "rule__Command__Group_3_1__0");
 					put(grammarAccess.getModelAccess().getParticipantsAssignment_0_1(), "rule__Model__ParticipantsAssignment_0_1");
 					put(grammarAccess.getModelAccess().getStatementsAssignment_1_0(), "rule__Model__StatementsAssignment_1_0");
 					put(grammarAccess.getProcessingStatementAccess().getNameAssignment_2(), "rule__ProcessingStatement__NameAssignment_2");
 					put(grammarAccess.getProcessingStatementAccess().getConfigsAssignment_3_1_1(), "rule__ProcessingStatement__ConfigsAssignment_3_1_1");
-					put(grammarAccess.getRoutingStatementAccess().getNameAssignment_1(), "rule__RoutingStatement__NameAssignment_1");
-					put(grammarAccess.getParallelStatementAccess().getNameAssignment_1(), "rule__ParallelStatement__NameAssignment_1");
+					put(grammarAccess.getRoutingStatementAccess().getSourceAssignment_0(), "rule__RoutingStatement__SourceAssignment_0");
+					put(grammarAccess.getRoutingStatementAccess().getTargetAssignment_2(), "rule__RoutingStatement__TargetAssignment_2");
+					put(grammarAccess.getRoutingStatementAccess().getActionAssignment_4(), "rule__RoutingStatement__ActionAssignment_4");
+					put(grammarAccess.getParallelStatementAccess().getStatementsAssignment_1(), "rule__ParallelStatement__StatementsAssignment_1");
+					put(grammarAccess.getParallelStatementAccess().getStatementsAssignment_2_1(), "rule__ParallelStatement__StatementsAssignment_2_1");
 					put(grammarAccess.getIfStatementAccess().getExpressionAssignment_1(), "rule__IfStatement__ExpressionAssignment_1");
 					put(grammarAccess.getLoopStatementAccess().getNameAssignment_1(), "rule__LoopStatement__NameAssignment_1");
 					put(grammarAccess.getGroupStatementAccess().getNameAssignment_1(), "rule__GroupStatement__NameAssignment_1");
@@ -71,14 +66,6 @@ public class EsbDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getParticipantStatementAccess().getNameAssignment_1(), "rule__ParticipantStatement__NameAssignment_1");
 					put(grammarAccess.getParticipantStatementAccess().getParticipantTypeAssignment_3(), "rule__ParticipantStatement__ParticipantTypeAssignment_3");
 					put(grammarAccess.getParticipantStatementAccess().getDescriptionAssignment_5(), "rule__ParticipantStatement__DescriptionAssignment_5");
-					put(grammarAccess.getIntegrationFlowParticipantAccess().getNameAssignment_1(), "rule__IntegrationFlowParticipant__NameAssignment_1");
-					put(grammarAccess.getIntegrationFlowDefAccess().getDefinitionAssignment_2(), "rule__IntegrationFlowDef__DefinitionAssignment_2");
-					put(grammarAccess.getInboundEndpointDefStatementAccess().getNameAssignment_1(), "rule__InboundEndpointDefStatement__NameAssignment_1");
-					put(grammarAccess.getPipelineDefStatementAccess().getNameAssignment_1(), "rule__PipelineDefStatement__NameAssignment_1");
-					put(grammarAccess.getOutboundEndpointDefStatementAccess().getNameAssignment_1(), "rule__OutboundEndpointDefStatement__NameAssignment_1");
-					put(grammarAccess.getMediatorDefStatementAccess().getNameAssignment_1(), "rule__MediatorDefStatement__NameAssignment_1");
-					put(grammarAccess.getCommandAccess().getNameAssignment_2(), "rule__Command__NameAssignment_2");
-					put(grammarAccess.getCommandAccess().getConfigsAssignment_3_1_1(), "rule__Command__ConfigsAssignment_3_1_1");
 					put(grammarAccess.getModelAccess().getUnorderedGroup(), "rule__Model__UnorderedGroup");
 				}
 			};

@@ -4,20 +4,13 @@
 package com.wso2.esb.dsl.serializer;
 
 import com.google.inject.Inject;
-import com.wso2.esb.dsl.esbDsl.Command;
 import com.wso2.esb.dsl.esbDsl.EsbDslPackage;
 import com.wso2.esb.dsl.esbDsl.GroupStatement;
 import com.wso2.esb.dsl.esbDsl.IfStatement;
-import com.wso2.esb.dsl.esbDsl.InboundEndpointDefStatement;
-import com.wso2.esb.dsl.esbDsl.IntegrationFlowDef;
-import com.wso2.esb.dsl.esbDsl.IntegrationFlowParticipant;
 import com.wso2.esb.dsl.esbDsl.LoopStatement;
-import com.wso2.esb.dsl.esbDsl.MediatorDefStatement;
 import com.wso2.esb.dsl.esbDsl.Model;
-import com.wso2.esb.dsl.esbDsl.OutboundEndpointDefStatement;
 import com.wso2.esb.dsl.esbDsl.ParallelStatement;
 import com.wso2.esb.dsl.esbDsl.ParticipantStatement;
-import com.wso2.esb.dsl.esbDsl.PipelineDefStatement;
 import com.wso2.esb.dsl.esbDsl.ProcessingStatement;
 import com.wso2.esb.dsl.esbDsl.RefStatement;
 import com.wso2.esb.dsl.esbDsl.RoutingStatement;
@@ -47,44 +40,23 @@ public class EsbDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == EsbDslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case EsbDslPackage.COMMAND:
-				sequence_Command(context, (Command) semanticObject); 
-				return; 
 			case EsbDslPackage.GROUP_STATEMENT:
 				sequence_GroupStatement(context, (GroupStatement) semanticObject); 
 				return; 
 			case EsbDslPackage.IF_STATEMENT:
 				sequence_IfStatement(context, (IfStatement) semanticObject); 
 				return; 
-			case EsbDslPackage.INBOUND_ENDPOINT_DEF_STATEMENT:
-				sequence_InboundEndpointDefStatement(context, (InboundEndpointDefStatement) semanticObject); 
-				return; 
-			case EsbDslPackage.INTEGRATION_FLOW_DEF:
-				sequence_IntegrationFlowDef(context, (IntegrationFlowDef) semanticObject); 
-				return; 
-			case EsbDslPackage.INTEGRATION_FLOW_PARTICIPANT:
-				sequence_IntegrationFlowDef_IntegrationFlowParticipant(context, (IntegrationFlowParticipant) semanticObject); 
-				return; 
 			case EsbDslPackage.LOOP_STATEMENT:
 				sequence_LoopStatement(context, (LoopStatement) semanticObject); 
 				return; 
-			case EsbDslPackage.MEDIATOR_DEF_STATEMENT:
-				sequence_MediatorDefStatement(context, (MediatorDefStatement) semanticObject); 
-				return; 
 			case EsbDslPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
-				return; 
-			case EsbDslPackage.OUTBOUND_ENDPOINT_DEF_STATEMENT:
-				sequence_OutboundEndpointDefStatement(context, (OutboundEndpointDefStatement) semanticObject); 
 				return; 
 			case EsbDslPackage.PARALLEL_STATEMENT:
 				sequence_ParallelStatement(context, (ParallelStatement) semanticObject); 
 				return; 
 			case EsbDslPackage.PARTICIPANT_STATEMENT:
 				sequence_ParticipantStatement(context, (ParticipantStatement) semanticObject); 
-				return; 
-			case EsbDslPackage.PIPELINE_DEF_STATEMENT:
-				sequence_PipelineDefStatement(context, (PipelineDefStatement) semanticObject); 
 				return; 
 			case EsbDslPackage.PROCESSING_STATEMENT:
 				sequence_ProcessingStatement(context, (ProcessingStatement) semanticObject); 
@@ -99,18 +71,6 @@ public class EsbDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
-	
-	/**
-	 * Contexts:
-	 *     Command returns Command
-	 *
-	 * Constraint:
-	 *     (name=ID configs=STRING?)
-	 */
-	protected void sequence_Command(ISerializationContext context, Command semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
 	
 	/**
 	 * Contexts:
@@ -152,54 +112,6 @@ public class EsbDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     InboundEndpointDefStatement returns InboundEndpointDefStatement
-	 *
-	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_InboundEndpointDefStatement(ISerializationContext context, InboundEndpointDefStatement semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EsbDslPackage.Literals.INBOUND_ENDPOINT_DEF_STATEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EsbDslPackage.Literals.INBOUND_ENDPOINT_DEF_STATEMENT__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getInboundEndpointDefStatementAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     IntegrationFlowDef returns IntegrationFlowDef
-	 *
-	 * Constraint:
-	 *     Definition=STRING
-	 */
-	protected void sequence_IntegrationFlowDef(ISerializationContext context, IntegrationFlowDef semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EsbDslPackage.Literals.INTEGRATION_FLOW_DEF__DEFINITION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EsbDslPackage.Literals.INTEGRATION_FLOW_DEF__DEFINITION));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getIntegrationFlowDefAccess().getDefinitionSTRINGTerminalRuleCall_2_0(), semanticObject.getDefinition());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     IntegrationFlowParticipant returns IntegrationFlowParticipant
-	 *
-	 * Constraint:
-	 *     (name=ID Definition=STRING)
-	 */
-	protected void sequence_IntegrationFlowDef_IntegrationFlowParticipant(ISerializationContext context, IntegrationFlowParticipant semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Statement returns LoopStatement
 	 *     LoopStatement returns LoopStatement
 	 *
@@ -219,24 +131,6 @@ public class EsbDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     MediatorDefStatement returns MediatorDefStatement
-	 *
-	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_MediatorDefStatement(ISerializationContext context, MediatorDefStatement semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EsbDslPackage.Literals.MEDIATOR_DEF_STATEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EsbDslPackage.Literals.MEDIATOR_DEF_STATEMENT__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMediatorDefStatementAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Model returns Model
 	 *
 	 * Constraint:
@@ -249,38 +143,14 @@ public class EsbDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     OutboundEndpointDefStatement returns OutboundEndpointDefStatement
-	 *
-	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_OutboundEndpointDefStatement(ISerializationContext context, OutboundEndpointDefStatement semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EsbDslPackage.Literals.OUTBOUND_ENDPOINT_DEF_STATEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EsbDslPackage.Literals.OUTBOUND_ENDPOINT_DEF_STATEMENT__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getOutboundEndpointDefStatementAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Statement returns ParallelStatement
 	 *     ParallelStatement returns ParallelStatement
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (statements+=Statement* statements+=Statement*)
 	 */
 	protected void sequence_ParallelStatement(ISerializationContext context, ParallelStatement semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EsbDslPackage.Literals.PARALLEL_STATEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EsbDslPackage.Literals.PARALLEL_STATEMENT__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getParallelStatementAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -304,24 +174,6 @@ public class EsbDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 		feeder.accept(grammarAccess.getParticipantStatementAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getParticipantStatementAccess().getParticipantTypeParticipantTypeEnumRuleCall_3_0(), semanticObject.getParticipantType());
 		feeder.accept(grammarAccess.getParticipantStatementAccess().getDescriptionSTRINGTerminalRuleCall_5_0(), semanticObject.getDescription());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     PipelineDefStatement returns PipelineDefStatement
-	 *
-	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_PipelineDefStatement(ISerializationContext context, PipelineDefStatement semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EsbDslPackage.Literals.PIPELINE_DEF_STATEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EsbDslPackage.Literals.PIPELINE_DEF_STATEMENT__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPipelineDefStatementAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -364,15 +216,21 @@ public class EsbDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     RoutingStatement returns RoutingStatement
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (source=ID target=ID action=STRING)
 	 */
 	protected void sequence_RoutingStatement(ISerializationContext context, RoutingStatement semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EsbDslPackage.Literals.ROUTING_STATEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EsbDslPackage.Literals.ROUTING_STATEMENT__NAME));
+			if (transientValues.isValueTransient(semanticObject, EsbDslPackage.Literals.ROUTING_STATEMENT__SOURCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EsbDslPackage.Literals.ROUTING_STATEMENT__SOURCE));
+			if (transientValues.isValueTransient(semanticObject, EsbDslPackage.Literals.ROUTING_STATEMENT__TARGET) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EsbDslPackage.Literals.ROUTING_STATEMENT__TARGET));
+			if (transientValues.isValueTransient(semanticObject, EsbDslPackage.Literals.ROUTING_STATEMENT__ACTION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EsbDslPackage.Literals.ROUTING_STATEMENT__ACTION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRoutingStatementAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getRoutingStatementAccess().getSourceIDTerminalRuleCall_0_0(), semanticObject.getSource());
+		feeder.accept(grammarAccess.getRoutingStatementAccess().getTargetIDTerminalRuleCall_2_0(), semanticObject.getTarget());
+		feeder.accept(grammarAccess.getRoutingStatementAccess().getActionSTRINGTerminalRuleCall_4_0(), semanticObject.getAction());
 		feeder.finish();
 	}
 	

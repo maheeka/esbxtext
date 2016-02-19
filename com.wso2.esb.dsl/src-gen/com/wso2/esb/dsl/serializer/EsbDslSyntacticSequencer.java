@@ -22,7 +22,6 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class EsbDslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected EsbDslGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_IntegrationFlowParticipant_WSTerminalRuleCall_3_p;
 	protected AbstractElementAlias match_Model___EndumlKeyword_1_1_StartumlKeyword_0_0_a__a;
 	protected AbstractElementAlias match_Model___EndumlKeyword_1_1_StartumlKeyword_0_0_a__p;
 	protected AbstractElementAlias match_Model___EndumlKeyword_1_1_a_StartumlKeyword_0_0__a;
@@ -30,11 +29,12 @@ public class EsbDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_Model___EndumlKeyword_1_1_or_StartumlKeyword_0_0__a;
 	protected AbstractElementAlias match_Model___EndumlKeyword_1_1_or_StartumlKeyword_0_0__p;
 	protected AbstractElementAlias match_Model___EndumlKeyword_1_1_p_StartumlKeyword_0_0_p__p;
+	protected AbstractElementAlias match_ParallelStatement_ElseKeyword_2_0_a;
+	protected AbstractElementAlias match_ParallelStatement_ElseKeyword_2_0_p;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (EsbDslGrammarAccess) access;
-		match_IntegrationFlowParticipant_WSTerminalRuleCall_3_p = new TokenAlias(true, false, grammarAccess.getIntegrationFlowParticipantAccess().getWSTerminalRuleCall_3());
 		match_Model___EndumlKeyword_1_1_StartumlKeyword_0_0_a__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getModelAccess().getEndumlKeyword_1_1()), new TokenAlias(true, true, grammarAccess.getModelAccess().getStartumlKeyword_0_0()));
 		match_Model___EndumlKeyword_1_1_StartumlKeyword_0_0_a__p = new GroupAlias(true, false, new TokenAlias(false, false, grammarAccess.getModelAccess().getEndumlKeyword_1_1()), new TokenAlias(true, true, grammarAccess.getModelAccess().getStartumlKeyword_0_0()));
 		match_Model___EndumlKeyword_1_1_a_StartumlKeyword_0_0__a = new GroupAlias(true, true, new TokenAlias(true, true, grammarAccess.getModelAccess().getEndumlKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getModelAccess().getStartumlKeyword_0_0()));
@@ -42,49 +42,15 @@ public class EsbDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_Model___EndumlKeyword_1_1_or_StartumlKeyword_0_0__a = new AlternativeAlias(true, true, new TokenAlias(false, false, grammarAccess.getModelAccess().getEndumlKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getModelAccess().getStartumlKeyword_0_0()));
 		match_Model___EndumlKeyword_1_1_or_StartumlKeyword_0_0__p = new AlternativeAlias(true, false, new TokenAlias(false, false, grammarAccess.getModelAccess().getEndumlKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getModelAccess().getStartumlKeyword_0_0()));
 		match_Model___EndumlKeyword_1_1_p_StartumlKeyword_0_0_p__p = new GroupAlias(true, false, new TokenAlias(true, false, grammarAccess.getModelAccess().getEndumlKeyword_1_1()), new TokenAlias(true, false, grammarAccess.getModelAccess().getStartumlKeyword_0_0()));
+		match_ParallelStatement_ElseKeyword_2_0_a = new TokenAlias(true, true, grammarAccess.getParallelStatementAccess().getElseKeyword_2_0());
+		match_ParallelStatement_ElseKeyword_2_0_p = new TokenAlias(true, false, grammarAccess.getParallelStatementAccess().getElseKeyword_2_0());
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getCOLONRule())
-			return getCOLONToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getPARTICIPANTRule())
-			return getPARTICIPANTToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getWSRule())
-			return getWSToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
-	/**
-	 * COLON:
-	 * 	':'
-	 * ;
-	 */
-	protected String getCOLONToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return ":";
-	}
-	
-	/**
-	 * PARTICIPANT :
-	 * 	'participant'
-	 * ;
-	 */
-	protected String getPARTICIPANTToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "participant";
-	}
-	
-	/**
-	 * terminal WS			: (' '|'\t'|'\r'|'\n')+;
-	 */
-	protected String getWSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return " ";
-	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
@@ -92,9 +58,7 @@ public class EsbDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_IntegrationFlowParticipant_WSTerminalRuleCall_3_p.equals(syntax))
-				emit_IntegrationFlowParticipant_WSTerminalRuleCall_3_p(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Model___EndumlKeyword_1_1_StartumlKeyword_0_0_a__a.equals(syntax))
+			if (match_Model___EndumlKeyword_1_1_StartumlKeyword_0_0_a__a.equals(syntax))
 				emit_Model___EndumlKeyword_1_1_StartumlKeyword_0_0_a__a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Model___EndumlKeyword_1_1_StartumlKeyword_0_0_a__p.equals(syntax))
 				emit_Model___EndumlKeyword_1_1_StartumlKeyword_0_0_a__p(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -108,21 +72,14 @@ public class EsbDslSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Model___EndumlKeyword_1_1_or_StartumlKeyword_0_0__p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Model___EndumlKeyword_1_1_p_StartumlKeyword_0_0_p__p.equals(syntax))
 				emit_Model___EndumlKeyword_1_1_p_StartumlKeyword_0_0_p__p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ParallelStatement_ElseKeyword_2_0_a.equals(syntax))
+				emit_ParallelStatement_ElseKeyword_2_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ParallelStatement_ElseKeyword_2_0_p.equals(syntax))
+				emit_ParallelStatement_ElseKeyword_2_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
-	/**
-	 * Ambiguous syntax:
-	 *     WS+
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     name=ID COLON (ambiguity) 'IntegrationFlow' '(' Definition=STRING
-	 */
-	protected void emit_IntegrationFlowParticipant_WSTerminalRuleCall_3_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
 	/**
 	 * Ambiguous syntax:
 	 *     ('@enduml' '@startuml'*)*
@@ -199,6 +156,32 @@ public class EsbDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     statements+=Statement (ambiguity) participants+=ParticipantStatement
 	 */
 	protected void emit_Model___EndumlKeyword_1_1_p_StartumlKeyword_0_0_p__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'else'*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) 'par' (ambiguity) 'end' (rule start)
+	 *     statements+=Statement (ambiguity) 'end' (rule end)
+	 *     statements+=Statement (ambiguity) statements+=Statement
+	 */
+	protected void emit_ParallelStatement_ElseKeyword_2_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'else'+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) 'par' (ambiguity) 'end' (rule start)
+	 *     (rule start) 'par' (ambiguity) statements+=Statement
+	 *     statements+=Statement (ambiguity) statements+=Statement
+	 */
+	protected void emit_ParallelStatement_ElseKeyword_2_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

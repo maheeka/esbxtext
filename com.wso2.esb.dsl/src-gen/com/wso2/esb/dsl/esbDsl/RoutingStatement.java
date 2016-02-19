@@ -13,7 +13,9 @@ package com.wso2.esb.dsl.esbDsl;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.wso2.esb.dsl.esbDsl.RoutingStatement#getName <em>Name</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.RoutingStatement#getSource <em>Source</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.RoutingStatement#getTarget <em>Target</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.RoutingStatement#getAction <em>Action</em>}</li>
  * </ul>
  *
  * @see com.wso2.esb.dsl.esbDsl.EsbDslPackage#getRoutingStatement()
@@ -23,29 +25,81 @@ package com.wso2.esb.dsl.esbDsl;
 public interface RoutingStatement extends Statement
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Source</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Source</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see com.wso2.esb.dsl.esbDsl.EsbDslPackage#getRoutingStatement_Name()
+   * @return the value of the '<em>Source</em>' attribute.
+   * @see #setSource(String)
+   * @see com.wso2.esb.dsl.esbDsl.EsbDslPackage#getRoutingStatement_Source()
    * @model
    * @generated
    */
-  String getName();
+  String getSource();
 
   /**
-   * Sets the value of the '{@link com.wso2.esb.dsl.esbDsl.RoutingStatement#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link com.wso2.esb.dsl.esbDsl.RoutingStatement#getSource <em>Source</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Source</em>' attribute.
+   * @see #getSource()
    * @generated
    */
-  void setName(String value);
+  void setSource(String value);
+
+  /**
+   * Returns the value of the '<em><b>Target</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Target</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Target</em>' attribute.
+   * @see #setTarget(String)
+   * @see com.wso2.esb.dsl.esbDsl.EsbDslPackage#getRoutingStatement_Target()
+   * @model
+   * @generated
+   */
+  String getTarget();
+
+  /**
+   * Sets the value of the '{@link com.wso2.esb.dsl.esbDsl.RoutingStatement#getTarget <em>Target</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Target</em>' attribute.
+   * @see #getTarget()
+   * @generated
+   */
+  void setTarget(String value);
+
+  /**
+   * Returns the value of the '<em><b>Action</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Action</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Action</em>' attribute.
+   * @see #setAction(String)
+   * @see com.wso2.esb.dsl.esbDsl.EsbDslPackage#getRoutingStatement_Action()
+   * @model
+   * @generated
+   */
+  String getAction();
+
+  /**
+   * Sets the value of the '{@link com.wso2.esb.dsl.esbDsl.RoutingStatement#getAction <em>Action</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Action</em>' attribute.
+   * @see #getAction()
+   * @generated
+   */
+  void setAction(String value);
 
 } // RoutingStatement

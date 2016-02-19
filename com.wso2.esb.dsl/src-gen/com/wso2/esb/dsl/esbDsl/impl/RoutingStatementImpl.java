@@ -20,7 +20,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.RoutingStatementImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.RoutingStatementImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.RoutingStatementImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.RoutingStatementImpl#getAction <em>Action</em>}</li>
  * </ul>
  *
  * @generated
@@ -28,24 +30,64 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class RoutingStatementImpl extends StatementImpl implements RoutingStatement
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #getSource() <em>Source</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getSource()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected static final String SOURCE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getSource() <em>Source</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getSource()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected String source = SOURCE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getTarget() <em>Target</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTarget()
+   * @generated
+   * @ordered
+   */
+  protected static final String TARGET_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getTarget() <em>Target</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTarget()
+   * @generated
+   * @ordered
+   */
+  protected String target = TARGET_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getAction() <em>Action</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAction()
+   * @generated
+   * @ordered
+   */
+  protected static final String ACTION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getAction() <em>Action</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAction()
+   * @generated
+   * @ordered
+   */
+  protected String action = ACTION_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,9 +115,9 @@ public class RoutingStatementImpl extends StatementImpl implements RoutingStatem
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public String getSource()
   {
-    return name;
+    return source;
   }
 
   /**
@@ -83,12 +125,58 @@ public class RoutingStatementImpl extends StatementImpl implements RoutingStatem
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public void setSource(String newSource)
   {
-    String oldName = name;
-    name = newName;
+    String oldSource = source;
+    source = newSource;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EsbDslPackage.ROUTING_STATEMENT__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, EsbDslPackage.ROUTING_STATEMENT__SOURCE, oldSource, source));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getTarget()
+  {
+    return target;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTarget(String newTarget)
+  {
+    String oldTarget = target;
+    target = newTarget;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EsbDslPackage.ROUTING_STATEMENT__TARGET, oldTarget, target));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getAction()
+  {
+    return action;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAction(String newAction)
+  {
+    String oldAction = action;
+    action = newAction;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EsbDslPackage.ROUTING_STATEMENT__ACTION, oldAction, action));
   }
 
   /**
@@ -101,8 +189,12 @@ public class RoutingStatementImpl extends StatementImpl implements RoutingStatem
   {
     switch (featureID)
     {
-      case EsbDslPackage.ROUTING_STATEMENT__NAME:
-        return getName();
+      case EsbDslPackage.ROUTING_STATEMENT__SOURCE:
+        return getSource();
+      case EsbDslPackage.ROUTING_STATEMENT__TARGET:
+        return getTarget();
+      case EsbDslPackage.ROUTING_STATEMENT__ACTION:
+        return getAction();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,8 +209,14 @@ public class RoutingStatementImpl extends StatementImpl implements RoutingStatem
   {
     switch (featureID)
     {
-      case EsbDslPackage.ROUTING_STATEMENT__NAME:
-        setName((String)newValue);
+      case EsbDslPackage.ROUTING_STATEMENT__SOURCE:
+        setSource((String)newValue);
+        return;
+      case EsbDslPackage.ROUTING_STATEMENT__TARGET:
+        setTarget((String)newValue);
+        return;
+      case EsbDslPackage.ROUTING_STATEMENT__ACTION:
+        setAction((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +232,14 @@ public class RoutingStatementImpl extends StatementImpl implements RoutingStatem
   {
     switch (featureID)
     {
-      case EsbDslPackage.ROUTING_STATEMENT__NAME:
-        setName(NAME_EDEFAULT);
+      case EsbDslPackage.ROUTING_STATEMENT__SOURCE:
+        setSource(SOURCE_EDEFAULT);
+        return;
+      case EsbDslPackage.ROUTING_STATEMENT__TARGET:
+        setTarget(TARGET_EDEFAULT);
+        return;
+      case EsbDslPackage.ROUTING_STATEMENT__ACTION:
+        setAction(ACTION_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -151,8 +255,12 @@ public class RoutingStatementImpl extends StatementImpl implements RoutingStatem
   {
     switch (featureID)
     {
-      case EsbDslPackage.ROUTING_STATEMENT__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case EsbDslPackage.ROUTING_STATEMENT__SOURCE:
+        return SOURCE_EDEFAULT == null ? source != null : !SOURCE_EDEFAULT.equals(source);
+      case EsbDslPackage.ROUTING_STATEMENT__TARGET:
+        return TARGET_EDEFAULT == null ? target != null : !TARGET_EDEFAULT.equals(target);
+      case EsbDslPackage.ROUTING_STATEMENT__ACTION:
+        return ACTION_EDEFAULT == null ? action != null : !ACTION_EDEFAULT.equals(action);
     }
     return super.eIsSet(featureID);
   }
@@ -168,8 +276,12 @@ public class RoutingStatementImpl extends StatementImpl implements RoutingStatem
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
+    result.append(" (source: ");
+    result.append(source);
+    result.append(", target: ");
+    result.append(target);
+    result.append(", action: ");
+    result.append(action);
     result.append(')');
     return result.toString();
   }

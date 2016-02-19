@@ -3,22 +3,15 @@
  */
 package com.wso2.esb.dsl.esbDsl.impl;
 
-import com.wso2.esb.dsl.esbDsl.Command;
 import com.wso2.esb.dsl.esbDsl.EsbDslFactory;
 import com.wso2.esb.dsl.esbDsl.EsbDslPackage;
 import com.wso2.esb.dsl.esbDsl.GroupStatement;
 import com.wso2.esb.dsl.esbDsl.IfStatement;
-import com.wso2.esb.dsl.esbDsl.InboundEndpointDefStatement;
-import com.wso2.esb.dsl.esbDsl.IntegrationFlowDef;
-import com.wso2.esb.dsl.esbDsl.IntegrationFlowParticipant;
 import com.wso2.esb.dsl.esbDsl.LoopStatement;
-import com.wso2.esb.dsl.esbDsl.MediatorDefStatement;
 import com.wso2.esb.dsl.esbDsl.Model;
-import com.wso2.esb.dsl.esbDsl.OutboundEndpointDefStatement;
 import com.wso2.esb.dsl.esbDsl.ParallelStatement;
 import com.wso2.esb.dsl.esbDsl.ParticipantStatement;
 import com.wso2.esb.dsl.esbDsl.ParticipantType;
-import com.wso2.esb.dsl.esbDsl.PipelineDefStatement;
 import com.wso2.esb.dsl.esbDsl.ProcessingStatement;
 import com.wso2.esb.dsl.esbDsl.RefStatement;
 import com.wso2.esb.dsl.esbDsl.RoutingStatement;
@@ -109,55 +102,6 @@ public class EsbDslPackageImpl extends EPackageImpl implements EsbDslPackage
    * @generated
    */
   private EClass participantStatementEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass integrationFlowParticipantEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass integrationFlowDefEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass inboundEndpointDefStatementEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass pipelineDefStatementEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass outboundEndpointDefStatementEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass mediatorDefStatementEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass commandEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -314,9 +258,29 @@ public class EsbDslPackageImpl extends EPackageImpl implements EsbDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRoutingStatement_Name()
+  public EAttribute getRoutingStatement_Source()
   {
     return (EAttribute)routingStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRoutingStatement_Target()
+  {
+    return (EAttribute)routingStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRoutingStatement_Action()
+  {
+    return (EAttribute)routingStatementEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -334,9 +298,9 @@ public class EsbDslPackageImpl extends EPackageImpl implements EsbDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getParallelStatement_Name()
+  public EReference getParallelStatement_Statements()
   {
-    return (EAttribute)parallelStatementEClass.getEStructuralFeatures().get(0);
+    return (EReference)parallelStatementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -464,156 +428,6 @@ public class EsbDslPackageImpl extends EPackageImpl implements EsbDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getIntegrationFlowParticipant()
-  {
-    return integrationFlowParticipantEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getIntegrationFlowParticipant_Name()
-  {
-    return (EAttribute)integrationFlowParticipantEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getIntegrationFlowDef()
-  {
-    return integrationFlowDefEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getIntegrationFlowDef_Definition()
-  {
-    return (EAttribute)integrationFlowDefEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getInboundEndpointDefStatement()
-  {
-    return inboundEndpointDefStatementEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getInboundEndpointDefStatement_Name()
-  {
-    return (EAttribute)inboundEndpointDefStatementEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getPipelineDefStatement()
-  {
-    return pipelineDefStatementEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getPipelineDefStatement_Name()
-  {
-    return (EAttribute)pipelineDefStatementEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getOutboundEndpointDefStatement()
-  {
-    return outboundEndpointDefStatementEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getOutboundEndpointDefStatement_Name()
-  {
-    return (EAttribute)outboundEndpointDefStatementEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getMediatorDefStatement()
-  {
-    return mediatorDefStatementEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getMediatorDefStatement_Name()
-  {
-    return (EAttribute)mediatorDefStatementEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getCommand()
-  {
-    return commandEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getCommand_Name()
-  {
-    return (EAttribute)commandEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getCommand_Configs()
-  {
-    return (EAttribute)commandEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EEnum getParticipantType()
   {
     return participantTypeEEnum;
@@ -660,10 +474,12 @@ public class EsbDslPackageImpl extends EPackageImpl implements EsbDslPackage
     createEAttribute(processingStatementEClass, PROCESSING_STATEMENT__CONFIGS);
 
     routingStatementEClass = createEClass(ROUTING_STATEMENT);
-    createEAttribute(routingStatementEClass, ROUTING_STATEMENT__NAME);
+    createEAttribute(routingStatementEClass, ROUTING_STATEMENT__SOURCE);
+    createEAttribute(routingStatementEClass, ROUTING_STATEMENT__TARGET);
+    createEAttribute(routingStatementEClass, ROUTING_STATEMENT__ACTION);
 
     parallelStatementEClass = createEClass(PARALLEL_STATEMENT);
-    createEAttribute(parallelStatementEClass, PARALLEL_STATEMENT__NAME);
+    createEReference(parallelStatementEClass, PARALLEL_STATEMENT__STATEMENTS);
 
     ifStatementEClass = createEClass(IF_STATEMENT);
     createEAttribute(ifStatementEClass, IF_STATEMENT__EXPRESSION);
@@ -681,28 +497,6 @@ public class EsbDslPackageImpl extends EPackageImpl implements EsbDslPackage
     createEAttribute(participantStatementEClass, PARTICIPANT_STATEMENT__NAME);
     createEAttribute(participantStatementEClass, PARTICIPANT_STATEMENT__PARTICIPANT_TYPE);
     createEAttribute(participantStatementEClass, PARTICIPANT_STATEMENT__DESCRIPTION);
-
-    integrationFlowParticipantEClass = createEClass(INTEGRATION_FLOW_PARTICIPANT);
-    createEAttribute(integrationFlowParticipantEClass, INTEGRATION_FLOW_PARTICIPANT__NAME);
-
-    integrationFlowDefEClass = createEClass(INTEGRATION_FLOW_DEF);
-    createEAttribute(integrationFlowDefEClass, INTEGRATION_FLOW_DEF__DEFINITION);
-
-    inboundEndpointDefStatementEClass = createEClass(INBOUND_ENDPOINT_DEF_STATEMENT);
-    createEAttribute(inboundEndpointDefStatementEClass, INBOUND_ENDPOINT_DEF_STATEMENT__NAME);
-
-    pipelineDefStatementEClass = createEClass(PIPELINE_DEF_STATEMENT);
-    createEAttribute(pipelineDefStatementEClass, PIPELINE_DEF_STATEMENT__NAME);
-
-    outboundEndpointDefStatementEClass = createEClass(OUTBOUND_ENDPOINT_DEF_STATEMENT);
-    createEAttribute(outboundEndpointDefStatementEClass, OUTBOUND_ENDPOINT_DEF_STATEMENT__NAME);
-
-    mediatorDefStatementEClass = createEClass(MEDIATOR_DEF_STATEMENT);
-    createEAttribute(mediatorDefStatementEClass, MEDIATOR_DEF_STATEMENT__NAME);
-
-    commandEClass = createEClass(COMMAND);
-    createEAttribute(commandEClass, COMMAND__NAME);
-    createEAttribute(commandEClass, COMMAND__CONFIGS);
 
     // Create enums
     participantTypeEEnum = createEEnum(PARTICIPANT_TYPE);
@@ -744,7 +538,6 @@ public class EsbDslPackageImpl extends EPackageImpl implements EsbDslPackage
     loopStatementEClass.getESuperTypes().add(this.getStatement());
     groupStatementEClass.getESuperTypes().add(this.getStatement());
     refStatementEClass.getESuperTypes().add(this.getStatement());
-    integrationFlowDefEClass.getESuperTypes().add(this.getIntegrationFlowParticipant());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -758,10 +551,12 @@ public class EsbDslPackageImpl extends EPackageImpl implements EsbDslPackage
     initEAttribute(getProcessingStatement_Configs(), ecorePackage.getEString(), "configs", null, 0, 1, ProcessingStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(routingStatementEClass, RoutingStatement.class, "RoutingStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRoutingStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, RoutingStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRoutingStatement_Source(), ecorePackage.getEString(), "source", null, 0, 1, RoutingStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRoutingStatement_Target(), ecorePackage.getEString(), "target", null, 0, 1, RoutingStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRoutingStatement_Action(), ecorePackage.getEString(), "action", null, 0, 1, RoutingStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(parallelStatementEClass, ParallelStatement.class, "ParallelStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getParallelStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, ParallelStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getParallelStatement_Statements(), this.getStatement(), null, "statements", null, 0, -1, ParallelStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ifStatementEClass, IfStatement.class, "IfStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getIfStatement_Expression(), ecorePackage.getEString(), "expression", null, 0, 1, IfStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -779,28 +574,6 @@ public class EsbDslPackageImpl extends EPackageImpl implements EsbDslPackage
     initEAttribute(getParticipantStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, ParticipantStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getParticipantStatement_ParticipantType(), this.getParticipantType(), "participantType", null, 0, 1, ParticipantStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getParticipantStatement_Description(), ecorePackage.getEString(), "description", null, 0, 1, ParticipantStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(integrationFlowParticipantEClass, IntegrationFlowParticipant.class, "IntegrationFlowParticipant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getIntegrationFlowParticipant_Name(), ecorePackage.getEString(), "name", null, 0, 1, IntegrationFlowParticipant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(integrationFlowDefEClass, IntegrationFlowDef.class, "IntegrationFlowDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getIntegrationFlowDef_Definition(), ecorePackage.getEString(), "Definition", null, 0, 1, IntegrationFlowDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(inboundEndpointDefStatementEClass, InboundEndpointDefStatement.class, "InboundEndpointDefStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getInboundEndpointDefStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, InboundEndpointDefStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(pipelineDefStatementEClass, PipelineDefStatement.class, "PipelineDefStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getPipelineDefStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, PipelineDefStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(outboundEndpointDefStatementEClass, OutboundEndpointDefStatement.class, "OutboundEndpointDefStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getOutboundEndpointDefStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, OutboundEndpointDefStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(mediatorDefStatementEClass, MediatorDefStatement.class, "MediatorDefStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getMediatorDefStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, MediatorDefStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(commandEClass, Command.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCommand_Name(), ecorePackage.getEString(), "name", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getCommand_Configs(), ecorePackage.getEString(), "configs", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(participantTypeEEnum, ParticipantType.class, "ParticipantType");

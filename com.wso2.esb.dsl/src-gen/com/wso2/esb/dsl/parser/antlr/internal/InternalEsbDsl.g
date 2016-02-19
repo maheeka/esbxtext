@@ -338,15 +338,11 @@ ruleRoutingStatement returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='routing'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getRoutingStatementAccess().getRoutingKeyword_0());
-		}
 		(
 			(
-				lv_name_1_0=RULE_ID
+				lv_source_0_0=RULE_ID
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getRoutingStatementAccess().getNameIDTerminalRuleCall_1_0());
+					newLeafNode(lv_source_0_0, grammarAccess.getRoutingStatementAccess().getSourceIDTerminalRuleCall_0_0());
 				}
 				{
 					if ($current==null) {
@@ -354,9 +350,53 @@ ruleRoutingStatement returns [EObject current=null]
 					}
 					setWithLastConsumed(
 						$current,
-						"name",
-						lv_name_1_0,
+						"source",
+						lv_source_0_0,
 						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_1='->'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getRoutingStatementAccess().getHyphenMinusGreaterThanSignKeyword_1());
+		}
+		(
+			(
+				lv_target_2_0=RULE_ID
+				{
+					newLeafNode(lv_target_2_0, grammarAccess.getRoutingStatementAccess().getTargetIDTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getRoutingStatementRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"target",
+						lv_target_2_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_3=':'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getRoutingStatementAccess().getColonKeyword_3());
+		}
+		(
+			(
+				lv_action_4_0=RULE_STRING
+				{
+					newLeafNode(lv_action_4_0, grammarAccess.getRoutingStatementAccess().getActionSTRINGTerminalRuleCall_4_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getRoutingStatementRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"action",
+						lv_action_4_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)
@@ -379,28 +419,58 @@ ruleParallelStatement returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='parallel'
+		otherlv_0='par'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getParallelStatementAccess().getParallelKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getParallelStatementAccess().getParKeyword_0());
 		}
 		(
 			(
-				lv_name_1_0=RULE_ID
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getParallelStatementAccess().getNameIDTerminalRuleCall_1_0());
+					newCompositeNode(grammarAccess.getParallelStatementAccess().getStatementsStatementParserRuleCall_1_0());
 				}
+				lv_statements_1_0=ruleStatement
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getParallelStatementRule());
+						$current = createModelElementForParent(grammarAccess.getParallelStatementRule());
 					}
-					setWithLastConsumed(
+					add(
 						$current,
-						"name",
-						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						"statements",
+						lv_statements_1_0,
+						"com.wso2.esb.dsl.EsbDsl.Statement");
+					afterParserOrEnumRuleCall();
 				}
 			)
-		)
+		)*
+		(
+			otherlv_2='else'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getParallelStatementAccess().getElseKeyword_2_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getParallelStatementAccess().getStatementsStatementParserRuleCall_2_1_0());
+					}
+					lv_statements_3_0=ruleStatement
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getParallelStatementRule());
+						}
+						add(
+							$current,
+							"statements",
+							lv_statements_3_0,
+							"com.wso2.esb.dsl.EsbDsl.Statement");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)*
+		)*
+		otherlv_4='end'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getParallelStatementAccess().getEndKeyword_3());
+		}
 	)
 ;
 
@@ -656,99 +726,6 @@ ruleParticipantStatement returns [EObject current=null]
 			newLeafNode(otherlv_6, grammarAccess.getParticipantStatementAccess().getRightParenthesisKeyword_6());
 		}
 	)
-;
-
-// Entry rule entryRuleIntegrationFlowDef
-entryRuleIntegrationFlowDef returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getIntegrationFlowDefRule()); }
-	iv_ruleIntegrationFlowDef=ruleIntegrationFlowDef
-	{ $current=$iv_ruleIntegrationFlowDef.current; }
-	EOF;
-
-// Rule IntegrationFlowDef
-ruleIntegrationFlowDef returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='IntegrationFlow'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getIntegrationFlowDefAccess().getIntegrationFlowKeyword_0());
-		}
-		otherlv_1='('
-		{
-			newLeafNode(otherlv_1, grammarAccess.getIntegrationFlowDefAccess().getLeftParenthesisKeyword_1());
-		}
-		(
-			(
-				lv_Definition_2_0=RULE_STRING
-				{
-					newLeafNode(lv_Definition_2_0, grammarAccess.getIntegrationFlowDefAccess().getDefinitionSTRINGTerminalRuleCall_2_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getIntegrationFlowDefRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"Definition",
-						lv_Definition_2_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
-				}
-			)
-		)
-		otherlv_3=')'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getIntegrationFlowDefAccess().getRightParenthesisKeyword_3());
-		}
-	)
-;
-
-// Entry rule entryRuleCOLON
-entryRuleCOLON returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getCOLONRule()); }
-	iv_ruleCOLON=ruleCOLON
-	{ $current=$iv_ruleCOLON.current.getText(); }
-	EOF;
-
-// Rule COLON
-ruleCOLON returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	kw=':'
-	{
-		$current.merge(kw);
-		newLeafNode(kw, grammarAccess.getCOLONAccess().getColonKeyword());
-	}
-;
-
-// Entry rule entryRulePARTICIPANT
-entryRulePARTICIPANT returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getPARTICIPANTRule()); }
-	iv_rulePARTICIPANT=rulePARTICIPANT
-	{ $current=$iv_rulePARTICIPANT.current.getText(); }
-	EOF;
-
-// Rule PARTICIPANT
-rulePARTICIPANT returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	kw='participant'
-	{
-		$current.merge(kw);
-		newLeafNode(kw, grammarAccess.getPARTICIPANTAccess().getParticipantKeyword());
-	}
 ;
 
 // Rule ParticipantType

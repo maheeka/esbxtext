@@ -114,69 +114,6 @@ public interface EsbDslFactory extends EFactory
   ParticipantStatement createParticipantStatement();
 
   /**
-   * Returns a new object of class '<em>Integration Flow Participant</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Integration Flow Participant</em>'.
-   * @generated
-   */
-  IntegrationFlowParticipant createIntegrationFlowParticipant();
-
-  /**
-   * Returns a new object of class '<em>Integration Flow Def</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Integration Flow Def</em>'.
-   * @generated
-   */
-  IntegrationFlowDef createIntegrationFlowDef();
-
-  /**
-   * Returns a new object of class '<em>Inbound Endpoint Def Statement</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Inbound Endpoint Def Statement</em>'.
-   * @generated
-   */
-  InboundEndpointDefStatement createInboundEndpointDefStatement();
-
-  /**
-   * Returns a new object of class '<em>Pipeline Def Statement</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Pipeline Def Statement</em>'.
-   * @generated
-   */
-  PipelineDefStatement createPipelineDefStatement();
-
-  /**
-   * Returns a new object of class '<em>Outbound Endpoint Def Statement</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Outbound Endpoint Def Statement</em>'.
-   * @generated
-   */
-  OutboundEndpointDefStatement createOutboundEndpointDefStatement();
-
-  /**
-   * Returns a new object of class '<em>Mediator Def Statement</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Mediator Def Statement</em>'.
-   * @generated
-   */
-  MediatorDefStatement createMediatorDefStatement();
-
-  /**
-   * Returns a new object of class '<em>Command</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Command</em>'.
-   * @generated
-   */
-  Command createCommand();
-
-  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

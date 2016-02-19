@@ -76,13 +76,6 @@ public class EsbDslFactoryImpl extends EFactoryImpl implements EsbDslFactory
       case EsbDslPackage.GROUP_STATEMENT: return createGroupStatement();
       case EsbDslPackage.REF_STATEMENT: return createRefStatement();
       case EsbDslPackage.PARTICIPANT_STATEMENT: return createParticipantStatement();
-      case EsbDslPackage.INTEGRATION_FLOW_PARTICIPANT: return createIntegrationFlowParticipant();
-      case EsbDslPackage.INTEGRATION_FLOW_DEF: return createIntegrationFlowDef();
-      case EsbDslPackage.INBOUND_ENDPOINT_DEF_STATEMENT: return createInboundEndpointDefStatement();
-      case EsbDslPackage.PIPELINE_DEF_STATEMENT: return createPipelineDefStatement();
-      case EsbDslPackage.OUTBOUND_ENDPOINT_DEF_STATEMENT: return createOutboundEndpointDefStatement();
-      case EsbDslPackage.MEDIATOR_DEF_STATEMENT: return createMediatorDefStatement();
-      case EsbDslPackage.COMMAND: return createCommand();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -230,83 +223,6 @@ public class EsbDslFactoryImpl extends EFactoryImpl implements EsbDslFactory
   {
     ParticipantStatementImpl participantStatement = new ParticipantStatementImpl();
     return participantStatement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public IntegrationFlowParticipant createIntegrationFlowParticipant()
-  {
-    IntegrationFlowParticipantImpl integrationFlowParticipant = new IntegrationFlowParticipantImpl();
-    return integrationFlowParticipant;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public IntegrationFlowDef createIntegrationFlowDef()
-  {
-    IntegrationFlowDefImpl integrationFlowDef = new IntegrationFlowDefImpl();
-    return integrationFlowDef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public InboundEndpointDefStatement createInboundEndpointDefStatement()
-  {
-    InboundEndpointDefStatementImpl inboundEndpointDefStatement = new InboundEndpointDefStatementImpl();
-    return inboundEndpointDefStatement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PipelineDefStatement createPipelineDefStatement()
-  {
-    PipelineDefStatementImpl pipelineDefStatement = new PipelineDefStatementImpl();
-    return pipelineDefStatement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public OutboundEndpointDefStatement createOutboundEndpointDefStatement()
-  {
-    OutboundEndpointDefStatementImpl outboundEndpointDefStatement = new OutboundEndpointDefStatementImpl();
-    return outboundEndpointDefStatement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public MediatorDefStatement createMediatorDefStatement()
-  {
-    MediatorDefStatementImpl mediatorDefStatement = new MediatorDefStatementImpl();
-    return mediatorDefStatement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Command createCommand()
-  {
-    CommandImpl command = new CommandImpl();
-    return command;
   }
 
   /**

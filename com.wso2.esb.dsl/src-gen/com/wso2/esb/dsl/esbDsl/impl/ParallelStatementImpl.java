@@ -5,12 +5,19 @@ package com.wso2.esb.dsl.esbDsl.impl;
 
 import com.wso2.esb.dsl.esbDsl.EsbDslPackage;
 import com.wso2.esb.dsl.esbDsl.ParallelStatement;
+import com.wso2.esb.dsl.esbDsl.Statement;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.ParallelStatementImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.ParallelStatementImpl#getStatements <em>Statements</em>}</li>
  * </ul>
  *
  * @generated
@@ -28,24 +35,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class ParallelStatementImpl extends StatementImpl implements ParallelStatement
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getStatements() <em>Statements</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getStatements()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected EList<Statement> statements;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,9 +70,13 @@ public class ParallelStatementImpl extends StatementImpl implements ParallelStat
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public EList<Statement> getStatements()
   {
-    return name;
+    if (statements == null)
+    {
+      statements = new EObjectContainmentEList<Statement>(Statement.class, this, EsbDslPackage.PARALLEL_STATEMENT__STATEMENTS);
+    }
+    return statements;
   }
 
   /**
@@ -83,12 +84,15 @@ public class ParallelStatementImpl extends StatementImpl implements ParallelStat
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EsbDslPackage.PARALLEL_STATEMENT__NAME, oldName, name));
+    switch (featureID)
+    {
+      case EsbDslPackage.PARALLEL_STATEMENT__STATEMENTS:
+        return ((InternalEList<?>)getStatements()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -101,8 +105,8 @@ public class ParallelStatementImpl extends StatementImpl implements ParallelStat
   {
     switch (featureID)
     {
-      case EsbDslPackage.PARALLEL_STATEMENT__NAME:
-        return getName();
+      case EsbDslPackage.PARALLEL_STATEMENT__STATEMENTS:
+        return getStatements();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -112,13 +116,15 @@ public class ParallelStatementImpl extends StatementImpl implements ParallelStat
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case EsbDslPackage.PARALLEL_STATEMENT__NAME:
-        setName((String)newValue);
+      case EsbDslPackage.PARALLEL_STATEMENT__STATEMENTS:
+        getStatements().clear();
+        getStatements().addAll((Collection<? extends Statement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +140,8 @@ public class ParallelStatementImpl extends StatementImpl implements ParallelStat
   {
     switch (featureID)
     {
-      case EsbDslPackage.PARALLEL_STATEMENT__NAME:
-        setName(NAME_EDEFAULT);
+      case EsbDslPackage.PARALLEL_STATEMENT__STATEMENTS:
+        getStatements().clear();
         return;
     }
     super.eUnset(featureID);
@@ -151,27 +157,10 @@ public class ParallelStatementImpl extends StatementImpl implements ParallelStat
   {
     switch (featureID)
     {
-      case EsbDslPackage.PARALLEL_STATEMENT__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case EsbDslPackage.PARALLEL_STATEMENT__STATEMENTS:
+        return statements != null && !statements.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //ParallelStatementImpl

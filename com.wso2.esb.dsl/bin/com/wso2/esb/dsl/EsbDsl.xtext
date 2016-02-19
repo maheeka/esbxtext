@@ -2,13 +2,6 @@ grammar com.wso2.esb.dsl.EsbDsl with org.eclipse.xtext.common.Terminals
 
 generate esbDsl "http://www.wso2.com/esb/dsl/EsbDsl"
 
-
-//EModel:
-//	'@startuml'
-//	(participants+=Participant*) & (commands+=Command*)
-//	'@enduml'
-//;
-
 Model:
 	'@startuml'
 	(participants+=ParticipantStatement*) & (statements+=Statement*)
@@ -30,11 +23,14 @@ ProcessingStatement :
 ;
 
 RoutingStatement :
-	'routing' name=ID
+	source=ID '->' target=ID ':' action=STRING
 ;
 
 ParallelStatement : 
-	'parallel' name=ID
+	'par'
+    (statements+=Statement*)
+    ('else' (statements+=Statement*))*
+    'end'
 ;
 
 IfStatement : 
@@ -56,52 +52,24 @@ RefStatement :
 ParticipantStatement:
 	'participant' name=ID ':' participantType=ParticipantType '(' description=STRING ')';
 
-//ParticipantStatement : 
-//	  IntegrationFlowParticipant
-//    | InboundEndpointDefStatement
-//    | PipelineDefStatement
-//    | OutboundEndpointDefStatement
-//    | MediatorDefStatement
-//;
-
 enum ParticipantType:
     INTEGRATIONFLOW='IntegrationFlow' 
     | INBOUNDENDPOINT='InboundEndpoint' 
     | OUTBOUNDENDPOINT = 'OutboundEndpoint'
     | PIPELINE='Pipeline';
+    
+//ACTIONSTRING : 
+//    ('[a-z]'|'[A-Z]'|'_'|'[0-9]'|WS)*
+//;
 
-IntegrationFlowParticipant :
-	PARTICIPANT name=ID COLON WS+ IntegrationFlowDef
-;
-
-IntegrationFlowDef :
-	'IntegrationFlow' '(' Definition=STRING ')'
-;
-
-COLON:
-	':'
-;
-
-InboundEndpointDefStatement :
-	'InboundEndpointDefStatement' name=ID
-;
-
-PipelineDefStatement :
-	'PipelineDefStatement' name=ID
-;
-
-OutboundEndpointDefStatement :
-	'OutboundEndpointDefStatement' name=ID
-;
-
-MediatorDefStatement :
-	'MediatorDefStatement' name=ID
-;
-
-Command : 
-	'message_processor' '(' name=ID (')'|(',' configs=STRING ')'));
-	
-PARTICIPANT :
-	'participant'
-;
-	
+//terminal UNQUOTED_STRING:
+//!NON_QUOTED_STRING_START !(NON_QUOTED_STRING_END)*;
+//
+//terminal fragment NON_QUOTED_STRING_START:
+//'"'|"'"|'0'..'9'|'!'|'#'|'$'|'('|')'|'*'|'+'|','|'-'|'.'|'/'|':'|'<'|'='|'>'|'?'|'['|']'|'{'|'}'|'|'|'%'|'^'|'@'|'\r'|'\n'|' '|'\t';
+//
+//terminal fragment NON_QUOTED_STRING_END:
+//('!'|'#'|'$'|'('|')'|'*'|','|'.'|'/'|':'|'<'|'='|'>'|'?'|'['|']'|'{'|'}'|'|'|'%'|'^'|'\r'|'\n');
+//terminal ACTIONSTRING	: 
+//	( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|'"') )* 
+//; 

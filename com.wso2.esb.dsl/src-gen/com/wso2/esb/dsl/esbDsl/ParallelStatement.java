@@ -3,6 +3,7 @@
  */
 package com.wso2.esb.dsl.esbDsl;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,7 +14,7 @@ package com.wso2.esb.dsl.esbDsl;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.wso2.esb.dsl.esbDsl.ParallelStatement#getName <em>Name</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.ParallelStatement#getStatements <em>Statements</em>}</li>
  * </ul>
  *
  * @see com.wso2.esb.dsl.esbDsl.EsbDslPackage#getParallelStatement()
@@ -23,29 +24,19 @@ package com.wso2.esb.dsl.esbDsl;
 public interface ParallelStatement extends Statement
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Statements</b></em>' containment reference list.
+   * The list contents are of type {@link com.wso2.esb.dsl.esbDsl.Statement}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Statements</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see com.wso2.esb.dsl.esbDsl.EsbDslPackage#getParallelStatement_Name()
-   * @model
+   * @return the value of the '<em>Statements</em>' containment reference list.
+   * @see com.wso2.esb.dsl.esbDsl.EsbDslPackage#getParallelStatement_Statements()
+   * @model containment="true"
    * @generated
    */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link com.wso2.esb.dsl.esbDsl.ParallelStatement#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
+  EList<Statement> getStatements();
 
 } // ParallelStatement
