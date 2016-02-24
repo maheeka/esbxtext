@@ -42,6 +42,15 @@ public interface EsbDslFactory extends EFactory
   Statement createStatement();
 
   /**
+   * Returns a new object of class '<em>Mediator Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mediator Statement</em>'.
+   * @generated
+   */
+  MediatorStatement createMediatorStatement();
+
+  /**
    * Returns a new object of class '<em>Processing Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -112,6 +121,24 @@ public interface EsbDslFactory extends EFactory
    * @generated
    */
   ParticipantStatement createParticipantStatement();
+
+  /**
+   * Returns a new object of class '<em>Outbound Endpoint Def</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Outbound Endpoint Def</em>'.
+   * @generated
+   */
+  OutboundEndpointDef createOutboundEndpointDef();
+
+  /**
+   * Returns a new object of class '<em>Inbound Endpoint Def</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Inbound Endpoint Def</em>'.
+   * @generated
+   */
+  InboundEndpointDef createInboundEndpointDef();
 
   /**
    * Returns the package supported by this factory.

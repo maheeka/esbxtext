@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.Model#getIntegrationFlowName <em>Integration Flow Name</em>}</li>
  *   <li>{@link com.wso2.esb.dsl.esbDsl.Model#getParticipants <em>Participants</em>}</li>
  *   <li>{@link com.wso2.esb.dsl.esbDsl.Model#getStatements <em>Statements</em>}</li>
  * </ul>
@@ -26,6 +27,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Model extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Integration Flow Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Integration Flow Name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Integration Flow Name</em>' attribute.
+   * @see #setIntegrationFlowName(String)
+   * @see com.wso2.esb.dsl.esbDsl.EsbDslPackage#getModel_IntegrationFlowName()
+   * @model
+   * @generated
+   */
+  String getIntegrationFlowName();
+
+  /**
+   * Sets the value of the '{@link com.wso2.esb.dsl.esbDsl.Model#getIntegrationFlowName <em>Integration Flow Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Integration Flow Name</em>' attribute.
+   * @see #getIntegrationFlowName()
+   * @generated
+   */
+  void setIntegrationFlowName(String value);
+
   /**
    * Returns the value of the '<em><b>Participants</b></em>' containment reference list.
    * The list contents are of type {@link com.wso2.esb.dsl.esbDsl.ParticipantStatement}.

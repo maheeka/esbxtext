@@ -3,6 +3,7 @@
  */
 package com.wso2.esb.dsl.esbDsl;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,7 +14,11 @@ package com.wso2.esb.dsl.esbDsl;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.wso2.esb.dsl.esbDsl.IfStatement#getExpression <em>Expression</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.IfStatement#getRouteId <em>Route Id</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.IfStatement#getTransport <em>Transport</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.IfStatement#getPattern <em>Pattern</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.IfStatement#getAltstatements <em>Altstatements</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.IfStatement#getElsestatements <em>Elsestatements</em>}</li>
  * </ul>
  *
  * @see com.wso2.esb.dsl.esbDsl.EsbDslPackage#getIfStatement()
@@ -23,29 +28,113 @@ package com.wso2.esb.dsl.esbDsl;
 public interface IfStatement extends Statement
 {
   /**
-   * Returns the value of the '<em><b>Expression</b></em>' attribute.
+   * Returns the value of the '<em><b>Route Id</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Expression</em>' attribute isn't clear,
+   * If the meaning of the '<em>Route Id</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Expression</em>' attribute.
-   * @see #setExpression(String)
-   * @see com.wso2.esb.dsl.esbDsl.EsbDslPackage#getIfStatement_Expression()
+   * @return the value of the '<em>Route Id</em>' attribute.
+   * @see #setRouteId(String)
+   * @see com.wso2.esb.dsl.esbDsl.EsbDslPackage#getIfStatement_RouteId()
    * @model
    * @generated
    */
-  String getExpression();
+  String getRouteId();
 
   /**
-   * Sets the value of the '{@link com.wso2.esb.dsl.esbDsl.IfStatement#getExpression <em>Expression</em>}' attribute.
+   * Sets the value of the '{@link com.wso2.esb.dsl.esbDsl.IfStatement#getRouteId <em>Route Id</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Expression</em>' attribute.
-   * @see #getExpression()
+   * @param value the new value of the '<em>Route Id</em>' attribute.
+   * @see #getRouteId()
    * @generated
    */
-  void setExpression(String value);
+  void setRouteId(String value);
+
+  /**
+   * Returns the value of the '<em><b>Transport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Transport</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Transport</em>' attribute.
+   * @see #setTransport(String)
+   * @see com.wso2.esb.dsl.esbDsl.EsbDslPackage#getIfStatement_Transport()
+   * @model
+   * @generated
+   */
+  String getTransport();
+
+  /**
+   * Sets the value of the '{@link com.wso2.esb.dsl.esbDsl.IfStatement#getTransport <em>Transport</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Transport</em>' attribute.
+   * @see #getTransport()
+   * @generated
+   */
+  void setTransport(String value);
+
+  /**
+   * Returns the value of the '<em><b>Pattern</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Pattern</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Pattern</em>' attribute.
+   * @see #setPattern(String)
+   * @see com.wso2.esb.dsl.esbDsl.EsbDslPackage#getIfStatement_Pattern()
+   * @model
+   * @generated
+   */
+  String getPattern();
+
+  /**
+   * Sets the value of the '{@link com.wso2.esb.dsl.esbDsl.IfStatement#getPattern <em>Pattern</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Pattern</em>' attribute.
+   * @see #getPattern()
+   * @generated
+   */
+  void setPattern(String value);
+
+  /**
+   * Returns the value of the '<em><b>Altstatements</b></em>' containment reference list.
+   * The list contents are of type {@link com.wso2.esb.dsl.esbDsl.Statement}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Altstatements</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Altstatements</em>' containment reference list.
+   * @see com.wso2.esb.dsl.esbDsl.EsbDslPackage#getIfStatement_Altstatements()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Statement> getAltstatements();
+
+  /**
+   * Returns the value of the '<em><b>Elsestatements</b></em>' containment reference list.
+   * The list contents are of type {@link com.wso2.esb.dsl.esbDsl.Statement}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Elsestatements</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Elsestatements</em>' containment reference list.
+   * @see com.wso2.esb.dsl.esbDsl.EsbDslPackage#getIfStatement_Elsestatements()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Statement> getElsestatements();
 
 } // IfStatement

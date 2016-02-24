@@ -4,18 +4,23 @@ generate esbDsl "http://www.wso2.com/esb/dsl/EsbDsl"
 
 Model:
 	'@startuml'
+	'IntegrationFlow' ':' integrationFlowName=ID
 	(participants+=ParticipantStatement*) & (statements+=Statement*)
 	'@enduml'
 ;
 
 Statement : 
-	ProcessingStatement
+	MediatorStatement
 	| RoutingStatement
 	| ParallelStatement
 	| IfStatement
 	| LoopStatement
 	| GroupStatement
 	| RefStatement
+;
+
+MediatorStatement : 
+	(mediatorStatement=MediatorType '(' config=STRING ')')
 ;
 
 ProcessingStatement :
@@ -28,48 +33,56 @@ RoutingStatement :
 
 ParallelStatement : 
 	'par'
-    (statements+=Statement*)
-    ('else' (statements+=Statement*))*
+    (parstatements+=Statement*)
+    ('else' (elsestatements+=Statement*))*
     'end'
 ;
 
 IfStatement : 
-	'alt' expression=STRING
+	'alt' 'condition' '(' 'source' '('(routeId=STRING)','(transport=STRING) ')' ',' 'pattern' '('pattern=STRING ')'')'
+    (altstatements+=Statement*)
+    ('else' (elsestatements+=Statement*))*
+    'end'
 ;
 
-LoopStatement :
+LoopStatement : //TODO : not implemented
 	'loop' name=ID
 ;
 
-GroupStatement :
+GroupStatement : //TODO : not implemented
 	'group' name=ID
 ;
 
-RefStatement :
+RefStatement : //TODO : not implemented
 	'ref' name=ID
 ;
 
 ParticipantStatement:
-	'participant' name=ID ':' participantType=ParticipantType '(' description=STRING ')';
+	'participant' name=ID ':' participantType=ParticipantType '(' description=STRING ')'
+	| 'participant' name=ID ':' outbounds=OutboundEndpointDef
+	| 'participant' name=ID ':' inbounds=InboundEndpointDef
+;
+
+OutboundEndpointDef : 
+	'OutboundEndpoint' '(' + 'protocol''('(protocol=STRING)')' ',' 'host' '('(host=STRING) ')'')'
+;
+
+InboundEndpointDef : 
+	'InboundEndpoint' '(' + 'protocol''('(protocol=STRING)')' ',' 'port' '('(port=INT) ')'',''context''('(context=STRING)')'')'
+;
 
 enum ParticipantType:
     INTEGRATIONFLOW='IntegrationFlow' 
-    | INBOUNDENDPOINT='InboundEndpoint' 
+    | INBOUNDENDPOINT='InboundEndpoint'
     | OUTBOUNDENDPOINT = 'OutboundEndpoint'
     | PIPELINE='Pipeline';
-    
-//ACTIONSTRING : 
-//    ('[a-z]'|'[A-Z]'|'_'|'[0-9]'|WS)*
-//;
-
-//terminal UNQUOTED_STRING:
-//!NON_QUOTED_STRING_START !(NON_QUOTED_STRING_END)*;
-//
-//terminal fragment NON_QUOTED_STRING_START:
-//'"'|"'"|'0'..'9'|'!'|'#'|'$'|'('|')'|'*'|'+'|','|'-'|'.'|'/'|':'|'<'|'='|'>'|'?'|'['|']'|'{'|'}'|'|'|'%'|'^'|'@'|'\r'|'\n'|' '|'\t';
-//
-//terminal fragment NON_QUOTED_STRING_END:
-//('!'|'#'|'$'|'('|')'|'*'|','|'.'|'/'|':'|'<'|'='|'>'|'?'|'['|']'|'{'|'}'|'|'|'%'|'^'|'\r'|'\n');
-//terminal ACTIONSTRING	: 
-//	( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|'"') )* 
-//; 
+ 
+enum MediatorType:
+	LOG='log'
+	| CALL = 'call'
+	| RESPOND = 'respond'
+	| FILTER = 'filter'
+	| TRANSFORM = 'transform'
+	| ENRICH = 'enrich'
+	| EXTERNAL = 'external'
+;

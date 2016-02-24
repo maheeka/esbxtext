@@ -3,6 +3,7 @@
  */
 package com.wso2.esb.dsl.esbDsl;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +22,7 @@ package com.wso2.esb.dsl.esbDsl;
  * @model
  * @generated
  */
-public interface ProcessingStatement extends Statement
+public interface ProcessingStatement extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

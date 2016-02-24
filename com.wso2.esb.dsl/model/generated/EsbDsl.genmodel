@@ -12,11 +12,25 @@
       <genEnumLiterals ecoreEnumLiteral="EsbDsl.ecore#//ParticipantType/OUTBOUNDENDPOINT"/>
       <genEnumLiterals ecoreEnumLiteral="EsbDsl.ecore#//ParticipantType/PIPELINE"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EsbDsl.ecore#//MediatorType">
+      <genEnumLiterals ecoreEnumLiteral="EsbDsl.ecore#//MediatorType/LOG"/>
+      <genEnumLiterals ecoreEnumLiteral="EsbDsl.ecore#//MediatorType/CALL"/>
+      <genEnumLiterals ecoreEnumLiteral="EsbDsl.ecore#//MediatorType/RESPOND"/>
+      <genEnumLiterals ecoreEnumLiteral="EsbDsl.ecore#//MediatorType/FILTER"/>
+      <genEnumLiterals ecoreEnumLiteral="EsbDsl.ecore#//MediatorType/TRANSFORM"/>
+      <genEnumLiterals ecoreEnumLiteral="EsbDsl.ecore#//MediatorType/ENRICH"/>
+      <genEnumLiterals ecoreEnumLiteral="EsbDsl.ecore#//MediatorType/EXTERNAL"/>
+    </genEnums>
     <genClasses ecoreClass="EsbDsl.ecore#//Model">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsbDsl.ecore#//Model/integrationFlowName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EsbDsl.ecore#//Model/participants"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EsbDsl.ecore#//Model/statements"/>
     </genClasses>
     <genClasses ecoreClass="EsbDsl.ecore#//Statement"/>
+    <genClasses ecoreClass="EsbDsl.ecore#//MediatorStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsbDsl.ecore#//MediatorStatement/mediatorStatement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsbDsl.ecore#//MediatorStatement/config"/>
+    </genClasses>
     <genClasses ecoreClass="EsbDsl.ecore#//ProcessingStatement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsbDsl.ecore#//ProcessingStatement/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsbDsl.ecore#//ProcessingStatement/configs"/>
@@ -27,10 +41,15 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsbDsl.ecore#//RoutingStatement/action"/>
     </genClasses>
     <genClasses ecoreClass="EsbDsl.ecore#//ParallelStatement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EsbDsl.ecore#//ParallelStatement/statements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EsbDsl.ecore#//ParallelStatement/parstatements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EsbDsl.ecore#//ParallelStatement/elsestatements"/>
     </genClasses>
     <genClasses ecoreClass="EsbDsl.ecore#//IfStatement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsbDsl.ecore#//IfStatement/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsbDsl.ecore#//IfStatement/routeId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsbDsl.ecore#//IfStatement/transport"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsbDsl.ecore#//IfStatement/pattern"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EsbDsl.ecore#//IfStatement/altstatements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EsbDsl.ecore#//IfStatement/elsestatements"/>
     </genClasses>
     <genClasses ecoreClass="EsbDsl.ecore#//LoopStatement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsbDsl.ecore#//LoopStatement/name"/>
@@ -45,6 +64,17 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsbDsl.ecore#//ParticipantStatement/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsbDsl.ecore#//ParticipantStatement/participantType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsbDsl.ecore#//ParticipantStatement/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EsbDsl.ecore#//ParticipantStatement/outbounds"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EsbDsl.ecore#//ParticipantStatement/inbounds"/>
+    </genClasses>
+    <genClasses ecoreClass="EsbDsl.ecore#//OutboundEndpointDef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsbDsl.ecore#//OutboundEndpointDef/protocol"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsbDsl.ecore#//OutboundEndpointDef/host"/>
+    </genClasses>
+    <genClasses ecoreClass="EsbDsl.ecore#//InboundEndpointDef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsbDsl.ecore#//InboundEndpointDef/protocol"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsbDsl.ecore#//InboundEndpointDef/port"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EsbDsl.ecore#//InboundEndpointDef/context"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

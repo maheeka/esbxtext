@@ -87,11 +87,18 @@ public class EsbDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EsbDslPackage.MEDIATOR_STATEMENT:
+      {
+        MediatorStatement mediatorStatement = (MediatorStatement)theEObject;
+        T result = caseMediatorStatement(mediatorStatement);
+        if (result == null) result = caseStatement(mediatorStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case EsbDslPackage.PROCESSING_STATEMENT:
       {
         ProcessingStatement processingStatement = (ProcessingStatement)theEObject;
         T result = caseProcessingStatement(processingStatement);
-        if (result == null) result = caseStatement(processingStatement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -150,6 +157,20 @@ public class EsbDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EsbDslPackage.OUTBOUND_ENDPOINT_DEF:
+      {
+        OutboundEndpointDef outboundEndpointDef = (OutboundEndpointDef)theEObject;
+        T result = caseOutboundEndpointDef(outboundEndpointDef);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EsbDslPackage.INBOUND_ENDPOINT_DEF:
+      {
+        InboundEndpointDef inboundEndpointDef = (InboundEndpointDef)theEObject;
+        T result = caseInboundEndpointDef(inboundEndpointDef);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -182,6 +203,22 @@ public class EsbDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseStatement(Statement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Mediator Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Mediator Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMediatorStatement(MediatorStatement object)
   {
     return null;
   }
@@ -310,6 +347,38 @@ public class EsbDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseParticipantStatement(ParticipantStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Outbound Endpoint Def</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Outbound Endpoint Def</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOutboundEndpointDef(OutboundEndpointDef object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Inbound Endpoint Def</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Inbound Endpoint Def</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInboundEndpointDef(InboundEndpointDef object)
   {
     return null;
   }

@@ -10,6 +10,7 @@ import com.wso2.esb.dsl.esbDsl.Statement;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -17,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -30,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.ModelImpl#getIntegrationFlowName <em>Integration Flow Name</em>}</li>
  *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.ModelImpl#getParticipants <em>Participants</em>}</li>
  *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.ModelImpl#getStatements <em>Statements</em>}</li>
  * </ul>
@@ -38,6 +41,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
+  /**
+   * The default value of the '{@link #getIntegrationFlowName() <em>Integration Flow Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIntegrationFlowName()
+   * @generated
+   * @ordered
+   */
+  protected static final String INTEGRATION_FLOW_NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getIntegrationFlowName() <em>Integration Flow Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIntegrationFlowName()
+   * @generated
+   * @ordered
+   */
+  protected String integrationFlowName = INTEGRATION_FLOW_NAME_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getParticipants() <em>Participants</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -77,6 +100,29 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   protected EClass eStaticClass()
   {
     return EsbDslPackage.Literals.MODEL;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getIntegrationFlowName()
+  {
+    return integrationFlowName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIntegrationFlowName(String newIntegrationFlowName)
+  {
+    String oldIntegrationFlowName = integrationFlowName;
+    integrationFlowName = newIntegrationFlowName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EsbDslPackage.MODEL__INTEGRATION_FLOW_NAME, oldIntegrationFlowName, integrationFlowName));
   }
 
   /**
@@ -135,6 +181,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case EsbDslPackage.MODEL__INTEGRATION_FLOW_NAME:
+        return getIntegrationFlowName();
       case EsbDslPackage.MODEL__PARTICIPANTS:
         return getParticipants();
       case EsbDslPackage.MODEL__STATEMENTS:
@@ -154,6 +202,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case EsbDslPackage.MODEL__INTEGRATION_FLOW_NAME:
+        setIntegrationFlowName((String)newValue);
+        return;
       case EsbDslPackage.MODEL__PARTICIPANTS:
         getParticipants().clear();
         getParticipants().addAll((Collection<? extends ParticipantStatement>)newValue);
@@ -176,6 +227,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case EsbDslPackage.MODEL__INTEGRATION_FLOW_NAME:
+        setIntegrationFlowName(INTEGRATION_FLOW_NAME_EDEFAULT);
+        return;
       case EsbDslPackage.MODEL__PARTICIPANTS:
         getParticipants().clear();
         return;
@@ -196,12 +250,31 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case EsbDslPackage.MODEL__INTEGRATION_FLOW_NAME:
+        return INTEGRATION_FLOW_NAME_EDEFAULT == null ? integrationFlowName != null : !INTEGRATION_FLOW_NAME_EDEFAULT.equals(integrationFlowName);
       case EsbDslPackage.MODEL__PARTICIPANTS:
         return participants != null && !participants.isEmpty();
       case EsbDslPackage.MODEL__STATEMENTS:
         return statements != null && !statements.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (integrationFlowName: ");
+    result.append(integrationFlowName);
+    result.append(')');
+    return result.toString();
   }
 
 } //ModelImpl

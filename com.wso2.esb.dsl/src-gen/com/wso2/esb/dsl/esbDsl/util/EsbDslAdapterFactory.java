@@ -86,6 +86,11 @@ public class EsbDslAdapterFactory extends AdapterFactoryImpl
         return createStatementAdapter();
       }
       @Override
+      public Adapter caseMediatorStatement(MediatorStatement object)
+      {
+        return createMediatorStatementAdapter();
+      }
+      @Override
       public Adapter caseProcessingStatement(ProcessingStatement object)
       {
         return createProcessingStatementAdapter();
@@ -124,6 +129,16 @@ public class EsbDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseParticipantStatement(ParticipantStatement object)
       {
         return createParticipantStatementAdapter();
+      }
+      @Override
+      public Adapter caseOutboundEndpointDef(OutboundEndpointDef object)
+      {
+        return createOutboundEndpointDefAdapter();
+      }
+      @Override
+      public Adapter caseInboundEndpointDef(InboundEndpointDef object)
+      {
+        return createInboundEndpointDefAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -173,6 +188,21 @@ public class EsbDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wso2.esb.dsl.esbDsl.MediatorStatement <em>Mediator Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wso2.esb.dsl.esbDsl.MediatorStatement
+   * @generated
+   */
+  public Adapter createMediatorStatementAdapter()
   {
     return null;
   }
@@ -293,6 +323,36 @@ public class EsbDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createParticipantStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wso2.esb.dsl.esbDsl.OutboundEndpointDef <em>Outbound Endpoint Def</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wso2.esb.dsl.esbDsl.OutboundEndpointDef
+   * @generated
+   */
+  public Adapter createOutboundEndpointDefAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.wso2.esb.dsl.esbDsl.InboundEndpointDef <em>Inbound Endpoint Def</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.wso2.esb.dsl.esbDsl.InboundEndpointDef
+   * @generated
+   */
+  public Adapter createInboundEndpointDefAdapter()
   {
     return null;
   }

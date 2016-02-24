@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.wso2.esb.dsl.esbDsl.ParticipantStatement#getName <em>Name</em>}</li>
  *   <li>{@link com.wso2.esb.dsl.esbDsl.ParticipantStatement#getParticipantType <em>Participant Type</em>}</li>
  *   <li>{@link com.wso2.esb.dsl.esbDsl.ParticipantStatement#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.ParticipantStatement#getOutbounds <em>Outbounds</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.ParticipantStatement#getInbounds <em>Inbounds</em>}</li>
  * </ul>
  *
  * @see com.wso2.esb.dsl.esbDsl.EsbDslPackage#getParticipantStatement()
@@ -105,5 +107,57 @@ public interface ParticipantStatement extends EObject
    * @generated
    */
   void setDescription(String value);
+
+  /**
+   * Returns the value of the '<em><b>Outbounds</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Outbounds</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Outbounds</em>' containment reference.
+   * @see #setOutbounds(OutboundEndpointDef)
+   * @see com.wso2.esb.dsl.esbDsl.EsbDslPackage#getParticipantStatement_Outbounds()
+   * @model containment="true"
+   * @generated
+   */
+  OutboundEndpointDef getOutbounds();
+
+  /**
+   * Sets the value of the '{@link com.wso2.esb.dsl.esbDsl.ParticipantStatement#getOutbounds <em>Outbounds</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Outbounds</em>' containment reference.
+   * @see #getOutbounds()
+   * @generated
+   */
+  void setOutbounds(OutboundEndpointDef value);
+
+  /**
+   * Returns the value of the '<em><b>Inbounds</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Inbounds</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Inbounds</em>' containment reference.
+   * @see #setInbounds(InboundEndpointDef)
+   * @see com.wso2.esb.dsl.esbDsl.EsbDslPackage#getParticipantStatement_Inbounds()
+   * @model containment="true"
+   * @generated
+   */
+  InboundEndpointDef getInbounds();
+
+  /**
+   * Sets the value of the '{@link com.wso2.esb.dsl.esbDsl.ParticipantStatement#getInbounds <em>Inbounds</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Inbounds</em>' containment reference.
+   * @see #getInbounds()
+   * @generated
+   */
+  void setInbounds(InboundEndpointDef value);
 
 } // ParticipantStatement

@@ -69,13 +69,22 @@ public interface EsbDslPackage extends EPackage
   int MODEL = 0;
 
   /**
+   * The feature id for the '<em><b>Integration Flow Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__INTEGRATION_FLOW_NAME = 0;
+
+  /**
    * The feature id for the '<em><b>Participants</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__PARTICIPANTS = 0;
+  int MODEL__PARTICIPANTS = 1;
 
   /**
    * The feature id for the '<em><b>Statements</b></em>' containment reference list.
@@ -84,7 +93,7 @@ public interface EsbDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__STATEMENTS = 1;
+  int MODEL__STATEMENTS = 2;
 
   /**
    * The number of structural features of the '<em>Model</em>' class.
@@ -93,7 +102,7 @@ public interface EsbDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 2;
+  int MODEL_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link com.wso2.esb.dsl.esbDsl.impl.StatementImpl <em>Statement</em>}' class.
@@ -115,6 +124,43 @@ public interface EsbDslPackage extends EPackage
   int STATEMENT_FEATURE_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link com.wso2.esb.dsl.esbDsl.impl.MediatorStatementImpl <em>Mediator Statement</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.wso2.esb.dsl.esbDsl.impl.MediatorStatementImpl
+   * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getMediatorStatement()
+   * @generated
+   */
+  int MEDIATOR_STATEMENT = 2;
+
+  /**
+   * The feature id for the '<em><b>Mediator Statement</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MEDIATOR_STATEMENT__MEDIATOR_STATEMENT = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Config</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MEDIATOR_STATEMENT__CONFIG = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Mediator Statement</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MEDIATOR_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
    * The meta object id for the '{@link com.wso2.esb.dsl.esbDsl.impl.ProcessingStatementImpl <em>Processing Statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -122,7 +168,7 @@ public interface EsbDslPackage extends EPackage
    * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getProcessingStatement()
    * @generated
    */
-  int PROCESSING_STATEMENT = 2;
+  int PROCESSING_STATEMENT = 3;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -131,7 +177,7 @@ public interface EsbDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROCESSING_STATEMENT__NAME = STATEMENT_FEATURE_COUNT + 0;
+  int PROCESSING_STATEMENT__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Configs</b></em>' attribute.
@@ -140,7 +186,7 @@ public interface EsbDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROCESSING_STATEMENT__CONFIGS = STATEMENT_FEATURE_COUNT + 1;
+  int PROCESSING_STATEMENT__CONFIGS = 1;
 
   /**
    * The number of structural features of the '<em>Processing Statement</em>' class.
@@ -149,7 +195,7 @@ public interface EsbDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROCESSING_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+  int PROCESSING_STATEMENT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.wso2.esb.dsl.esbDsl.impl.RoutingStatementImpl <em>Routing Statement</em>}' class.
@@ -159,7 +205,7 @@ public interface EsbDslPackage extends EPackage
    * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getRoutingStatement()
    * @generated
    */
-  int ROUTING_STATEMENT = 3;
+  int ROUTING_STATEMENT = 4;
 
   /**
    * The feature id for the '<em><b>Source</b></em>' attribute.
@@ -205,16 +251,25 @@ public interface EsbDslPackage extends EPackage
    * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getParallelStatement()
    * @generated
    */
-  int PARALLEL_STATEMENT = 4;
+  int PARALLEL_STATEMENT = 5;
 
   /**
-   * The feature id for the '<em><b>Statements</b></em>' containment reference list.
+   * The feature id for the '<em><b>Parstatements</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARALLEL_STATEMENT__STATEMENTS = STATEMENT_FEATURE_COUNT + 0;
+  int PARALLEL_STATEMENT__PARSTATEMENTS = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Elsestatements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARALLEL_STATEMENT__ELSESTATEMENTS = STATEMENT_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Parallel Statement</em>' class.
@@ -223,7 +278,7 @@ public interface EsbDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PARALLEL_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int PARALLEL_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link com.wso2.esb.dsl.esbDsl.impl.IfStatementImpl <em>If Statement</em>}' class.
@@ -233,16 +288,52 @@ public interface EsbDslPackage extends EPackage
    * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getIfStatement()
    * @generated
    */
-  int IF_STATEMENT = 5;
+  int IF_STATEMENT = 6;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' attribute.
+   * The feature id for the '<em><b>Route Id</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int IF_STATEMENT__EXPRESSION = STATEMENT_FEATURE_COUNT + 0;
+  int IF_STATEMENT__ROUTE_ID = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Transport</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_STATEMENT__TRANSPORT = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Pattern</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_STATEMENT__PATTERN = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Altstatements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_STATEMENT__ALTSTATEMENTS = STATEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Elsestatements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_STATEMENT__ELSESTATEMENTS = STATEMENT_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>If Statement</em>' class.
@@ -251,7 +342,7 @@ public interface EsbDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int IF_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int IF_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link com.wso2.esb.dsl.esbDsl.impl.LoopStatementImpl <em>Loop Statement</em>}' class.
@@ -261,7 +352,7 @@ public interface EsbDslPackage extends EPackage
    * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getLoopStatement()
    * @generated
    */
-  int LOOP_STATEMENT = 6;
+  int LOOP_STATEMENT = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -289,7 +380,7 @@ public interface EsbDslPackage extends EPackage
    * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getGroupStatement()
    * @generated
    */
-  int GROUP_STATEMENT = 7;
+  int GROUP_STATEMENT = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -317,7 +408,7 @@ public interface EsbDslPackage extends EPackage
    * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getRefStatement()
    * @generated
    */
-  int REF_STATEMENT = 8;
+  int REF_STATEMENT = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -345,7 +436,7 @@ public interface EsbDslPackage extends EPackage
    * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getParticipantStatement()
    * @generated
    */
-  int PARTICIPANT_STATEMENT = 9;
+  int PARTICIPANT_STATEMENT = 10;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -375,13 +466,114 @@ public interface EsbDslPackage extends EPackage
   int PARTICIPANT_STATEMENT__DESCRIPTION = 2;
 
   /**
+   * The feature id for the '<em><b>Outbounds</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARTICIPANT_STATEMENT__OUTBOUNDS = 3;
+
+  /**
+   * The feature id for the '<em><b>Inbounds</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARTICIPANT_STATEMENT__INBOUNDS = 4;
+
+  /**
    * The number of structural features of the '<em>Participant Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARTICIPANT_STATEMENT_FEATURE_COUNT = 3;
+  int PARTICIPANT_STATEMENT_FEATURE_COUNT = 5;
+
+  /**
+   * The meta object id for the '{@link com.wso2.esb.dsl.esbDsl.impl.OutboundEndpointDefImpl <em>Outbound Endpoint Def</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.wso2.esb.dsl.esbDsl.impl.OutboundEndpointDefImpl
+   * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getOutboundEndpointDef()
+   * @generated
+   */
+  int OUTBOUND_ENDPOINT_DEF = 11;
+
+  /**
+   * The feature id for the '<em><b>Protocol</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTBOUND_ENDPOINT_DEF__PROTOCOL = 0;
+
+  /**
+   * The feature id for the '<em><b>Host</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTBOUND_ENDPOINT_DEF__HOST = 1;
+
+  /**
+   * The number of structural features of the '<em>Outbound Endpoint Def</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTBOUND_ENDPOINT_DEF_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link com.wso2.esb.dsl.esbDsl.impl.InboundEndpointDefImpl <em>Inbound Endpoint Def</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.wso2.esb.dsl.esbDsl.impl.InboundEndpointDefImpl
+   * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getInboundEndpointDef()
+   * @generated
+   */
+  int INBOUND_ENDPOINT_DEF = 12;
+
+  /**
+   * The feature id for the '<em><b>Protocol</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INBOUND_ENDPOINT_DEF__PROTOCOL = 0;
+
+  /**
+   * The feature id for the '<em><b>Port</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INBOUND_ENDPOINT_DEF__PORT = 1;
+
+  /**
+   * The feature id for the '<em><b>Context</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INBOUND_ENDPOINT_DEF__CONTEXT = 2;
+
+  /**
+   * The number of structural features of the '<em>Inbound Endpoint Def</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INBOUND_ENDPOINT_DEF_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link com.wso2.esb.dsl.esbDsl.ParticipantType <em>Participant Type</em>}' enum.
@@ -391,7 +583,17 @@ public interface EsbDslPackage extends EPackage
    * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getParticipantType()
    * @generated
    */
-  int PARTICIPANT_TYPE = 10;
+  int PARTICIPANT_TYPE = 13;
+
+  /**
+   * The meta object id for the '{@link com.wso2.esb.dsl.esbDsl.MediatorType <em>Mediator Type</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.wso2.esb.dsl.esbDsl.MediatorType
+   * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getMediatorType()
+   * @generated
+   */
+  int MEDIATOR_TYPE = 14;
 
 
   /**
@@ -403,6 +605,17 @@ public interface EsbDslPackage extends EPackage
    * @generated
    */
   EClass getModel();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.wso2.esb.dsl.esbDsl.Model#getIntegrationFlowName <em>Integration Flow Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Integration Flow Name</em>'.
+   * @see com.wso2.esb.dsl.esbDsl.Model#getIntegrationFlowName()
+   * @see #getModel()
+   * @generated
+   */
+  EAttribute getModel_IntegrationFlowName();
 
   /**
    * Returns the meta object for the containment reference list '{@link com.wso2.esb.dsl.esbDsl.Model#getParticipants <em>Participants</em>}'.
@@ -435,6 +648,38 @@ public interface EsbDslPackage extends EPackage
    * @generated
    */
   EClass getStatement();
+
+  /**
+   * Returns the meta object for class '{@link com.wso2.esb.dsl.esbDsl.MediatorStatement <em>Mediator Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Mediator Statement</em>'.
+   * @see com.wso2.esb.dsl.esbDsl.MediatorStatement
+   * @generated
+   */
+  EClass getMediatorStatement();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.wso2.esb.dsl.esbDsl.MediatorStatement#getMediatorStatement <em>Mediator Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Mediator Statement</em>'.
+   * @see com.wso2.esb.dsl.esbDsl.MediatorStatement#getMediatorStatement()
+   * @see #getMediatorStatement()
+   * @generated
+   */
+  EAttribute getMediatorStatement_MediatorStatement();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.wso2.esb.dsl.esbDsl.MediatorStatement#getConfig <em>Config</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Config</em>'.
+   * @see com.wso2.esb.dsl.esbDsl.MediatorStatement#getConfig()
+   * @see #getMediatorStatement()
+   * @generated
+   */
+  EAttribute getMediatorStatement_Config();
 
   /**
    * Returns the meta object for class '{@link com.wso2.esb.dsl.esbDsl.ProcessingStatement <em>Processing Statement</em>}'.
@@ -522,15 +767,26 @@ public interface EsbDslPackage extends EPackage
   EClass getParallelStatement();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.wso2.esb.dsl.esbDsl.ParallelStatement#getStatements <em>Statements</em>}'.
+   * Returns the meta object for the containment reference list '{@link com.wso2.esb.dsl.esbDsl.ParallelStatement#getParstatements <em>Parstatements</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Statements</em>'.
-   * @see com.wso2.esb.dsl.esbDsl.ParallelStatement#getStatements()
+   * @return the meta object for the containment reference list '<em>Parstatements</em>'.
+   * @see com.wso2.esb.dsl.esbDsl.ParallelStatement#getParstatements()
    * @see #getParallelStatement()
    * @generated
    */
-  EReference getParallelStatement_Statements();
+  EReference getParallelStatement_Parstatements();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.wso2.esb.dsl.esbDsl.ParallelStatement#getElsestatements <em>Elsestatements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Elsestatements</em>'.
+   * @see com.wso2.esb.dsl.esbDsl.ParallelStatement#getElsestatements()
+   * @see #getParallelStatement()
+   * @generated
+   */
+  EReference getParallelStatement_Elsestatements();
 
   /**
    * Returns the meta object for class '{@link com.wso2.esb.dsl.esbDsl.IfStatement <em>If Statement</em>}'.
@@ -543,15 +799,59 @@ public interface EsbDslPackage extends EPackage
   EClass getIfStatement();
 
   /**
-   * Returns the meta object for the attribute '{@link com.wso2.esb.dsl.esbDsl.IfStatement#getExpression <em>Expression</em>}'.
+   * Returns the meta object for the attribute '{@link com.wso2.esb.dsl.esbDsl.IfStatement#getRouteId <em>Route Id</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Expression</em>'.
-   * @see com.wso2.esb.dsl.esbDsl.IfStatement#getExpression()
+   * @return the meta object for the attribute '<em>Route Id</em>'.
+   * @see com.wso2.esb.dsl.esbDsl.IfStatement#getRouteId()
    * @see #getIfStatement()
    * @generated
    */
-  EAttribute getIfStatement_Expression();
+  EAttribute getIfStatement_RouteId();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.wso2.esb.dsl.esbDsl.IfStatement#getTransport <em>Transport</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Transport</em>'.
+   * @see com.wso2.esb.dsl.esbDsl.IfStatement#getTransport()
+   * @see #getIfStatement()
+   * @generated
+   */
+  EAttribute getIfStatement_Transport();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.wso2.esb.dsl.esbDsl.IfStatement#getPattern <em>Pattern</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Pattern</em>'.
+   * @see com.wso2.esb.dsl.esbDsl.IfStatement#getPattern()
+   * @see #getIfStatement()
+   * @generated
+   */
+  EAttribute getIfStatement_Pattern();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.wso2.esb.dsl.esbDsl.IfStatement#getAltstatements <em>Altstatements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Altstatements</em>'.
+   * @see com.wso2.esb.dsl.esbDsl.IfStatement#getAltstatements()
+   * @see #getIfStatement()
+   * @generated
+   */
+  EReference getIfStatement_Altstatements();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.wso2.esb.dsl.esbDsl.IfStatement#getElsestatements <em>Elsestatements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Elsestatements</em>'.
+   * @see com.wso2.esb.dsl.esbDsl.IfStatement#getElsestatements()
+   * @see #getIfStatement()
+   * @generated
+   */
+  EReference getIfStatement_Elsestatements();
 
   /**
    * Returns the meta object for class '{@link com.wso2.esb.dsl.esbDsl.LoopStatement <em>Loop Statement</em>}'.
@@ -660,6 +960,103 @@ public interface EsbDslPackage extends EPackage
   EAttribute getParticipantStatement_Description();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.wso2.esb.dsl.esbDsl.ParticipantStatement#getOutbounds <em>Outbounds</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Outbounds</em>'.
+   * @see com.wso2.esb.dsl.esbDsl.ParticipantStatement#getOutbounds()
+   * @see #getParticipantStatement()
+   * @generated
+   */
+  EReference getParticipantStatement_Outbounds();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.wso2.esb.dsl.esbDsl.ParticipantStatement#getInbounds <em>Inbounds</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Inbounds</em>'.
+   * @see com.wso2.esb.dsl.esbDsl.ParticipantStatement#getInbounds()
+   * @see #getParticipantStatement()
+   * @generated
+   */
+  EReference getParticipantStatement_Inbounds();
+
+  /**
+   * Returns the meta object for class '{@link com.wso2.esb.dsl.esbDsl.OutboundEndpointDef <em>Outbound Endpoint Def</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Outbound Endpoint Def</em>'.
+   * @see com.wso2.esb.dsl.esbDsl.OutboundEndpointDef
+   * @generated
+   */
+  EClass getOutboundEndpointDef();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.wso2.esb.dsl.esbDsl.OutboundEndpointDef#getProtocol <em>Protocol</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Protocol</em>'.
+   * @see com.wso2.esb.dsl.esbDsl.OutboundEndpointDef#getProtocol()
+   * @see #getOutboundEndpointDef()
+   * @generated
+   */
+  EAttribute getOutboundEndpointDef_Protocol();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.wso2.esb.dsl.esbDsl.OutboundEndpointDef#getHost <em>Host</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Host</em>'.
+   * @see com.wso2.esb.dsl.esbDsl.OutboundEndpointDef#getHost()
+   * @see #getOutboundEndpointDef()
+   * @generated
+   */
+  EAttribute getOutboundEndpointDef_Host();
+
+  /**
+   * Returns the meta object for class '{@link com.wso2.esb.dsl.esbDsl.InboundEndpointDef <em>Inbound Endpoint Def</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Inbound Endpoint Def</em>'.
+   * @see com.wso2.esb.dsl.esbDsl.InboundEndpointDef
+   * @generated
+   */
+  EClass getInboundEndpointDef();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.wso2.esb.dsl.esbDsl.InboundEndpointDef#getProtocol <em>Protocol</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Protocol</em>'.
+   * @see com.wso2.esb.dsl.esbDsl.InboundEndpointDef#getProtocol()
+   * @see #getInboundEndpointDef()
+   * @generated
+   */
+  EAttribute getInboundEndpointDef_Protocol();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.wso2.esb.dsl.esbDsl.InboundEndpointDef#getPort <em>Port</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Port</em>'.
+   * @see com.wso2.esb.dsl.esbDsl.InboundEndpointDef#getPort()
+   * @see #getInboundEndpointDef()
+   * @generated
+   */
+  EAttribute getInboundEndpointDef_Port();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.wso2.esb.dsl.esbDsl.InboundEndpointDef#getContext <em>Context</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Context</em>'.
+   * @see com.wso2.esb.dsl.esbDsl.InboundEndpointDef#getContext()
+   * @see #getInboundEndpointDef()
+   * @generated
+   */
+  EAttribute getInboundEndpointDef_Context();
+
+  /**
    * Returns the meta object for enum '{@link com.wso2.esb.dsl.esbDsl.ParticipantType <em>Participant Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -668,6 +1065,16 @@ public interface EsbDslPackage extends EPackage
    * @generated
    */
   EEnum getParticipantType();
+
+  /**
+   * Returns the meta object for enum '{@link com.wso2.esb.dsl.esbDsl.MediatorType <em>Mediator Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Mediator Type</em>'.
+   * @see com.wso2.esb.dsl.esbDsl.MediatorType
+   * @generated
+   */
+  EEnum getMediatorType();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -703,6 +1110,14 @@ public interface EsbDslPackage extends EPackage
     EClass MODEL = eINSTANCE.getModel();
 
     /**
+     * The meta object literal for the '<em><b>Integration Flow Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MODEL__INTEGRATION_FLOW_NAME = eINSTANCE.getModel_IntegrationFlowName();
+
+    /**
      * The meta object literal for the '<em><b>Participants</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -727,6 +1142,32 @@ public interface EsbDslPackage extends EPackage
      * @generated
      */
     EClass STATEMENT = eINSTANCE.getStatement();
+
+    /**
+     * The meta object literal for the '{@link com.wso2.esb.dsl.esbDsl.impl.MediatorStatementImpl <em>Mediator Statement</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.wso2.esb.dsl.esbDsl.impl.MediatorStatementImpl
+     * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getMediatorStatement()
+     * @generated
+     */
+    EClass MEDIATOR_STATEMENT = eINSTANCE.getMediatorStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Mediator Statement</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MEDIATOR_STATEMENT__MEDIATOR_STATEMENT = eINSTANCE.getMediatorStatement_MediatorStatement();
+
+    /**
+     * The meta object literal for the '<em><b>Config</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MEDIATOR_STATEMENT__CONFIG = eINSTANCE.getMediatorStatement_Config();
 
     /**
      * The meta object literal for the '{@link com.wso2.esb.dsl.esbDsl.impl.ProcessingStatementImpl <em>Processing Statement</em>}' class.
@@ -799,12 +1240,20 @@ public interface EsbDslPackage extends EPackage
     EClass PARALLEL_STATEMENT = eINSTANCE.getParallelStatement();
 
     /**
-     * The meta object literal for the '<em><b>Statements</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Parstatements</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PARALLEL_STATEMENT__STATEMENTS = eINSTANCE.getParallelStatement_Statements();
+    EReference PARALLEL_STATEMENT__PARSTATEMENTS = eINSTANCE.getParallelStatement_Parstatements();
+
+    /**
+     * The meta object literal for the '<em><b>Elsestatements</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARALLEL_STATEMENT__ELSESTATEMENTS = eINSTANCE.getParallelStatement_Elsestatements();
 
     /**
      * The meta object literal for the '{@link com.wso2.esb.dsl.esbDsl.impl.IfStatementImpl <em>If Statement</em>}' class.
@@ -817,12 +1266,44 @@ public interface EsbDslPackage extends EPackage
     EClass IF_STATEMENT = eINSTANCE.getIfStatement();
 
     /**
-     * The meta object literal for the '<em><b>Expression</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Route Id</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute IF_STATEMENT__EXPRESSION = eINSTANCE.getIfStatement_Expression();
+    EAttribute IF_STATEMENT__ROUTE_ID = eINSTANCE.getIfStatement_RouteId();
+
+    /**
+     * The meta object literal for the '<em><b>Transport</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute IF_STATEMENT__TRANSPORT = eINSTANCE.getIfStatement_Transport();
+
+    /**
+     * The meta object literal for the '<em><b>Pattern</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute IF_STATEMENT__PATTERN = eINSTANCE.getIfStatement_Pattern();
+
+    /**
+     * The meta object literal for the '<em><b>Altstatements</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_STATEMENT__ALTSTATEMENTS = eINSTANCE.getIfStatement_Altstatements();
+
+    /**
+     * The meta object literal for the '<em><b>Elsestatements</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_STATEMENT__ELSESTATEMENTS = eINSTANCE.getIfStatement_Elsestatements();
 
     /**
      * The meta object literal for the '{@link com.wso2.esb.dsl.esbDsl.impl.LoopStatementImpl <em>Loop Statement</em>}' class.
@@ -913,6 +1394,82 @@ public interface EsbDslPackage extends EPackage
     EAttribute PARTICIPANT_STATEMENT__DESCRIPTION = eINSTANCE.getParticipantStatement_Description();
 
     /**
+     * The meta object literal for the '<em><b>Outbounds</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARTICIPANT_STATEMENT__OUTBOUNDS = eINSTANCE.getParticipantStatement_Outbounds();
+
+    /**
+     * The meta object literal for the '<em><b>Inbounds</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARTICIPANT_STATEMENT__INBOUNDS = eINSTANCE.getParticipantStatement_Inbounds();
+
+    /**
+     * The meta object literal for the '{@link com.wso2.esb.dsl.esbDsl.impl.OutboundEndpointDefImpl <em>Outbound Endpoint Def</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.wso2.esb.dsl.esbDsl.impl.OutboundEndpointDefImpl
+     * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getOutboundEndpointDef()
+     * @generated
+     */
+    EClass OUTBOUND_ENDPOINT_DEF = eINSTANCE.getOutboundEndpointDef();
+
+    /**
+     * The meta object literal for the '<em><b>Protocol</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OUTBOUND_ENDPOINT_DEF__PROTOCOL = eINSTANCE.getOutboundEndpointDef_Protocol();
+
+    /**
+     * The meta object literal for the '<em><b>Host</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OUTBOUND_ENDPOINT_DEF__HOST = eINSTANCE.getOutboundEndpointDef_Host();
+
+    /**
+     * The meta object literal for the '{@link com.wso2.esb.dsl.esbDsl.impl.InboundEndpointDefImpl <em>Inbound Endpoint Def</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.wso2.esb.dsl.esbDsl.impl.InboundEndpointDefImpl
+     * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getInboundEndpointDef()
+     * @generated
+     */
+    EClass INBOUND_ENDPOINT_DEF = eINSTANCE.getInboundEndpointDef();
+
+    /**
+     * The meta object literal for the '<em><b>Protocol</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INBOUND_ENDPOINT_DEF__PROTOCOL = eINSTANCE.getInboundEndpointDef_Protocol();
+
+    /**
+     * The meta object literal for the '<em><b>Port</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INBOUND_ENDPOINT_DEF__PORT = eINSTANCE.getInboundEndpointDef_Port();
+
+    /**
+     * The meta object literal for the '<em><b>Context</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INBOUND_ENDPOINT_DEF__CONTEXT = eINSTANCE.getInboundEndpointDef_Context();
+
+    /**
      * The meta object literal for the '{@link com.wso2.esb.dsl.esbDsl.ParticipantType <em>Participant Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -921,6 +1478,16 @@ public interface EsbDslPackage extends EPackage
      * @generated
      */
     EEnum PARTICIPANT_TYPE = eINSTANCE.getParticipantType();
+
+    /**
+     * The meta object literal for the '{@link com.wso2.esb.dsl.esbDsl.MediatorType <em>Mediator Type</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.wso2.esb.dsl.esbDsl.MediatorType
+     * @see com.wso2.esb.dsl.esbDsl.impl.EsbDslPackageImpl#getMediatorType()
+     * @generated
+     */
+    EEnum MEDIATOR_TYPE = eINSTANCE.getMediatorType();
 
   }
 

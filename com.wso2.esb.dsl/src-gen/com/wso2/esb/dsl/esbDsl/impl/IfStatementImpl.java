@@ -5,12 +5,22 @@ package com.wso2.esb.dsl.esbDsl.impl;
 
 import com.wso2.esb.dsl.esbDsl.EsbDslPackage;
 import com.wso2.esb.dsl.esbDsl.IfStatement;
+import com.wso2.esb.dsl.esbDsl.Statement;
+
+import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +30,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.IfStatementImpl#getExpression <em>Expression</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.IfStatementImpl#getRouteId <em>Route Id</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.IfStatementImpl#getTransport <em>Transport</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.IfStatementImpl#getPattern <em>Pattern</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.IfStatementImpl#getAltstatements <em>Altstatements</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.IfStatementImpl#getElsestatements <em>Elsestatements</em>}</li>
  * </ul>
  *
  * @generated
@@ -28,24 +42,84 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class IfStatementImpl extends StatementImpl implements IfStatement
 {
   /**
-   * The default value of the '{@link #getExpression() <em>Expression</em>}' attribute.
+   * The default value of the '{@link #getRouteId() <em>Route Id</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExpression()
+   * @see #getRouteId()
    * @generated
    * @ordered
    */
-  protected static final String EXPRESSION_EDEFAULT = null;
+  protected static final String ROUTE_ID_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getExpression() <em>Expression</em>}' attribute.
+   * The cached value of the '{@link #getRouteId() <em>Route Id</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExpression()
+   * @see #getRouteId()
    * @generated
    * @ordered
    */
-  protected String expression = EXPRESSION_EDEFAULT;
+  protected String routeId = ROUTE_ID_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getTransport() <em>Transport</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTransport()
+   * @generated
+   * @ordered
+   */
+  protected static final String TRANSPORT_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getTransport() <em>Transport</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTransport()
+   * @generated
+   * @ordered
+   */
+  protected String transport = TRANSPORT_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPattern()
+   * @generated
+   * @ordered
+   */
+  protected static final String PATTERN_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPattern()
+   * @generated
+   * @ordered
+   */
+  protected String pattern = PATTERN_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getAltstatements() <em>Altstatements</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAltstatements()
+   * @generated
+   * @ordered
+   */
+  protected EList<Statement> altstatements;
+
+  /**
+   * The cached value of the '{@link #getElsestatements() <em>Elsestatements</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getElsestatements()
+   * @generated
+   * @ordered
+   */
+  protected EList<Statement> elsestatements;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,9 +147,9 @@ public class IfStatementImpl extends StatementImpl implements IfStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getExpression()
+  public String getRouteId()
   {
-    return expression;
+    return routeId;
   }
 
   /**
@@ -83,12 +157,104 @@ public class IfStatementImpl extends StatementImpl implements IfStatement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpression(String newExpression)
+  public void setRouteId(String newRouteId)
   {
-    String oldExpression = expression;
-    expression = newExpression;
+    String oldRouteId = routeId;
+    routeId = newRouteId;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EsbDslPackage.IF_STATEMENT__EXPRESSION, oldExpression, expression));
+      eNotify(new ENotificationImpl(this, Notification.SET, EsbDslPackage.IF_STATEMENT__ROUTE_ID, oldRouteId, routeId));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getTransport()
+  {
+    return transport;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTransport(String newTransport)
+  {
+    String oldTransport = transport;
+    transport = newTransport;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EsbDslPackage.IF_STATEMENT__TRANSPORT, oldTransport, transport));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getPattern()
+  {
+    return pattern;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPattern(String newPattern)
+  {
+    String oldPattern = pattern;
+    pattern = newPattern;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EsbDslPackage.IF_STATEMENT__PATTERN, oldPattern, pattern));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Statement> getAltstatements()
+  {
+    if (altstatements == null)
+    {
+      altstatements = new EObjectContainmentEList<Statement>(Statement.class, this, EsbDslPackage.IF_STATEMENT__ALTSTATEMENTS);
+    }
+    return altstatements;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Statement> getElsestatements()
+  {
+    if (elsestatements == null)
+    {
+      elsestatements = new EObjectContainmentEList<Statement>(Statement.class, this, EsbDslPackage.IF_STATEMENT__ELSESTATEMENTS);
+    }
+    return elsestatements;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case EsbDslPackage.IF_STATEMENT__ALTSTATEMENTS:
+        return ((InternalEList<?>)getAltstatements()).basicRemove(otherEnd, msgs);
+      case EsbDslPackage.IF_STATEMENT__ELSESTATEMENTS:
+        return ((InternalEList<?>)getElsestatements()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -101,8 +267,16 @@ public class IfStatementImpl extends StatementImpl implements IfStatement
   {
     switch (featureID)
     {
-      case EsbDslPackage.IF_STATEMENT__EXPRESSION:
-        return getExpression();
+      case EsbDslPackage.IF_STATEMENT__ROUTE_ID:
+        return getRouteId();
+      case EsbDslPackage.IF_STATEMENT__TRANSPORT:
+        return getTransport();
+      case EsbDslPackage.IF_STATEMENT__PATTERN:
+        return getPattern();
+      case EsbDslPackage.IF_STATEMENT__ALTSTATEMENTS:
+        return getAltstatements();
+      case EsbDslPackage.IF_STATEMENT__ELSESTATEMENTS:
+        return getElsestatements();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -112,13 +286,28 @@ public class IfStatementImpl extends StatementImpl implements IfStatement
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case EsbDslPackage.IF_STATEMENT__EXPRESSION:
-        setExpression((String)newValue);
+      case EsbDslPackage.IF_STATEMENT__ROUTE_ID:
+        setRouteId((String)newValue);
+        return;
+      case EsbDslPackage.IF_STATEMENT__TRANSPORT:
+        setTransport((String)newValue);
+        return;
+      case EsbDslPackage.IF_STATEMENT__PATTERN:
+        setPattern((String)newValue);
+        return;
+      case EsbDslPackage.IF_STATEMENT__ALTSTATEMENTS:
+        getAltstatements().clear();
+        getAltstatements().addAll((Collection<? extends Statement>)newValue);
+        return;
+      case EsbDslPackage.IF_STATEMENT__ELSESTATEMENTS:
+        getElsestatements().clear();
+        getElsestatements().addAll((Collection<? extends Statement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +323,20 @@ public class IfStatementImpl extends StatementImpl implements IfStatement
   {
     switch (featureID)
     {
-      case EsbDslPackage.IF_STATEMENT__EXPRESSION:
-        setExpression(EXPRESSION_EDEFAULT);
+      case EsbDslPackage.IF_STATEMENT__ROUTE_ID:
+        setRouteId(ROUTE_ID_EDEFAULT);
+        return;
+      case EsbDslPackage.IF_STATEMENT__TRANSPORT:
+        setTransport(TRANSPORT_EDEFAULT);
+        return;
+      case EsbDslPackage.IF_STATEMENT__PATTERN:
+        setPattern(PATTERN_EDEFAULT);
+        return;
+      case EsbDslPackage.IF_STATEMENT__ALTSTATEMENTS:
+        getAltstatements().clear();
+        return;
+      case EsbDslPackage.IF_STATEMENT__ELSESTATEMENTS:
+        getElsestatements().clear();
         return;
     }
     super.eUnset(featureID);
@@ -151,8 +352,16 @@ public class IfStatementImpl extends StatementImpl implements IfStatement
   {
     switch (featureID)
     {
-      case EsbDslPackage.IF_STATEMENT__EXPRESSION:
-        return EXPRESSION_EDEFAULT == null ? expression != null : !EXPRESSION_EDEFAULT.equals(expression);
+      case EsbDslPackage.IF_STATEMENT__ROUTE_ID:
+        return ROUTE_ID_EDEFAULT == null ? routeId != null : !ROUTE_ID_EDEFAULT.equals(routeId);
+      case EsbDslPackage.IF_STATEMENT__TRANSPORT:
+        return TRANSPORT_EDEFAULT == null ? transport != null : !TRANSPORT_EDEFAULT.equals(transport);
+      case EsbDslPackage.IF_STATEMENT__PATTERN:
+        return PATTERN_EDEFAULT == null ? pattern != null : !PATTERN_EDEFAULT.equals(pattern);
+      case EsbDslPackage.IF_STATEMENT__ALTSTATEMENTS:
+        return altstatements != null && !altstatements.isEmpty();
+      case EsbDslPackage.IF_STATEMENT__ELSESTATEMENTS:
+        return elsestatements != null && !elsestatements.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -168,8 +377,12 @@ public class IfStatementImpl extends StatementImpl implements IfStatement
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (expression: ");
-    result.append(expression);
+    result.append(" (routeId: ");
+    result.append(routeId);
+    result.append(", transport: ");
+    result.append(transport);
+    result.append(", pattern: ");
+    result.append(pattern);
     result.append(')');
     return result.toString();
   }

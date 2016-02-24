@@ -14,7 +14,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.wso2.esb.dsl.esbDsl.ParallelStatement#getStatements <em>Statements</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.ParallelStatement#getParstatements <em>Parstatements</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.ParallelStatement#getElsestatements <em>Elsestatements</em>}</li>
  * </ul>
  *
  * @see com.wso2.esb.dsl.esbDsl.EsbDslPackage#getParallelStatement()
@@ -24,19 +25,35 @@ import org.eclipse.emf.common.util.EList;
 public interface ParallelStatement extends Statement
 {
   /**
-   * Returns the value of the '<em><b>Statements</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Parstatements</b></em>' containment reference list.
    * The list contents are of type {@link com.wso2.esb.dsl.esbDsl.Statement}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Statements</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Parstatements</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Statements</em>' containment reference list.
-   * @see com.wso2.esb.dsl.esbDsl.EsbDslPackage#getParallelStatement_Statements()
+   * @return the value of the '<em>Parstatements</em>' containment reference list.
+   * @see com.wso2.esb.dsl.esbDsl.EsbDslPackage#getParallelStatement_Parstatements()
    * @model containment="true"
    * @generated
    */
-  EList<Statement> getStatements();
+  EList<Statement> getParstatements();
+
+  /**
+   * Returns the value of the '<em><b>Elsestatements</b></em>' containment reference list.
+   * The list contents are of type {@link com.wso2.esb.dsl.esbDsl.Statement}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Elsestatements</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Elsestatements</em>' containment reference list.
+   * @see com.wso2.esb.dsl.esbDsl.EsbDslPackage#getParallelStatement_Elsestatements()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Statement> getElsestatements();
 
 } // ParallelStatement

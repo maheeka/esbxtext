@@ -4,12 +4,16 @@
 package com.wso2.esb.dsl.esbDsl.impl;
 
 import com.wso2.esb.dsl.esbDsl.EsbDslPackage;
+import com.wso2.esb.dsl.esbDsl.InboundEndpointDef;
+import com.wso2.esb.dsl.esbDsl.OutboundEndpointDef;
 import com.wso2.esb.dsl.esbDsl.ParticipantStatement;
 import com.wso2.esb.dsl.esbDsl.ParticipantType;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -25,6 +29,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.ParticipantStatementImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.ParticipantStatementImpl#getParticipantType <em>Participant Type</em>}</li>
  *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.ParticipantStatementImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.ParticipantStatementImpl#getOutbounds <em>Outbounds</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.ParticipantStatementImpl#getInbounds <em>Inbounds</em>}</li>
  * </ul>
  *
  * @generated
@@ -90,6 +96,26 @@ public class ParticipantStatementImpl extends MinimalEObjectImpl.Container imple
    * @ordered
    */
   protected String description = DESCRIPTION_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getOutbounds() <em>Outbounds</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOutbounds()
+   * @generated
+   * @ordered
+   */
+  protected OutboundEndpointDef outbounds;
+
+  /**
+   * The cached value of the '{@link #getInbounds() <em>Inbounds</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInbounds()
+   * @generated
+   * @ordered
+   */
+  protected InboundEndpointDef inbounds;
 
   /**
    * <!-- begin-user-doc -->
@@ -186,6 +212,120 @@ public class ParticipantStatementImpl extends MinimalEObjectImpl.Container imple
    * <!-- end-user-doc -->
    * @generated
    */
+  public OutboundEndpointDef getOutbounds()
+  {
+    return outbounds;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetOutbounds(OutboundEndpointDef newOutbounds, NotificationChain msgs)
+  {
+    OutboundEndpointDef oldOutbounds = outbounds;
+    outbounds = newOutbounds;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbDslPackage.PARTICIPANT_STATEMENT__OUTBOUNDS, oldOutbounds, newOutbounds);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOutbounds(OutboundEndpointDef newOutbounds)
+  {
+    if (newOutbounds != outbounds)
+    {
+      NotificationChain msgs = null;
+      if (outbounds != null)
+        msgs = ((InternalEObject)outbounds).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbDslPackage.PARTICIPANT_STATEMENT__OUTBOUNDS, null, msgs);
+      if (newOutbounds != null)
+        msgs = ((InternalEObject)newOutbounds).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbDslPackage.PARTICIPANT_STATEMENT__OUTBOUNDS, null, msgs);
+      msgs = basicSetOutbounds(newOutbounds, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EsbDslPackage.PARTICIPANT_STATEMENT__OUTBOUNDS, newOutbounds, newOutbounds));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InboundEndpointDef getInbounds()
+  {
+    return inbounds;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetInbounds(InboundEndpointDef newInbounds, NotificationChain msgs)
+  {
+    InboundEndpointDef oldInbounds = inbounds;
+    inbounds = newInbounds;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbDslPackage.PARTICIPANT_STATEMENT__INBOUNDS, oldInbounds, newInbounds);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setInbounds(InboundEndpointDef newInbounds)
+  {
+    if (newInbounds != inbounds)
+    {
+      NotificationChain msgs = null;
+      if (inbounds != null)
+        msgs = ((InternalEObject)inbounds).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbDslPackage.PARTICIPANT_STATEMENT__INBOUNDS, null, msgs);
+      if (newInbounds != null)
+        msgs = ((InternalEObject)newInbounds).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbDslPackage.PARTICIPANT_STATEMENT__INBOUNDS, null, msgs);
+      msgs = basicSetInbounds(newInbounds, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EsbDslPackage.PARTICIPANT_STATEMENT__INBOUNDS, newInbounds, newInbounds));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case EsbDslPackage.PARTICIPANT_STATEMENT__OUTBOUNDS:
+        return basicSetOutbounds(null, msgs);
+      case EsbDslPackage.PARTICIPANT_STATEMENT__INBOUNDS:
+        return basicSetInbounds(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -197,6 +337,10 @@ public class ParticipantStatementImpl extends MinimalEObjectImpl.Container imple
         return getParticipantType();
       case EsbDslPackage.PARTICIPANT_STATEMENT__DESCRIPTION:
         return getDescription();
+      case EsbDslPackage.PARTICIPANT_STATEMENT__OUTBOUNDS:
+        return getOutbounds();
+      case EsbDslPackage.PARTICIPANT_STATEMENT__INBOUNDS:
+        return getInbounds();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -219,6 +363,12 @@ public class ParticipantStatementImpl extends MinimalEObjectImpl.Container imple
         return;
       case EsbDslPackage.PARTICIPANT_STATEMENT__DESCRIPTION:
         setDescription((String)newValue);
+        return;
+      case EsbDslPackage.PARTICIPANT_STATEMENT__OUTBOUNDS:
+        setOutbounds((OutboundEndpointDef)newValue);
+        return;
+      case EsbDslPackage.PARTICIPANT_STATEMENT__INBOUNDS:
+        setInbounds((InboundEndpointDef)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -243,6 +393,12 @@ public class ParticipantStatementImpl extends MinimalEObjectImpl.Container imple
       case EsbDslPackage.PARTICIPANT_STATEMENT__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
+      case EsbDslPackage.PARTICIPANT_STATEMENT__OUTBOUNDS:
+        setOutbounds((OutboundEndpointDef)null);
+        return;
+      case EsbDslPackage.PARTICIPANT_STATEMENT__INBOUNDS:
+        setInbounds((InboundEndpointDef)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -263,6 +419,10 @@ public class ParticipantStatementImpl extends MinimalEObjectImpl.Container imple
         return participantType != PARTICIPANT_TYPE_EDEFAULT;
       case EsbDslPackage.PARTICIPANT_STATEMENT__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+      case EsbDslPackage.PARTICIPANT_STATEMENT__OUTBOUNDS:
+        return outbounds != null;
+      case EsbDslPackage.PARTICIPANT_STATEMENT__INBOUNDS:
+        return inbounds != null;
     }
     return super.eIsSet(featureID);
   }

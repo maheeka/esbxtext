@@ -27,7 +27,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.ParallelStatementImpl#getStatements <em>Statements</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.ParallelStatementImpl#getParstatements <em>Parstatements</em>}</li>
+ *   <li>{@link com.wso2.esb.dsl.esbDsl.impl.ParallelStatementImpl#getElsestatements <em>Elsestatements</em>}</li>
  * </ul>
  *
  * @generated
@@ -35,14 +36,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class ParallelStatementImpl extends StatementImpl implements ParallelStatement
 {
   /**
-   * The cached value of the '{@link #getStatements() <em>Statements</em>}' containment reference list.
+   * The cached value of the '{@link #getParstatements() <em>Parstatements</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getStatements()
+   * @see #getParstatements()
    * @generated
    * @ordered
    */
-  protected EList<Statement> statements;
+  protected EList<Statement> parstatements;
+
+  /**
+   * The cached value of the '{@link #getElsestatements() <em>Elsestatements</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getElsestatements()
+   * @generated
+   * @ordered
+   */
+  protected EList<Statement> elsestatements;
 
   /**
    * <!-- begin-user-doc -->
@@ -70,13 +81,27 @@ public class ParallelStatementImpl extends StatementImpl implements ParallelStat
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Statement> getStatements()
+  public EList<Statement> getParstatements()
   {
-    if (statements == null)
+    if (parstatements == null)
     {
-      statements = new EObjectContainmentEList<Statement>(Statement.class, this, EsbDslPackage.PARALLEL_STATEMENT__STATEMENTS);
+      parstatements = new EObjectContainmentEList<Statement>(Statement.class, this, EsbDslPackage.PARALLEL_STATEMENT__PARSTATEMENTS);
     }
-    return statements;
+    return parstatements;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Statement> getElsestatements()
+  {
+    if (elsestatements == null)
+    {
+      elsestatements = new EObjectContainmentEList<Statement>(Statement.class, this, EsbDslPackage.PARALLEL_STATEMENT__ELSESTATEMENTS);
+    }
+    return elsestatements;
   }
 
   /**
@@ -89,8 +114,10 @@ public class ParallelStatementImpl extends StatementImpl implements ParallelStat
   {
     switch (featureID)
     {
-      case EsbDslPackage.PARALLEL_STATEMENT__STATEMENTS:
-        return ((InternalEList<?>)getStatements()).basicRemove(otherEnd, msgs);
+      case EsbDslPackage.PARALLEL_STATEMENT__PARSTATEMENTS:
+        return ((InternalEList<?>)getParstatements()).basicRemove(otherEnd, msgs);
+      case EsbDslPackage.PARALLEL_STATEMENT__ELSESTATEMENTS:
+        return ((InternalEList<?>)getElsestatements()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -105,8 +132,10 @@ public class ParallelStatementImpl extends StatementImpl implements ParallelStat
   {
     switch (featureID)
     {
-      case EsbDslPackage.PARALLEL_STATEMENT__STATEMENTS:
-        return getStatements();
+      case EsbDslPackage.PARALLEL_STATEMENT__PARSTATEMENTS:
+        return getParstatements();
+      case EsbDslPackage.PARALLEL_STATEMENT__ELSESTATEMENTS:
+        return getElsestatements();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -122,9 +151,13 @@ public class ParallelStatementImpl extends StatementImpl implements ParallelStat
   {
     switch (featureID)
     {
-      case EsbDslPackage.PARALLEL_STATEMENT__STATEMENTS:
-        getStatements().clear();
-        getStatements().addAll((Collection<? extends Statement>)newValue);
+      case EsbDslPackage.PARALLEL_STATEMENT__PARSTATEMENTS:
+        getParstatements().clear();
+        getParstatements().addAll((Collection<? extends Statement>)newValue);
+        return;
+      case EsbDslPackage.PARALLEL_STATEMENT__ELSESTATEMENTS:
+        getElsestatements().clear();
+        getElsestatements().addAll((Collection<? extends Statement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,8 +173,11 @@ public class ParallelStatementImpl extends StatementImpl implements ParallelStat
   {
     switch (featureID)
     {
-      case EsbDslPackage.PARALLEL_STATEMENT__STATEMENTS:
-        getStatements().clear();
+      case EsbDslPackage.PARALLEL_STATEMENT__PARSTATEMENTS:
+        getParstatements().clear();
+        return;
+      case EsbDslPackage.PARALLEL_STATEMENT__ELSESTATEMENTS:
+        getElsestatements().clear();
         return;
     }
     super.eUnset(featureID);
@@ -157,8 +193,10 @@ public class ParallelStatementImpl extends StatementImpl implements ParallelStat
   {
     switch (featureID)
     {
-      case EsbDslPackage.PARALLEL_STATEMENT__STATEMENTS:
-        return statements != null && !statements.isEmpty();
+      case EsbDslPackage.PARALLEL_STATEMENT__PARSTATEMENTS:
+        return parstatements != null && !parstatements.isEmpty();
+      case EsbDslPackage.PARALLEL_STATEMENT__ELSESTATEMENTS:
+        return elsestatements != null && !elsestatements.isEmpty();
     }
     return super.eIsSet(featureID);
   }

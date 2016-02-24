@@ -7,8 +7,12 @@ import com.wso2.esb.dsl.esbDsl.EsbDslFactory;
 import com.wso2.esb.dsl.esbDsl.EsbDslPackage;
 import com.wso2.esb.dsl.esbDsl.GroupStatement;
 import com.wso2.esb.dsl.esbDsl.IfStatement;
+import com.wso2.esb.dsl.esbDsl.InboundEndpointDef;
 import com.wso2.esb.dsl.esbDsl.LoopStatement;
+import com.wso2.esb.dsl.esbDsl.MediatorStatement;
+import com.wso2.esb.dsl.esbDsl.MediatorType;
 import com.wso2.esb.dsl.esbDsl.Model;
+import com.wso2.esb.dsl.esbDsl.OutboundEndpointDef;
 import com.wso2.esb.dsl.esbDsl.ParallelStatement;
 import com.wso2.esb.dsl.esbDsl.ParticipantStatement;
 import com.wso2.esb.dsl.esbDsl.ParticipantType;
@@ -46,6 +50,13 @@ public class EsbDslPackageImpl extends EPackageImpl implements EsbDslPackage
    * @generated
    */
   private EClass statementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass mediatorStatementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -108,7 +119,28 @@ public class EsbDslPackageImpl extends EPackageImpl implements EsbDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass outboundEndpointDefEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass inboundEndpointDefEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EEnum participantTypeEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum mediatorTypeEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -188,9 +220,19 @@ public class EsbDslPackageImpl extends EPackageImpl implements EsbDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getModel_IntegrationFlowName()
+  {
+    return (EAttribute)modelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getModel_Participants()
   {
-    return (EReference)modelEClass.getEStructuralFeatures().get(0);
+    return (EReference)modelEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -200,7 +242,7 @@ public class EsbDslPackageImpl extends EPackageImpl implements EsbDslPackage
    */
   public EReference getModel_Statements()
   {
-    return (EReference)modelEClass.getEStructuralFeatures().get(1);
+    return (EReference)modelEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -211,6 +253,36 @@ public class EsbDslPackageImpl extends EPackageImpl implements EsbDslPackage
   public EClass getStatement()
   {
     return statementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMediatorStatement()
+  {
+    return mediatorStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMediatorStatement_MediatorStatement()
+  {
+    return (EAttribute)mediatorStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMediatorStatement_Config()
+  {
+    return (EAttribute)mediatorStatementEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -298,9 +370,19 @@ public class EsbDslPackageImpl extends EPackageImpl implements EsbDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getParallelStatement_Statements()
+  public EReference getParallelStatement_Parstatements()
   {
     return (EReference)parallelStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getParallelStatement_Elsestatements()
+  {
+    return (EReference)parallelStatementEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -318,9 +400,49 @@ public class EsbDslPackageImpl extends EPackageImpl implements EsbDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getIfStatement_Expression()
+  public EAttribute getIfStatement_RouteId()
   {
     return (EAttribute)ifStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getIfStatement_Transport()
+  {
+    return (EAttribute)ifStatementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getIfStatement_Pattern()
+  {
+    return (EAttribute)ifStatementEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIfStatement_Altstatements()
+  {
+    return (EReference)ifStatementEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIfStatement_Elsestatements()
+  {
+    return (EReference)ifStatementEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -428,9 +550,109 @@ public class EsbDslPackageImpl extends EPackageImpl implements EsbDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getParticipantStatement_Outbounds()
+  {
+    return (EReference)participantStatementEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getParticipantStatement_Inbounds()
+  {
+    return (EReference)participantStatementEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getOutboundEndpointDef()
+  {
+    return outboundEndpointDefEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getOutboundEndpointDef_Protocol()
+  {
+    return (EAttribute)outboundEndpointDefEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getOutboundEndpointDef_Host()
+  {
+    return (EAttribute)outboundEndpointDefEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getInboundEndpointDef()
+  {
+    return inboundEndpointDefEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getInboundEndpointDef_Protocol()
+  {
+    return (EAttribute)inboundEndpointDefEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getInboundEndpointDef_Port()
+  {
+    return (EAttribute)inboundEndpointDefEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getInboundEndpointDef_Context()
+  {
+    return (EAttribute)inboundEndpointDefEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EEnum getParticipantType()
   {
     return participantTypeEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getMediatorType()
+  {
+    return mediatorTypeEEnum;
   }
 
   /**
@@ -464,10 +686,15 @@ public class EsbDslPackageImpl extends EPackageImpl implements EsbDslPackage
 
     // Create classes and their features
     modelEClass = createEClass(MODEL);
+    createEAttribute(modelEClass, MODEL__INTEGRATION_FLOW_NAME);
     createEReference(modelEClass, MODEL__PARTICIPANTS);
     createEReference(modelEClass, MODEL__STATEMENTS);
 
     statementEClass = createEClass(STATEMENT);
+
+    mediatorStatementEClass = createEClass(MEDIATOR_STATEMENT);
+    createEAttribute(mediatorStatementEClass, MEDIATOR_STATEMENT__MEDIATOR_STATEMENT);
+    createEAttribute(mediatorStatementEClass, MEDIATOR_STATEMENT__CONFIG);
 
     processingStatementEClass = createEClass(PROCESSING_STATEMENT);
     createEAttribute(processingStatementEClass, PROCESSING_STATEMENT__NAME);
@@ -479,10 +706,15 @@ public class EsbDslPackageImpl extends EPackageImpl implements EsbDslPackage
     createEAttribute(routingStatementEClass, ROUTING_STATEMENT__ACTION);
 
     parallelStatementEClass = createEClass(PARALLEL_STATEMENT);
-    createEReference(parallelStatementEClass, PARALLEL_STATEMENT__STATEMENTS);
+    createEReference(parallelStatementEClass, PARALLEL_STATEMENT__PARSTATEMENTS);
+    createEReference(parallelStatementEClass, PARALLEL_STATEMENT__ELSESTATEMENTS);
 
     ifStatementEClass = createEClass(IF_STATEMENT);
-    createEAttribute(ifStatementEClass, IF_STATEMENT__EXPRESSION);
+    createEAttribute(ifStatementEClass, IF_STATEMENT__ROUTE_ID);
+    createEAttribute(ifStatementEClass, IF_STATEMENT__TRANSPORT);
+    createEAttribute(ifStatementEClass, IF_STATEMENT__PATTERN);
+    createEReference(ifStatementEClass, IF_STATEMENT__ALTSTATEMENTS);
+    createEReference(ifStatementEClass, IF_STATEMENT__ELSESTATEMENTS);
 
     loopStatementEClass = createEClass(LOOP_STATEMENT);
     createEAttribute(loopStatementEClass, LOOP_STATEMENT__NAME);
@@ -497,9 +729,21 @@ public class EsbDslPackageImpl extends EPackageImpl implements EsbDslPackage
     createEAttribute(participantStatementEClass, PARTICIPANT_STATEMENT__NAME);
     createEAttribute(participantStatementEClass, PARTICIPANT_STATEMENT__PARTICIPANT_TYPE);
     createEAttribute(participantStatementEClass, PARTICIPANT_STATEMENT__DESCRIPTION);
+    createEReference(participantStatementEClass, PARTICIPANT_STATEMENT__OUTBOUNDS);
+    createEReference(participantStatementEClass, PARTICIPANT_STATEMENT__INBOUNDS);
+
+    outboundEndpointDefEClass = createEClass(OUTBOUND_ENDPOINT_DEF);
+    createEAttribute(outboundEndpointDefEClass, OUTBOUND_ENDPOINT_DEF__PROTOCOL);
+    createEAttribute(outboundEndpointDefEClass, OUTBOUND_ENDPOINT_DEF__HOST);
+
+    inboundEndpointDefEClass = createEClass(INBOUND_ENDPOINT_DEF);
+    createEAttribute(inboundEndpointDefEClass, INBOUND_ENDPOINT_DEF__PROTOCOL);
+    createEAttribute(inboundEndpointDefEClass, INBOUND_ENDPOINT_DEF__PORT);
+    createEAttribute(inboundEndpointDefEClass, INBOUND_ENDPOINT_DEF__CONTEXT);
 
     // Create enums
     participantTypeEEnum = createEEnum(PARTICIPANT_TYPE);
+    mediatorTypeEEnum = createEEnum(MEDIATOR_TYPE);
   }
 
   /**
@@ -531,7 +775,7 @@ public class EsbDslPackageImpl extends EPackageImpl implements EsbDslPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    processingStatementEClass.getESuperTypes().add(this.getStatement());
+    mediatorStatementEClass.getESuperTypes().add(this.getStatement());
     routingStatementEClass.getESuperTypes().add(this.getStatement());
     parallelStatementEClass.getESuperTypes().add(this.getStatement());
     ifStatementEClass.getESuperTypes().add(this.getStatement());
@@ -541,10 +785,15 @@ public class EsbDslPackageImpl extends EPackageImpl implements EsbDslPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getModel_IntegrationFlowName(), ecorePackage.getEString(), "integrationFlowName", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Participants(), this.getParticipantStatement(), null, "participants", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Statements(), this.getStatement(), null, "statements", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(mediatorStatementEClass, MediatorStatement.class, "MediatorStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMediatorStatement_MediatorStatement(), this.getMediatorType(), "mediatorStatement", null, 0, 1, MediatorStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMediatorStatement_Config(), ecorePackage.getEString(), "config", null, 0, 1, MediatorStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(processingStatementEClass, ProcessingStatement.class, "ProcessingStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getProcessingStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, ProcessingStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -556,10 +805,15 @@ public class EsbDslPackageImpl extends EPackageImpl implements EsbDslPackage
     initEAttribute(getRoutingStatement_Action(), ecorePackage.getEString(), "action", null, 0, 1, RoutingStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(parallelStatementEClass, ParallelStatement.class, "ParallelStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getParallelStatement_Statements(), this.getStatement(), null, "statements", null, 0, -1, ParallelStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getParallelStatement_Parstatements(), this.getStatement(), null, "parstatements", null, 0, -1, ParallelStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getParallelStatement_Elsestatements(), this.getStatement(), null, "elsestatements", null, 0, -1, ParallelStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ifStatementEClass, IfStatement.class, "IfStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getIfStatement_Expression(), ecorePackage.getEString(), "expression", null, 0, 1, IfStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getIfStatement_RouteId(), ecorePackage.getEString(), "routeId", null, 0, 1, IfStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getIfStatement_Transport(), ecorePackage.getEString(), "transport", null, 0, 1, IfStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getIfStatement_Pattern(), ecorePackage.getEString(), "pattern", null, 0, 1, IfStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfStatement_Altstatements(), this.getStatement(), null, "altstatements", null, 0, -1, IfStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIfStatement_Elsestatements(), this.getStatement(), null, "elsestatements", null, 0, -1, IfStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(loopStatementEClass, LoopStatement.class, "LoopStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getLoopStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, LoopStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -574,6 +828,17 @@ public class EsbDslPackageImpl extends EPackageImpl implements EsbDslPackage
     initEAttribute(getParticipantStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, ParticipantStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getParticipantStatement_ParticipantType(), this.getParticipantType(), "participantType", null, 0, 1, ParticipantStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getParticipantStatement_Description(), ecorePackage.getEString(), "description", null, 0, 1, ParticipantStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getParticipantStatement_Outbounds(), this.getOutboundEndpointDef(), null, "outbounds", null, 0, 1, ParticipantStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getParticipantStatement_Inbounds(), this.getInboundEndpointDef(), null, "inbounds", null, 0, 1, ParticipantStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(outboundEndpointDefEClass, OutboundEndpointDef.class, "OutboundEndpointDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getOutboundEndpointDef_Protocol(), ecorePackage.getEString(), "protocol", null, 0, 1, OutboundEndpointDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getOutboundEndpointDef_Host(), ecorePackage.getEString(), "host", null, 0, 1, OutboundEndpointDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(inboundEndpointDefEClass, InboundEndpointDef.class, "InboundEndpointDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getInboundEndpointDef_Protocol(), ecorePackage.getEString(), "protocol", null, 0, 1, InboundEndpointDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getInboundEndpointDef_Port(), ecorePackage.getEInt(), "port", null, 0, 1, InboundEndpointDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getInboundEndpointDef_Context(), ecorePackage.getEString(), "context", null, 0, 1, InboundEndpointDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(participantTypeEEnum, ParticipantType.class, "ParticipantType");
@@ -581,6 +846,15 @@ public class EsbDslPackageImpl extends EPackageImpl implements EsbDslPackage
     addEEnumLiteral(participantTypeEEnum, ParticipantType.INBOUNDENDPOINT);
     addEEnumLiteral(participantTypeEEnum, ParticipantType.OUTBOUNDENDPOINT);
     addEEnumLiteral(participantTypeEEnum, ParticipantType.PIPELINE);
+
+    initEEnum(mediatorTypeEEnum, MediatorType.class, "MediatorType");
+    addEEnumLiteral(mediatorTypeEEnum, MediatorType.LOG);
+    addEEnumLiteral(mediatorTypeEEnum, MediatorType.CALL);
+    addEEnumLiteral(mediatorTypeEEnum, MediatorType.RESPOND);
+    addEEnumLiteral(mediatorTypeEEnum, MediatorType.FILTER);
+    addEEnumLiteral(mediatorTypeEEnum, MediatorType.TRANSFORM);
+    addEEnumLiteral(mediatorTypeEEnum, MediatorType.ENRICH);
+    addEEnumLiteral(mediatorTypeEEnum, MediatorType.EXTERNAL);
 
     // Create resource
     createResource(eNS_URI);

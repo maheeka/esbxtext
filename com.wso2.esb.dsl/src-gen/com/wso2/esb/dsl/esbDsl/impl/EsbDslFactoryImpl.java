@@ -68,6 +68,7 @@ public class EsbDslFactoryImpl extends EFactoryImpl implements EsbDslFactory
     {
       case EsbDslPackage.MODEL: return createModel();
       case EsbDslPackage.STATEMENT: return createStatement();
+      case EsbDslPackage.MEDIATOR_STATEMENT: return createMediatorStatement();
       case EsbDslPackage.PROCESSING_STATEMENT: return createProcessingStatement();
       case EsbDslPackage.ROUTING_STATEMENT: return createRoutingStatement();
       case EsbDslPackage.PARALLEL_STATEMENT: return createParallelStatement();
@@ -76,6 +77,8 @@ public class EsbDslFactoryImpl extends EFactoryImpl implements EsbDslFactory
       case EsbDslPackage.GROUP_STATEMENT: return createGroupStatement();
       case EsbDslPackage.REF_STATEMENT: return createRefStatement();
       case EsbDslPackage.PARTICIPANT_STATEMENT: return createParticipantStatement();
+      case EsbDslPackage.OUTBOUND_ENDPOINT_DEF: return createOutboundEndpointDef();
+      case EsbDslPackage.INBOUND_ENDPOINT_DEF: return createInboundEndpointDef();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -93,6 +96,8 @@ public class EsbDslFactoryImpl extends EFactoryImpl implements EsbDslFactory
     {
       case EsbDslPackage.PARTICIPANT_TYPE:
         return createParticipantTypeFromString(eDataType, initialValue);
+      case EsbDslPackage.MEDIATOR_TYPE:
+        return createMediatorTypeFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -110,6 +115,8 @@ public class EsbDslFactoryImpl extends EFactoryImpl implements EsbDslFactory
     {
       case EsbDslPackage.PARTICIPANT_TYPE:
         return convertParticipantTypeToString(eDataType, instanceValue);
+      case EsbDslPackage.MEDIATOR_TYPE:
+        return convertMediatorTypeToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -135,6 +142,17 @@ public class EsbDslFactoryImpl extends EFactoryImpl implements EsbDslFactory
   {
     StatementImpl statement = new StatementImpl();
     return statement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MediatorStatement createMediatorStatement()
+  {
+    MediatorStatementImpl mediatorStatement = new MediatorStatementImpl();
+    return mediatorStatement;
   }
 
   /**
@@ -230,6 +248,28 @@ public class EsbDslFactoryImpl extends EFactoryImpl implements EsbDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public OutboundEndpointDef createOutboundEndpointDef()
+  {
+    OutboundEndpointDefImpl outboundEndpointDef = new OutboundEndpointDefImpl();
+    return outboundEndpointDef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InboundEndpointDef createInboundEndpointDef()
+  {
+    InboundEndpointDefImpl inboundEndpointDef = new InboundEndpointDefImpl();
+    return inboundEndpointDef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ParticipantType createParticipantTypeFromString(EDataType eDataType, String initialValue)
   {
     ParticipantType result = ParticipantType.get(initialValue);
@@ -243,6 +283,28 @@ public class EsbDslFactoryImpl extends EFactoryImpl implements EsbDslFactory
    * @generated
    */
   public String convertParticipantTypeToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MediatorType createMediatorTypeFromString(EDataType eDataType, String initialValue)
+  {
+    MediatorType result = MediatorType.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertMediatorTypeToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }
